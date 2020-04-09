@@ -66,6 +66,7 @@ extension UserHomeViewController: UITableViewDataSource {
 
 extension UserHomeViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        performSegue(withIdentifier: "toChoices", sender: self)
         print(indexPath.row)
     }
 }

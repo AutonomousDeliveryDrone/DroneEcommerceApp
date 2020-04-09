@@ -33,9 +33,11 @@ class AddProductViewController: UIViewController {
     
     var dataSource = [String]()
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         ref = Database.database().reference()
+        
         
         ref.child("Storage").child("Gadgets").setValue(["Index":1])
         tableView.delegate = self
@@ -63,40 +65,52 @@ class AddProductViewController: UIViewController {
             //            ref.child("Storage").child(categoryText).setValue(["Index" : 1])
             let priceInt: Int? = Int(price.text!)
             let amountInt: Int? = Int(amount.text!)
-            var productList = ["Product":productTitle.text, "Price": priceInt, "Amount":amountInt, "Description" : desc.text, "Link" : productLink.text] as [String : Any]
             
-            self.ref.child("Storage").child(categoryText).observeSingleEvent(of: .value, with: { (snapshot) in
-                
-
-                guard let value = snapshot.value as? NSDictionary else {
-                    print("No Data!!!")
+            self.ref.child("UserInfo").child(Auth.auth().currentUser!.uid).child("Information").observeSingleEvent(of: .value, with: { (snapshot) in
+                guard let value0 = snapshot.value as? NSDictionary else {
+                    print("No Data!")
                     return
                 }
-                let index = value["Index"] as! Int
-                print("Index:"+String(index))
-                self.ref.child("Storage").child(categoryText).child(String(index)).setValue(productList)
-                self.ref.child("Storage").child(categoryText).updateChildValues(["Index" : index+1])
+                let name = value0["Company"] as! String
                 
-                self.ref.child("UserInfo").child(Auth.auth().currentUser!.uid).child("Orders").observeSingleEvent(of: .value, with: { (snapshot) in
-                    guard let value1 = snapshot.value as? NSDictionary else {
+                
+                var productList = ["Product":self.productTitle.text, "Price": priceInt, "Amount":amountInt, "Description" : self.desc.text, "Link" : self.productLink.text, "Company" : name] as [String : Any]
+                
+                self.ref.child("Storage").child(categoryText).child(Auth.auth().currentUser!.uid).observeSingleEvent(of: .value, with: { (snapshot) in
+                    
+                    
+                    guard let value = snapshot.value as? NSDictionary else {
                         print("No Data!!!")
                         return
                     }
-                    let i = value1["Index"] as! String
-
-                    self.ref.child("UserInfo").child(Auth.auth().currentUser!.uid).child("Orders").child(i).updateChildValues(productList)
-
-
-
+                    let index = value["Index"] as! Int
+                    print("Index:"+String(index))
+                    self.ref.child("Storage").child(categoryText).child(Auth.auth().currentUser!.uid).child(String(index)).setValue(productList)
+                    self.ref.child("Storage").child(categoryText).child(Auth.auth().currentUser!.uid).updateChildValues(["Index" : index+1])
+                    
+                    self.ref.child("UserInfo").child(Auth.auth().currentUser!.uid).child("Products").observeSingleEvent(of: .value, with: { (snapshot) in
+                        guard let value1 = snapshot.value as? NSDictionary else {
+                            print("No Data!!!")
+                            return
+                        }
+                        let i = value1["Index"] as! Int
+                        
+                        self.ref.child("UserInfo").child(Auth.auth().currentUser!.uid).child("Products").child(String(i)).updateChildValues(productList)
+                        self.ref.child("UserInfo").child(Auth.auth().currentUser!.uid).child("Products").updateChildValues(["Index": i+1])
+                        
+                    }) { (error) in
+                        print("error:\(error.localizedDescription)")
+                    }
+                    
+                    
+                    
+                    
+                    
+                    
+                    
                 }) { (error) in
                     print("error:\(error.localizedDescription)")
                 }
-                
-                
-                
-                
-                
-                
                 
             }) { (error) in
                 print("error:\(error.localizedDescription)")

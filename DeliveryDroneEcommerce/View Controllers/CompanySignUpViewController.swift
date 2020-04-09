@@ -18,7 +18,16 @@ class CompanySignUpViewController: UIViewController {
     @IBOutlet weak var password: UITextField!
     
     @IBOutlet weak var signUpButton: UIButton!
+    
+    
     var ref: DatabaseReference!
+    var isFood : Bool = false
+    var isSupplies : Bool = false
+    var isGadgets : Bool = false
+    var isClothing : Bool = false
+    var isStationaries : Bool = false
+    
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -54,7 +63,33 @@ class CompanySignUpViewController: UIViewController {
                 if (error == nil) {
                     self.ref.child("UserInfo").child(Auth.auth().currentUser!.uid).child("Information").setValue(["Company" : self.Name.text, "CEO" : self.CeoName.text, "Address" : self.location.text, "Email" : self.email.text])
                     self.ref.child("UserInfo").child(Auth.auth().currentUser!.uid).child("Information").updateChildValues(["Status":"Company"])
-                    self.ref.child("UserInfo").child(Auth.auth().currentUser!.uid).child("Orders").updateChildValues(["Index": 1])
+                    self.ref.child("UserInfo").child(Auth.auth().currentUser!.uid).child("Products").updateChildValues(["Index": 1])
+                    
+                    if (self.isFood) {
+                        self.ref.child("Storage").child("Food").child(Auth.auth().currentUser!.uid).updateChildValues(["Index" : 1])
+                    }
+                    if (self.isSupplies) {
+                        self.ref.child("Storage").child("Supplies").child(Auth.auth().currentUser!.uid).updateChildValues(["Index" : 1])
+                    }
+                    if (self.isGadgets) {
+                        self.ref.child("Storage").child("Gadgets").child(Auth.auth().currentUser!.uid).updateChildValues(["Index" : 1])
+                    }
+                    if (self.isClothing) {
+                        self.ref.child("Storage").child("Clothing").child(Auth.auth().currentUser!.uid).updateChildValues(["Index" : 1])
+                    }
+                    if (self.isStationaries) {
+                        self.ref.child("Storage").child("Stationaries").child(Auth.auth().currentUser!.uid).updateChildValues(["Index" : 1])
+                    }
+                    if (!self.isFood && !self.isStationaries && !self.isClothing && !self.isSupplies && !self.isGadgets ) {
+                        let alert = UIAlertController(title: "Registration Error", message: "Please select a delivery category to register", preferredStyle: .alert)
+                        
+                        let OK = UIAlertAction(title: "OK", style: .default) { (alert) in
+                            return
+                        }
+                        
+                        alert.addAction(OK)
+                        self.present(alert, animated: true, completion: nil)
+                    }
                     self.performSegue(withIdentifier: "companyToLogin", sender: self)
                 } else {
                     //                    SVProgressHUD.dismiss()
@@ -74,5 +109,20 @@ class CompanySignUpViewController: UIViewController {
         }
     }
     
+    @IBAction func foodSwitch(_ sender: Any) {
+        isFood = !isFood
+    }
+    @IBAction func suppliesSwitch(_ sender: Any) {
+        isSupplies = !isSupplies
+    }
+    @IBAction func gadgetsSwitch(_ sender: Any) {
+        isGadgets = !isGadgets
+    }
+    @IBAction func clothingSwitch(_ sender: Any) {
+        isClothing = !isClothing
+    }
+    @IBAction func stationariesSwitch(_ sender: Any) {
+        isStationaries = !isStationaries
+    }
     
 }
