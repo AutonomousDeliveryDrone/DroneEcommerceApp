@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		479DB37C243ED42C00F10F95 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 479DB37B243ED42C00F10F95 /* Category.swift */; };
+		479DB380243ED7AB00F10F95 /* CategoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 479DB37E243ED7AB00F10F95 /* CategoryCell.swift */; };
+		479DB381243ED7AB00F10F95 /* CategoryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 479DB37F243ED7AB00F10F95 /* CategoryCell.xib */; };
 		8954B36C243EA6E9007039CB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8954B36B243EA6E9007039CB /* AppDelegate.swift */; };
 		8954B36E243EA6E9007039CB /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8954B36D243EA6E9007039CB /* SceneDelegate.swift */; };
 		8954B370243EA6E9007039CB /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8954B36F243EA6E9007039CB /* SignUpViewController.swift */; };
@@ -23,6 +26,9 @@
 
 /* Begin PBXFileReference section */
 		3B7BD32E85583476F2592404 /* Pods-DeliveryDroneEcommerce.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DeliveryDroneEcommerce.release.xcconfig"; path = "Target Support Files/Pods-DeliveryDroneEcommerce/Pods-DeliveryDroneEcommerce.release.xcconfig"; sourceTree = "<group>"; };
+		479DB37B243ED42C00F10F95 /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
+		479DB37E243ED7AB00F10F95 /* CategoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCell.swift; sourceTree = "<group>"; };
+		479DB37F243ED7AB00F10F95 /* CategoryCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CategoryCell.xib; sourceTree = "<group>"; };
 		6990D97A82998C59DC7A1E30 /* Pods-DeliveryDroneEcommerce.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DeliveryDroneEcommerce.debug.xcconfig"; path = "Target Support Files/Pods-DeliveryDroneEcommerce/Pods-DeliveryDroneEcommerce.debug.xcconfig"; sourceTree = "<group>"; };
 		83AC5065F53DC05256506E20 /* Pods_DeliveryDroneEcommerce.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DeliveryDroneEcommerce.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8954B368243EA6E9007039CB /* DeliveryDroneEcommerce.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DeliveryDroneEcommerce.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -60,6 +66,23 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		479DB37A243ED40A00F10F95 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				479DB37B243ED42C00F10F95 /* Category.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		479DB37D243ED78F00F10F95 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				479DB37E243ED7AB00F10F95 /* CategoryCell.swift */,
+				479DB37F243ED7AB00F10F95 /* CategoryCell.xib */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
 		8954B35F243EA6E9007039CB = {
 			isa = PBXGroup;
 			children = (
@@ -81,6 +104,8 @@
 		8954B36A243EA6E9007039CB /* DeliveryDroneEcommerce */ = {
 			isa = PBXGroup;
 			children = (
+				479DB37D243ED78F00F10F95 /* Cells */,
+				479DB37A243ED40A00F10F95 /* Models */,
 				8954B36B243EA6E9007039CB /* AppDelegate.swift */,
 				8954B36D243EA6E9007039CB /* SceneDelegate.swift */,
 				8954B384243EA79B007039CB /* View Controllers */,
@@ -174,6 +199,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				479DB381243ED7AB00F10F95 /* CategoryCell.xib in Resources */,
 				8954B37B243EA6EB007039CB /* LaunchScreen.storyboard in Resources */,
 				8954B383243EA77C007039CB /* GoogleService-Info.plist in Resources */,
 				8954B378243EA6EB007039CB /* Assets.xcassets in Resources */,
@@ -231,9 +257,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				8954B388243EA7BC007039CB /* UserHomeViewController.swift in Sources */,
+				479DB37C243ED42C00F10F95 /* Category.swift in Sources */,
 				8954B370243EA6E9007039CB /* SignUpViewController.swift in Sources */,
 				8954B36C243EA6E9007039CB /* AppDelegate.swift in Sources */,
 				8954B36E243EA6E9007039CB /* SceneDelegate.swift in Sources */,
+				479DB380243ED7AB00F10F95 /* CategoryCell.swift in Sources */,
 				8954B386243EA7AE007039CB /* LoginViewController.swift in Sources */,
 				8954B38A243EAC64007039CB /* InstructionsViewController.swift in Sources */,
 				8954B376243EA6E9007039CB /* DeliveryDroneEcommerce.xcdatamodeld in Sources */,
