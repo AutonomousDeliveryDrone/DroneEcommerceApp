@@ -17,7 +17,7 @@ class CompanyHomeViewController: UIViewController {
         
         tableView.dataSource = self
         tableView.delegate = self
-        tableView.register(UINib(nibName: "ProductCellTableViewCell", bundle: nil), forCellReuseIdentifier: "ReusableCell" )
+        tableView.register(UINib(nibName: "ProductCellTableViewCell", bundle: nil), forCellReuseIdentifier: "ReusableCell2" )
 
         // Do any additional setup after loading the view.
     }
@@ -48,7 +48,7 @@ extension CompanyHomeViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "ReusableCell", for: indexPath) as! ProductCellTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "ReusableCell2", for: indexPath) as! ProductCellTableViewCell
         
 //        cell.categoryLabel.text = categories[indexPath.row].categoryType
 //        cell.categoryImage.image = images[indexPath.row]
