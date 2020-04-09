@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="UV2-6Q-dci">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
@@ -191,12 +191,10 @@
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" bouncesZoom="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8Hn-HY-2OT">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                             </scrollView>
-                            <button opaque="NO" alpha="0.0" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8Z1-Bi-yCu">
+                            <button opaque="NO" alpha="0.0" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8Z1-Bi-yCu">
                                 <rect key="frame" x="20" y="760.5" width="374" height="61.5"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.87058823529999996" green="0.20784313730000001" blue="0.29411764709999999" alpha="1" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" secondItem="8Z1-Bi-yCu" secondAttribute="height" multiplier="67:11" id="SaO-tN-oZF"/>
-                                </constraints>
                                 <state key="normal" title="Let's Start">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -241,25 +239,22 @@
                             <constraint firstItem="8Hn-HY-2OT" firstAttribute="leading" secondItem="DNQ-R5-032" secondAttribute="leading" id="ENK-lV-DWY"/>
                             <constraint firstItem="DNQ-R5-032" firstAttribute="trailing" secondItem="X0Y-RT-eyA" secondAttribute="trailing" constant="68" id="GND-PS-ikJ"/>
                             <constraint firstItem="8Hn-HY-2OT" firstAttribute="top" secondItem="PYF-37-aQd" secondAttribute="topMargin" constant="-44" id="GVR-NL-Z4l"/>
-                            <constraint firstItem="8Z1-Bi-yCu" firstAttribute="leading" secondItem="DNQ-R5-032" secondAttribute="leading" constant="20" id="Kqq-ga-FOt"/>
                             <constraint firstItem="X0Y-RT-eyA" firstAttribute="centerX" secondItem="PYF-37-aQd" secondAttribute="centerX" id="Rm8-qs-0Tn"/>
                             <constraint firstItem="nCu-r3-9h9" firstAttribute="centerX" secondItem="8Hn-HY-2OT" secondAttribute="centerX" id="SgL-Ls-x0F"/>
                             <constraint firstItem="X0Y-RT-eyA" firstAttribute="leading" secondItem="DNQ-R5-032" secondAttribute="leading" constant="68" id="T24-3F-QhU"/>
                             <constraint firstItem="X0Y-RT-eyA" firstAttribute="centerX" secondItem="8Hn-HY-2OT" secondAttribute="centerX" id="YKJ-ez-AFB"/>
-                            <constraint firstItem="8Z1-Bi-yCu" firstAttribute="centerX" secondItem="PYF-37-aQd" secondAttribute="centerX" id="b6T-5u-HP9"/>
                             <constraint firstItem="nCu-r3-9h9" firstAttribute="centerX" secondItem="PYF-37-aQd" secondAttribute="centerX" id="bUa-uH-lSf"/>
                             <constraint firstItem="nCu-r3-9h9" firstAttribute="top" secondItem="X0Y-RT-eyA" secondAttribute="bottom" constant="38" id="cDn-9Q-mNj"/>
                             <constraint firstItem="8Hn-HY-2OT" firstAttribute="centerY" secondItem="PYF-37-aQd" secondAttribute="centerY" id="fHq-Hq-3UK"/>
-                            <constraint firstItem="DNQ-R5-032" firstAttribute="bottom" secondItem="8Z1-Bi-yCu" secondAttribute="bottom" constant="40" id="h7M-BY-Psv"/>
                             <constraint firstItem="RAQ-qy-TDJ" firstAttribute="top" secondItem="PYF-37-aQd" secondAttribute="top" constant="64" id="rOo-EZ-z6t"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="DNQ-R5-032"/>
                     </view>
                     <connections>
-                        <outlet property="pageControl" destination="nCu-r3-9h9" id="oNJ-wQ-008"/>
-                        <outlet property="scrollView" destination="8Hn-HY-2OT" id="d8I-Ax-vcf"/>
-                        <outlet property="startButton" destination="8Z1-Bi-yCu" id="ShR-0X-6VM"/>
-                        <outlet property="textView" destination="X0Y-RT-eyA" id="y3a-61-AD9"/>
+                        <outlet property="pageControl" destination="nCu-r3-9h9" id="KIG-fK-XcC"/>
+                        <outlet property="scrollView" destination="8Hn-HY-2OT" id="kXh-Od-TnX"/>
+                        <outlet property="startButton" destination="8Z1-Bi-yCu" id="Xm8-WS-vsJ"/>
+                        <outlet property="textView" destination="X0Y-RT-eyA" id="inD-eT-UWF"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FJK-yg-2hn" sceneMemberID="firstResponder"/>
