@@ -28,7 +28,7 @@ class LoginViewController: UIViewController {
         Auth.auth().signIn(withEmail: email.text!, password: password.text!) { (user, error) in
             if (error == nil) {
                 
-                self.ref.child("UserInfo").child(Auth.auth().currentUser!.uid).observeSingleEvent(of: .value, with: { (snapshot) in
+                self.ref.child("UserInfo").child(Auth.auth().currentUser!.uid).child("Information").observeSingleEvent(of: .value, with: { (snapshot) in
                     
                     guard let value = snapshot.value as? NSDictionary else {
                         print("No Data!!!")

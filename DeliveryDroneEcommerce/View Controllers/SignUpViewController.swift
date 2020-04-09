@@ -44,8 +44,10 @@ class SignUpViewController: UIViewController {
         } else {
             Auth.auth().createUser(withEmail: emailAddress.text!, password: password.text!) { (user, error) in
                 if (error == nil) {
-                    self.ref.child("UserInfo").child(Auth.auth().currentUser!.uid).setValue(["FirstName" : self.FirstName.text, "LastName" : self.LastName.text, "Address" : self.ShippingAddress.text, "Email" : self.emailAddress.text])
-                    self.ref.child("UserInfo").child(Auth.auth().currentUser!.uid).updateChildValues(["Status" : "User"])
+                    self.ref.child("UserInfo").child(Auth.auth().currentUser!.uid).child("Information").setValue(["FirstName" : self.FirstName.text, "LastName" : self.LastName.text, "Address" : self.ShippingAddress.text, "Email" : self.emailAddress.text])
+                    self.ref.child("UserInfo").child(Auth.auth().currentUser!.uid).child("Information").updateChildValues(["Status" : "User"])
+                    
+
                     
                     self.performSegue(withIdentifier: "UserToLogin", sender: self)
                     //                    self.performSegue(withIdentifier: "goToMainMenu", sender: self)

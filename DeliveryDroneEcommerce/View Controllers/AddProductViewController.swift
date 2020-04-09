@@ -37,6 +37,7 @@ class AddProductViewController: UIViewController {
         super.viewDidLoad()
         ref = Database.database().reference()
         
+        ref.child("Storage").child("Gadgets").setValue(["Index":1])
         tableView.delegate = self
         tableView.dataSource = self
         tableView.register(CellClass.self, forCellReuseIdentifier: "Cell")
@@ -44,6 +45,8 @@ class AddProductViewController: UIViewController {
     }
     
     @IBAction func Add(_ sender: Any) {
+        let categoryText = categoryButton.titleLabel?.text as! String
+        print("yote:"+categoryText)
         if (productTitle.text?.isEmpty ?? true || price.text?.isEmpty ?? true || amount.text?.isEmpty ?? true || desc.text?.isEmpty ?? true || productLink.text?.isEmpty ?? true) {
             
             print("THERE IS AN ERROR")
@@ -57,11 +60,52 @@ class AddProductViewController: UIViewController {
             self.present(alert, animated: true, completion: nil)
         }
         else {
-            ref.child("Storage").child("")
+            //            ref.child("Storage").child(categoryText).setValue(["Index" : 1])
+            let priceInt: Int? = Int(price.text!)
+            let amountInt: Int? = Int(amount.text!)
+            var productList = ["Product":productTitle.text, "Price": priceInt, "Amount":amountInt, "Description" : desc.text, "Link" : productLink.text] as [String : Any]
+            
+            self.ref.child("Storage").child(categoryText).observeSingleEvent(of: .value, with: { (snapshot) in
+                
+
+                guard let value = snapshot.value as? NSDictionary else {
+                    print("No Data!!!")
+                    return
+                }
+                let index = value["Index"] as! Int
+                print("Index:"+String(index))
+                self.ref.child("Storage").child(categoryText).child(String(index)).setValue(productList)
+                self.ref.child("Storage").child(categoryText).updateChildValues(["Index" : index+1])
+                
+                self.ref.child("UserInfo").child(Auth.auth().currentUser!.uid).child("Orders").observeSingleEvent(of: .value, with: { (snapshot) in
+                    guard let value1 = snapshot.value as? NSDictionary else {
+                        print("No Data!!!")
+                        return
+                    }
+                    let i = value1["Index"] as! String
+
+                    self.ref.child("UserInfo").child(Auth.auth().currentUser!.uid).child("Orders").child(i).updateChildValues(productList)
+
+
+
+                }) { (error) in
+                    print("error:\(error.localizedDescription)")
+                }
+                
+                
+                
+                
+                
+                
+                
+            }) { (error) in
+                print("error:\(error.localizedDescription)")
+            }
+            
         }
     }
     @IBAction func categoryChoose(_ sender: Any) {
-        dataSource = ["Food", "Supplies", "Materials"]
+        dataSource = ["Food", "Supplies", "Gadgets"]
         selectedButton = categoryButton
         addTransparentView(frames: categoryButton.frame)
     }
@@ -94,7 +138,7 @@ class AddProductViewController: UIViewController {
         }, completion: nil)
     }
 }
-    
+
 
 extension AddProductViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

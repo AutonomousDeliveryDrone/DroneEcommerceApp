@@ -52,8 +52,9 @@ class CompanySignUpViewController: UIViewController {
         } else {
             Auth.auth().createUser(withEmail: email.text!, password: password.text!) { (user, error) in
                 if (error == nil) {
-                    self.ref.child("UserInfo").child(Auth.auth().currentUser!.uid).setValue(["Company" : self.Name.text, "CEO" : self.CeoName.text, "Address" : self.location.text, "Email" : self.email.text])
-                    self.ref.child("UserInfo").child(Auth.auth().currentUser!.uid).updateChildValues(["Status":"Company"])
+                    self.ref.child("UserInfo").child(Auth.auth().currentUser!.uid).child("Information").setValue(["Company" : self.Name.text, "CEO" : self.CeoName.text, "Address" : self.location.text, "Email" : self.email.text])
+                    self.ref.child("UserInfo").child(Auth.auth().currentUser!.uid).child("Information").updateChildValues(["Status":"Company"])
+                    self.ref.child("UserInfo").child(Auth.auth().currentUser!.uid).child("Orders").updateChildValues(["Index": 1])
                     self.performSegue(withIdentifier: "companyToLogin", sender: self)
                 } else {
                     //                    SVProgressHUD.dismiss()
