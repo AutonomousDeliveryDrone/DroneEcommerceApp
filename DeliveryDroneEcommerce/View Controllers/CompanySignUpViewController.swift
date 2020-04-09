@@ -1,36 +1,44 @@
 //
-//  ViewController.swift
+//  CompanySignUpViewController.swift
 //  DeliveryDroneEcommerce
 //
-//  Created by Michael Peng on 4/8/20.
+//  Created by Michael Peng on 4/9/20.
 //  Copyright © 2020 Michael Peng. All rights reserved.
 //
 
 import UIKit
 import Firebase
 
-class SignUpViewController: UIViewController {
+class CompanySignUpViewController: UIViewController {
     
-    @IBOutlet weak var FirstName: UITextField!
-    @IBOutlet weak var LastName: UITextField!
-    @IBOutlet weak var ShippingAddress: UITextField!
-    @IBOutlet weak var emailAddress: UITextField!
+    @IBOutlet weak var Name: UITextField!
+    @IBOutlet weak var CeoName: UITextField!
+    @IBOutlet weak var location: UITextField!
+    @IBOutlet weak var email: UITextField!
     @IBOutlet weak var password: UITextField!
     
-    
+    @IBOutlet weak var signUpButton: UIButton!
     var ref: DatabaseReference!
-    
-    var isUser : Bool = false
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         ref = Database.database().reference()
         // Do any additional setup after loading the view.
     }
     
+    
+    /*
+     // MARK: - Navigation
+     
+     // In a storyboard-based application, you will often want to do a little preparation before navigation
+     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+     // Get the new view controller using segue.destination.
+     // Pass the selected object to the new view controller.
+     }
+     */
     @IBAction func signUp(_ sender: Any) {
-        if (FirstName.text?.isEmpty ?? true || LastName.text?.isEmpty ?? true || emailAddress.text?.isEmpty ?? true || password.text?.isEmpty ?? true) {
+        if (Name.text?.isEmpty ?? true || CeoName.text?.isEmpty ?? true || location.text?.isEmpty ?? true || email.text?.isEmpty ?? true || password.text?.isEmpty ?? true) {
             print("THERE IS AN ERROR")
             let alert = UIAlertController(title: "Registration Error", message: "Please make sure you have completed filled out every textfield", preferredStyle: .alert)
             
@@ -42,13 +50,11 @@ class SignUpViewController: UIViewController {
             self.present(alert, animated: true, completion: nil)
             
         } else {
-            Auth.auth().createUser(withEmail: emailAddress.text!, password: password.text!) { (user, error) in
+            Auth.auth().createUser(withEmail: email.text!, password: password.text!) { (user, error) in
                 if (error == nil) {
-                    self.ref.child("UserInfo").child(Auth.auth().currentUser!.uid).setValue(["FirstName" : self.FirstName.text, "LastName" : self.LastName.text, "Address" : self.ShippingAddress.text, "Email" : self.emailAddress.text])
-                    self.ref.child("UserInfo").child(Auth.auth().currentUser!.uid).updateChildValues(["Status" : "User"])
-                    
-                    self.performSegue(withIdentifier: "UserToLogin", sender: self)
-                    //                    self.performSegue(withIdentifier: "goToMainMenu", sender: self)
+                    self.ref.child("UserInfo").child(Auth.auth().currentUser!.uid).setValue(["Company" : self.Name.text, "CEO" : self.CeoName.text, "Address" : self.location.text, "Email" : self.email.text])
+                    self.ref.child("UserInfo").child(Auth.auth().currentUser!.uid).updateChildValues(["Status":"Company"])
+                    self.performSegue(withIdentifier: "companyToLogin", sender: self)
                 } else {
                     //                    SVProgressHUD.dismiss()
                     let alert = UIAlertController(title: "Registration Error", message: error?.localizedDescription as! String, preferredStyle: .alert)
@@ -67,5 +73,5 @@ class SignUpViewController: UIViewController {
         }
     }
     
+    
 }
-

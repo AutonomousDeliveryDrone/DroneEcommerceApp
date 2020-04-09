@@ -27,12 +27,12 @@
                         <rect key="frame" x="10" y="5" width="326" height="120"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ML9-Rv-HfC">
-                                <rect key="frame" x="111" y="41" width="104" height="38"/>
+                                <rect key="frame" x="106.5" y="39.5" width="113" height="41"/>
                                 <attributedString key="attributedText">
                                     <fragment content="Clothes">
                                         <attributes>
                                             <color key="NSColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                            <font key="NSFont" size="34" name=".SFNSDisplay"/>
+                                            <font key="NSFont" metaFont="system" size="34"/>
                                         </attributes>
                                     </fragment>
                                 </attributedString>

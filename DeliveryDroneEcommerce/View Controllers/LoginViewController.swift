@@ -39,10 +39,10 @@ class LoginViewController: UIViewController {
                     
                     print (status)
                     if (status == "User") {
-                        //                                self.performSegue(withIdentifier: "teacherLogin", sender: self)
+                        self.performSegue(withIdentifier: "toUserHome", sender: self)
                     }
                     else {
-                        //                                self.performSegue(withIdentifier: "studentLogin", sender: self)
+                        self.performSegue(withIdentifier: "toCompanyHome", sender: self)
                     }
                     
                     

@@ -21,6 +21,11 @@
 		8954B386243EA7AE007039CB /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8954B385243EA7AE007039CB /* LoginViewController.swift */; };
 		8954B388243EA7BC007039CB /* UserHomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8954B387243EA7BC007039CB /* UserHomeViewController.swift */; };
 		8954B38A243EAC64007039CB /* InstructionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8954B389243EAC64007039CB /* InstructionsViewController.swift */; };
+		89E2F19A243F06AC00138365 /* ProductCellTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89E2F198243F06AC00138365 /* ProductCellTableViewCell.swift */; };
+		89E2F19B243F06AC00138365 /* ProductCellTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 89E2F199243F06AC00138365 /* ProductCellTableViewCell.xib */; };
+		89E2F19D243F08D000138365 /* CompanyHomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89E2F19C243F08D000138365 /* CompanyHomeViewController.swift */; };
+		89E2F19F243F104900138365 /* CompanySignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89E2F19E243F104900138365 /* CompanySignUpViewController.swift */; };
+		89E2F1A1243F160900138365 /* AddProductViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89E2F1A0243F160900138365 /* AddProductViewController.swift */; };
 		A9155FB0694CF0D23CE35264 /* Pods_DeliveryDroneEcommerce.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 83AC5065F53DC05256506E20 /* Pods_DeliveryDroneEcommerce.framework */; };
 /* End PBXBuildFile section */
 
@@ -44,6 +49,11 @@
 		8954B385243EA7AE007039CB /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		8954B387243EA7BC007039CB /* UserHomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserHomeViewController.swift; sourceTree = "<group>"; };
 		8954B389243EAC64007039CB /* InstructionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstructionsViewController.swift; sourceTree = "<group>"; };
+		89E2F198243F06AC00138365 /* ProductCellTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductCellTableViewCell.swift; sourceTree = "<group>"; };
+		89E2F199243F06AC00138365 /* ProductCellTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProductCellTableViewCell.xib; sourceTree = "<group>"; };
+		89E2F19C243F08D000138365 /* CompanyHomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompanyHomeViewController.swift; sourceTree = "<group>"; };
+		89E2F19E243F104900138365 /* CompanySignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompanySignUpViewController.swift; sourceTree = "<group>"; };
+		89E2F1A0243F160900138365 /* AddProductViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddProductViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,6 +89,8 @@
 			children = (
 				479DB37E243ED7AB00F10F95 /* CategoryCell.swift */,
 				479DB37F243ED7AB00F10F95 /* CategoryCell.xib */,
+				89E2F198243F06AC00138365 /* ProductCellTableViewCell.swift */,
+				89E2F199243F06AC00138365 /* ProductCellTableViewCell.xib */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -123,8 +135,11 @@
 			isa = PBXGroup;
 			children = (
 				8954B36F243EA6E9007039CB /* SignUpViewController.swift */,
+				89E2F1A0243F160900138365 /* AddProductViewController.swift */,
+				89E2F19E243F104900138365 /* CompanySignUpViewController.swift */,
 				8954B385243EA7AE007039CB /* LoginViewController.swift */,
 				8954B387243EA7BC007039CB /* UserHomeViewController.swift */,
+				89E2F19C243F08D000138365 /* CompanyHomeViewController.swift */,
 				8954B389243EAC64007039CB /* InstructionsViewController.swift */,
 			);
 			path = "View Controllers";
@@ -202,6 +217,7 @@
 				479DB381243ED7AB00F10F95 /* CategoryCell.xib in Resources */,
 				8954B37B243EA6EB007039CB /* LaunchScreen.storyboard in Resources */,
 				8954B383243EA77C007039CB /* GoogleService-Info.plist in Resources */,
+				89E2F19B243F06AC00138365 /* ProductCellTableViewCell.xib in Resources */,
 				8954B378243EA6EB007039CB /* Assets.xcassets in Resources */,
 				8954B373243EA6E9007039CB /* Main.storyboard in Resources */,
 			);
@@ -256,13 +272,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				89E2F19F243F104900138365 /* CompanySignUpViewController.swift in Sources */,
 				8954B388243EA7BC007039CB /* UserHomeViewController.swift in Sources */,
 				479DB37C243ED42C00F10F95 /* Category.swift in Sources */,
 				8954B370243EA6E9007039CB /* SignUpViewController.swift in Sources */,
+				89E2F19D243F08D000138365 /* CompanyHomeViewController.swift in Sources */,
 				8954B36C243EA6E9007039CB /* AppDelegate.swift in Sources */,
 				8954B36E243EA6E9007039CB /* SceneDelegate.swift in Sources */,
 				479DB380243ED7AB00F10F95 /* CategoryCell.swift in Sources */,
 				8954B386243EA7AE007039CB /* LoginViewController.swift in Sources */,
+				89E2F1A1243F160900138365 /* AddProductViewController.swift in Sources */,
+				89E2F19A243F06AC00138365 /* ProductCellTableViewCell.swift in Sources */,
 				8954B38A243EAC64007039CB /* InstructionsViewController.swift in Sources */,
 				8954B376243EA6E9007039CB /* DeliveryDroneEcommerce.xcdatamodeld in Sources */,
 			);
