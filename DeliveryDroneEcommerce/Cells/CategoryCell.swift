@@ -10,9 +10,14 @@ import UIKit
 
 class CategoryCell: UITableViewCell {
 
+    @IBOutlet weak var categoryImage: UIImageView!
+    @IBOutlet weak var categoryLabel: UILabel!
+    @IBOutlet weak var view: UIView!
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        
+        categoryImage.layer.cornerRadius = 15
+        view.layer.cornerRadius = 15
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

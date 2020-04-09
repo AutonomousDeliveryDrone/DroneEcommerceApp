@@ -18,11 +18,20 @@ class UserHomeViewController: UIViewController {
         Category(categoryType: "Clothings"),
         Category(categoryType: "Stationaries")
     ]
+    
+    var images: [UIImage] = [
+        UIImage(named: "Food")!,
+        UIImage(named: "Supplies")!,
+        UIImage(named: "Gadgets")!,
+        UIImage(named: "Clothings")!,
+        UIImage(named: "Stationaries")!
+    ]
     override func viewDidLoad() {
         super.viewDidLoad()
         
         tableView.dataSource = self
         tableView.delegate = self
+        tableView.register(UINib(nibName: "CategoryCell", bundle: nil), forCellReuseIdentifier: "ReusableCell" )
 
         // Do any additional setup after loading the view.
     }
@@ -47,8 +56,10 @@ extension UserHomeViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "ReusableCell", for: indexPath)
-        cell.textLabel?.text = categories[indexPath.row].categoryType
+        let cell = tableView.dequeueReusableCell(withIdentifier: "ReusableCell", for: indexPath) as! CategoryCell
+        
+        cell.categoryLabel.text = categories[indexPath.row].categoryType
+        cell.categoryImage.image = images[indexPath.row]
         return cell
     }
 }
