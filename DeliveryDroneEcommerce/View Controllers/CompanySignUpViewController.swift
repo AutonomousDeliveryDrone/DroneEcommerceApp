@@ -21,7 +21,7 @@ class CompanySignUpViewController: UIViewController, UIImagePickerControllerDele
     @IBOutlet weak var signUpButton: UIButton!
     
     @IBOutlet weak var companyImage: UIImageView!
-    
+    var imageURL: String = ""
     
     var ref: DatabaseReference!
     var storageRef: StorageReference!
@@ -38,7 +38,7 @@ class CompanySignUpViewController: UIViewController, UIImagePickerControllerDele
         super.viewDidLoad()
         
         ref = Database.database().reference()
-        storageRef = Storage.storage().reference()
+        
         
         companyImage.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(handleSelectProfileImageView)))
         companyImage.isUserInteractionEnabled = true
@@ -101,8 +101,32 @@ class CompanySignUpViewController: UIViewController, UIImagePickerControllerDele
         } else {
             Auth.auth().createUser(withEmail: email.text!, password: password.text!) { (user, error) in
                 if (error == nil) {
-                    self.ref.child("UserInfo").child(Auth.auth().currentUser!.uid).child("Information").setValue(["Company" : self.Name.text, "CEO" : self.CeoName.text, "Address" : self.location.text, "Email" : self.email.text])
-                    self.ref.child("UserInfo").child(Auth.auth().currentUser!.uid).child("Information").updateChildValues(["Status":"Company"])
+                    self.storageRef = Storage.storage().reference().child("\(self.Name.text as! String).png")
+                    if let uploadData = self.companyImage.image?.pngData() {
+                        print("storing image")
+                        self.storageRef.putData(uploadData, metadata: nil) { (metadata, error) in
+                            if (error != nil) {
+                                
+                                print(error)
+                                return
+                            }
+                            self.storageRef.downloadURL(completion: { (url, error) in
+                                if let err = error {
+                                    print("-----------------")
+                                    print("there was an error")
+                                    print("----------------")
+                                    print(err)
+                                } else {
+                                    self.imageURL = url!.absoluteString
+                                    self.registerCompany(self.imageURL)
+                                }
+                            })
+                            
+                            
+                        }
+                    }
+                    
+                     self.ref.child("UserInfo").child(Auth.auth().currentUser!.uid).child("Information").updateChildValues(["Status":"Company"])
                     self.ref.child("UserInfo").child(Auth.auth().currentUser!.uid).child("Products").updateChildValues(["Index": 1])
                     
                     if (self.isFood) {
@@ -120,6 +144,7 @@ class CompanySignUpViewController: UIViewController, UIImagePickerControllerDele
                     if (self.isStationaries) {
                         self.ref.child("Storage").child("Stationaries").child(Auth.auth().currentUser!.uid).updateChildValues(["Index" : 1])
                     }
+                    
                     
                     
                     
@@ -150,6 +175,11 @@ class CompanySignUpViewController: UIViewController, UIImagePickerControllerDele
                 }
             }
         }
+    }
+    
+    func registerCompany(_ url : String) {
+        self.ref.child("UserInfo").child(Auth.auth().currentUser!.uid).child("Information").setValue(["Company" : self.Name.text!, "CEO" : self.CeoName.text!, "Address" : self.location.text!, "Email" : self.email.text!, "CompanyImage": url])
+        
     }
     
     @IBAction func foodSwitch(_ sender: Any) {
