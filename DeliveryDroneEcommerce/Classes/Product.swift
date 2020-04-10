@@ -14,5 +14,6 @@ struct Product {
     var amount : Int
     var desc : String
     var link: String
-    
+    var company: String
+    var category: String
 }

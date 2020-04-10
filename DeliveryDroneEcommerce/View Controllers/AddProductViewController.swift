@@ -74,7 +74,7 @@ class AddProductViewController: UIViewController {
                 let name = value0["Company"] as! String
                 
                 
-                var productList = ["Product":self.productTitle.text, "Price": priceInt, "Amount":amountInt, "Description" : self.desc.text, "Link" : self.productLink.text, "Company" : name] as [String : Any]
+
                 
                 self.ref.child("Storage").child(categoryText).child(Auth.auth().currentUser!.uid).observeSingleEvent(of: .value, with: { (snapshot) in
                     
@@ -85,22 +85,28 @@ class AddProductViewController: UIViewController {
                     }
                     let index = value["Index"] as! Int
                     print("Index:"+String(index))
-                    self.ref.child("Storage").child(categoryText).child(Auth.auth().currentUser!.uid).child(String(index)).setValue(productList)
+                    
                     self.ref.child("Storage").child(categoryText).child(Auth.auth().currentUser!.uid).updateChildValues(["Index" : index+1])
                     
-                    self.ref.child("UserInfo").child(Auth.auth().currentUser!.uid).child("Products").observeSingleEvent(of: .value, with: { (snapshot) in
-                        guard let value1 = snapshot.value as? NSDictionary else {
-                            print("No Data!!!")
-                            return
-                        }
-                        let i = value1["Index"] as! Int
-                        
-                        self.ref.child("UserInfo").child(Auth.auth().currentUser!.uid).child("Products").child(String(i)).updateChildValues(productList)
-                        self.ref.child("UserInfo").child(Auth.auth().currentUser!.uid).child("Products").updateChildValues(["Index": i+1])
-                        
-                    }) { (error) in
-                        print("error:\(error.localizedDescription)")
-                    }
+                    var productList = ["Product":self.productTitle.text, "Price": priceInt, "Amount":amountInt, "Description" : self.desc.text, "Link" : self.productLink.text, "Company" : name, "Index":index, "Category": categoryText] as [String : Any]
+                    self.ref.child("Storage").child(categoryText).child(Auth.auth().currentUser!.uid).child(String(index)).setValue(productList)
+                    
+                    self.ref.child("UserInfo").child(Auth.auth().currentUser!.uid).child("Products").child(String(index)).updateChildValues(productList)
+                    
+                    
+                    //                    self.ref.child("UserInfo").child(Auth.auth().currentUser!.uid).child("Products").observeSingleEvent(of: .value, with: { (snapshot) in
+                    //                        guard let value1 = snapshot.value as? NSDictionary else {
+                    //                            print("No Data!!!")
+                    //                            return
+                    //                        }
+                    //                        let i = value1["Index"] as! Int
+                    //
+                    //                        self.ref.child("UserInfo").child(Auth.auth().currentUser!.uid).child("Products").child(String(i)).updateChildValues(productList)
+                    //                        self.ref.child("UserInfo").child(Auth.auth().currentUser!.uid).child("Products").updateChildValues(["Index": i+1])
+                    //
+                    //                    }) { (error) in
+                    //                        print("error:\(error.localizedDescription)")
+                    //                    }
                     
                     
                     

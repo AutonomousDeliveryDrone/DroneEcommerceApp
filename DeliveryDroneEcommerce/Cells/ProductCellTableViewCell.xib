@@ -38,6 +38,9 @@
                         <rect key="frame" x="272" y="14" width="34" height="23"/>
                         <fontDescription key="fontDescription" type="system" pointSize="19"/>
                         <state key="normal" image="plus" catalog="system"/>
+                        <connections>
+                            <action selector="addStock:" destination="inY-UF-zs5" eventType="touchUpInside" id="4ym-uN-Epz"/>
+                        </connections>
                     </button>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Left: 10" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cag-5P-guv">
                         <rect key="frame" x="247" y="89" width="59" height="24"/>
@@ -78,6 +81,13 @@
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="mES-X8-Y50"/>
+            <connections>
+                <outlet property="addButton" destination="8kP-0r-HSY" id="oha-nL-c8G"/>
+                <outlet property="amount" destination="cag-5P-guv" id="QLE-Wu-6b7"/>
+                <outlet property="category" destination="DF8-Rr-0jF" id="MPr-1o-kgk"/>
+                <outlet property="price" destination="X9X-sh-lhS" id="GLG-Qb-2wS"/>
+                <outlet property="title" destination="jEO-vk-rhU" id="UGQ-g0-DfS"/>
+            </connections>
             <point key="canvasLocation" x="95.652173913043484" y="91.40625"/>
         </tableViewCell>
     </objects>
