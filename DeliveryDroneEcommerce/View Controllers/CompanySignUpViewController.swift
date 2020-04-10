@@ -9,7 +9,7 @@
 import UIKit
 import Firebase
 
-class CompanySignUpViewController: UIViewController {
+class CompanySignUpViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
     @IBOutlet weak var Name: UITextField!
     @IBOutlet weak var CeoName: UITextField!
@@ -18,6 +18,8 @@ class CompanySignUpViewController: UIViewController {
     @IBOutlet weak var password: UITextField!
     
     @IBOutlet weak var signUpButton: UIButton!
+    
+    @IBOutlet weak var companyImage: UIImageView!
     
     
     var ref: DatabaseReference!
@@ -29,11 +31,40 @@ class CompanySignUpViewController: UIViewController {
     
     
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         ref = Database.database().reference()
+        
+        companyImage.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(handleSelectProfileImageView)))
+        companyImage.isUserInteractionEnabled = true
+        
+        
         // Do any additional setup after loading the view.
+    }
+    
+    @objc func handleSelectProfileImageView () {
+        let picker = UIImagePickerController()
+        picker.delegate = self
+        picker.allowsEditing = true
+        
+        present(picker, animated: true, completion: nil)
+    }
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
+        
+        var selectedImageFromPicker: UIImage?
+        if let editedImage = info["UIImagePickerControllerEditedImage"] {
+            
+        } else if let originalImage = info["UIImagePickerControllerOriginalImage"] {
+            
+            print(456)
+        }
+        dismiss(animated: true, completion: nil)
+    }
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        print(789)
+        dismiss(animated: true, completion: nil)
     }
     
     
