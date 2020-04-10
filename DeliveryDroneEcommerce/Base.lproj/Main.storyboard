@@ -239,7 +239,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Slide1" translatesAutoresizingMaskIntoConstraints="NO" id="fgX-tR-Cad">
-                                <rect key="frame" x="0.0" y="0.0" width="546" height="896"/>
+                                <rect key="frame" x="0.0" y="0.0" width="573" height="896"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jZo-Ya-OCr">
@@ -314,7 +314,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wir-Ih-3ja" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2213" y="127"/>
+            <point key="canvasLocation" x="2211.594202898551" y="126.5625"/>
         </scene>
         <!--Order-->
         <scene sceneID="3mq-1m-ZXg">
@@ -338,27 +338,38 @@
                     </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="14g-Sx-qXx" id="Yx0-Kx-TQ9"/>
-                        <segue destination="9LQ-AH-7Sq" kind="presentation" identifier="toChoices" id="lWP-oZ-Ksc"/>
+                        <segue destination="9LQ-AH-7Sq" kind="show" identifier="toChoices" id="lWP-oZ-Ksc"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NIN-K5-k60" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="4203" y="108"/>
         </scene>
-        <!--View Controller-->
+        <!--Displayed Company View Controller-->
         <scene sceneID="swU-tt-87K">
             <objects>
-                <viewController modalPresentationStyle="fullScreen" id="9LQ-AH-7Sq" sceneMemberID="viewController">
+                <viewController modalPresentationStyle="fullScreen" id="9LQ-AH-7Sq" customClass="DisplayedCompanyViewController" customModule="DeliveryDroneEcommerce" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="S41-Ys-RT6">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="0D8-qR-3Gw">
+                                <rect key="frame" x="0.0" y="53" width="414" height="826"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="AWD-bN-hWb"/>
                     </view>
+                    <navigationItem key="navigationItem" id="p6X-qS-H44"/>
+                    <connections>
+                        <outlet property="tableView" destination="0D8-qR-3Gw" id="bcz-mx-247"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cXb-y4-z5C" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5558" y="124"/>
+            <point key="canvasLocation" x="5557.971014492754" y="123.88392857142857"/>
         </scene>
         <!--Instructions View Controller-->
         <scene sceneID="hGM-yu-VDA">
@@ -521,18 +532,6 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="V2Q-1H-ve5">
-                                <rect key="frame" x="141" y="203" width="133" height="39"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                <state key="normal" title="Add Product" image="plus.square" catalog="system">
-                                    <color key="titleColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                    <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="large"/>
-                                </state>
-                                <connections>
-                                    <action selector="Add:" destination="gMv-rr-jZY" eventType="touchUpInside" id="fh8-YR-FeT"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iwE-n7-Frt">
                                 <rect key="frame" x="50" y="547" width="315" height="35"/>
                                 <color key="backgroundColor" red="0.96470588239999999" green="0.0" blue="0.20784313730000001" alpha="1" colorSpace="calibratedRGB"/>
@@ -555,6 +554,18 @@
                                 <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="V2Q-1H-ve5">
+                                <rect key="frame" x="141" y="164" width="133" height="39"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <state key="normal" title="Add Product" image="plus.square" catalog="system">
+                                    <color key="titleColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="large"/>
+                                </state>
+                                <connections>
+                                    <action selector="Add:" destination="gMv-rr-jZY" eventType="touchUpInside" id="fh8-YR-FeT"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
