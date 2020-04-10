@@ -51,14 +51,20 @@ class CompanySignUpViewController: UIViewController, UIImagePickerControllerDele
         
         present(picker, animated: true, completion: nil)
     }
-    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
-        
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        print("selecting")
         var selectedImageFromPicker: UIImage?
-        if let editedImage = info["UIImagePickerControllerEditedImage"] {
-            
-        } else if let originalImage = info["UIImagePickerControllerOriginalImage"] {
-            
-            print(456)
+        if let editedImage = info[.editedImage] as? UIImage {
+            print(1234)
+            selectedImageFromPicker = editedImage
+        } else if let originalImage = info[.originalImage] as? UIImage{
+            print(5678)
+            selectedImageFromPicker = originalImage
+        }
+
+        if let selectedImage = selectedImageFromPicker {
+            print("changing image")
+            companyImage.image = selectedImage
         }
         dismiss(animated: true, completion: nil)
     }
