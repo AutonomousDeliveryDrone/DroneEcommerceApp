@@ -117,6 +117,8 @@ class CompanySignUpViewController: UIViewController, UIImagePickerControllerDele
                     if (self.isStationaries) {
                         self.ref.child("Storage").child("Stationaries").child(Auth.auth().currentUser!.uid).updateChildValues(["Index" : 1])
                     }
+                    let storageRef = Storage.storage().reference()
+                    
                     if (!self.isFood && !self.isStationaries && !self.isClothing && !self.isSupplies && !self.isGadgets ) {
                         let alert = UIAlertController(title: "Registration Error", message: "Please select a delivery category to register", preferredStyle: .alert)
                         
