@@ -36,15 +36,10 @@ class CompanyHomeViewController: UIViewController {
     func retrieveData() {
         print(Auth.auth().currentUser!.uid)
         self.ref.child("UserInfo").child(Auth.auth().currentUser!.uid).child("Products").observeSingleEvent(of: .value, with: { (snapshot) in
-            guard let value = snapshot.value as? NSDictionary else {
-                print("No Data!")
-                return
-            }
-            
             //        print("retrieve data: " + String(Data.childrenCount))
             //
             for children in snapshot.children.allObjects as! [DataSnapshot] {
-                
+//                print(snapshot)
                 guard let value = children.value as? NSDictionary else {
                     print("could not collect label data")
                     return
@@ -71,8 +66,6 @@ class CompanyHomeViewController: UIViewController {
     
     
     
-    @IBAction func add(_ sender: Any) {
-    }
     
     
     /*

@@ -39,7 +39,7 @@ class AddProductViewController: UIViewController {
         ref = Database.database().reference()
         
         
-        ref.child("Storage").child("Gadgets").setValue(["Index":1])
+    
         tableView.delegate = self
         tableView.dataSource = self
         tableView.register(CellClass.self, forCellReuseIdentifier: "Cell")
@@ -76,7 +76,7 @@ class AddProductViewController: UIViewController {
                 
 
                 
-                self.ref.child("Storage").child(categoryText).child(Auth.auth().currentUser!.uid).observeSingleEvent(of: .value, with: { (snapshot) in
+                self.ref.child("UserInfo").child(Auth.auth().currentUser!.uid).child("Products").observeSingleEvent(of: .value, with: { (snapshot) in
                     
                     
                     guard let value = snapshot.value as? NSDictionary else {
@@ -86,7 +86,7 @@ class AddProductViewController: UIViewController {
                     let index = value["Index"] as! Int
                     print("Index:"+String(index))
                     
-                    self.ref.child("Storage").child(categoryText).child(Auth.auth().currentUser!.uid).updateChildValues(["Index" : index+1])
+                    self.ref.child("UserInfo").child(Auth.auth().currentUser!.uid).child("Products").updateChildValues(["Index" : index+1])
                     
                     var productList = ["Product":self.productTitle.text, "Price": priceInt, "Amount":amountInt, "Description" : self.desc.text, "Link" : self.productLink.text, "Company" : name, "Index":index, "Category": categoryText] as [String : Any]
                     self.ref.child("Storage").child(categoryText).child(Auth.auth().currentUser!.uid).child(String(index)).setValue(productList)
@@ -108,6 +108,7 @@ class AddProductViewController: UIViewController {
                     //                        print("error:\(error.localizedDescription)")
                     //                    }
                     
+                    self.performSegue(withIdentifier: "backToCompanyHome", sender: self)
                     
                     
                     
@@ -122,10 +123,11 @@ class AddProductViewController: UIViewController {
                 print("error:\(error.localizedDescription)")
             }
             
+            
         }
     }
     @IBAction func categoryChoose(_ sender: Any) {
-        dataSource = ["Food", "Supplies", "Gadgets"]
+        dataSource = ["Food", "Supplies", "Gadgets", "Clothing", "Stationaries"]
         selectedButton = categoryButton
         addTransparentView(frames: categoryButton.frame)
     }

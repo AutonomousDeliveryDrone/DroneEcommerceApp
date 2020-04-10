@@ -126,25 +126,25 @@ class CompanySignUpViewController: UIViewController, UIImagePickerControllerDele
                         }
                     }
                     
-                     self.ref.child("UserInfo").child(Auth.auth().currentUser!.uid).child("Information").updateChildValues(["Status":"Company"])
+                    self.ref.child("UserInfo").child(Auth.auth().currentUser!.uid).child("Information").updateChildValues(["Status":"Company"])
                     self.ref.child("UserInfo").child(Auth.auth().currentUser!.uid).child("Products").updateChildValues(["Index": 1])
-                    
-                    if (self.isFood) {
-                        self.ref.child("Storage").child("Food").child(Auth.auth().currentUser!.uid).updateChildValues(["Index" : 1])
-                    }
-                    if (self.isSupplies) {
-                        self.ref.child("Storage").child("Supplies").child(Auth.auth().currentUser!.uid).updateChildValues(["Index" : 1])
-                    }
-                    if (self.isGadgets) {
-                        self.ref.child("Storage").child("Gadgets").child(Auth.auth().currentUser!.uid).updateChildValues(["Index" : 1])
-                    }
-                    if (self.isClothing) {
-                        self.ref.child("Storage").child("Clothing").child(Auth.auth().currentUser!.uid).updateChildValues(["Index" : 1])
-                    }
-                    if (self.isStationaries) {
-                        self.ref.child("Storage").child("Stationaries").child(Auth.auth().currentUser!.uid).updateChildValues(["Index" : 1])
-                    }
-                    
+//
+//                    if (self.isFood) {
+//                        self.ref.child("Storage").child("Food").child(Auth.auth().currentUser!.uid).updateChildValues(["Index" : 1])
+//                    }
+//                    if (self.isSupplies) {
+//                        self.ref.child("Storage").child("Supplies").child(Auth.auth().currentUser!.uid).updateChildValues(["Index" : 1])
+//                    }
+//                    if (self.isGadgets) {
+//                        self.ref.child("Storage").child("Gadgets").child(Auth.auth().currentUser!.uid).updateChildValues(["Index" : 1])
+//                    }
+//                    if (self.isClothing) {
+//                        self.ref.child("Storage").child("Clothing").child(Auth.auth().currentUser!.uid).updateChildValues(["Index" : 1])
+//                    }
+//                    if (self.isStationaries) {
+//                        self.ref.child("Storage").child("Stationaries").child(Auth.auth().currentUser!.uid).updateChildValues(["Index" : 1])
+//                    }
+//
                     
                     
                     
@@ -180,22 +180,10 @@ class CompanySignUpViewController: UIViewController, UIImagePickerControllerDele
     func registerCompany(_ url : String) {
         self.ref.child("UserInfo").child(Auth.auth().currentUser!.uid).child("Information").setValue(["Company" : self.Name.text!, "CEO" : self.CeoName.text!, "Address" : self.location.text!, "Email" : self.email.text!, "CompanyImage": url])
         
+        self.ref.child("UserInfo").child(Auth.auth().currentUser!.uid).child("Information").updateChildValues(["Status":"Company"])
+        
     }
     
-    @IBAction func foodSwitch(_ sender: Any) {
-        isFood = !isFood
-    }
-    @IBAction func suppliesSwitch(_ sender: Any) {
-        isSupplies = !isSupplies
-    }
-    @IBAction func gadgetsSwitch(_ sender: Any) {
-        isGadgets = !isGadgets
-    }
-    @IBAction func clothingSwitch(_ sender: Any) {
-        isClothing = !isClothing
-    }
-    @IBAction func stationariesSwitch(_ sender: Any) {
-        isStationaries = !isStationaries
-    }
+
     
 }
