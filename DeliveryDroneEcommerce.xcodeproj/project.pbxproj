@@ -90,6 +90,35 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		47419CBF244180C600B68BF2 /* SignUp and Login */ = {
+			isa = PBXGroup;
+			children = (
+				89E2F19E243F104900138365 /* CompanySignUpViewController.swift */,
+				8954B385243EA7AE007039CB /* LoginViewController.swift */,
+				8954B36F243EA6E9007039CB /* SignUpViewController.swift */,
+			);
+			path = "SignUp and Login";
+			sourceTree = "<group>";
+		};
+		47419CC0244180EA00B68BF2 /* CompanyView */ = {
+			isa = PBXGroup;
+			children = (
+				890437D924415CDC0064A9E5 /* ProductViewController.swift */,
+				89E2F1A0243F160900138365 /* AddProductViewController.swift */,
+				89E2F19C243F08D000138365 /* CompanyHomeViewController.swift */,
+			);
+			path = CompanyView;
+			sourceTree = "<group>";
+		};
+		47419CC12441810C00B68BF2 /* CustomerView */ = {
+			isa = PBXGroup;
+			children = (
+				8954B387243EA7BC007039CB /* UserHomeViewController.swift */,
+				891C6B7E244061C200919896 /* DisplayedCompanyViewController.swift */,
+			);
+			path = CustomerView;
+			sourceTree = "<group>";
+		};
 		479DB37A243ED40A00F10F95 /* Models */ = {
 			isa = PBXGroup;
 			children = (
@@ -153,14 +182,9 @@
 		8954B384243EA79B007039CB /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				8954B36F243EA6E9007039CB /* SignUpViewController.swift */,
-				891C6B7E244061C200919896 /* DisplayedCompanyViewController.swift */,
-				89E2F1A0243F160900138365 /* AddProductViewController.swift */,
-				890437D924415CDC0064A9E5 /* ProductViewController.swift */,
-				89E2F19E243F104900138365 /* CompanySignUpViewController.swift */,
-				8954B385243EA7AE007039CB /* LoginViewController.swift */,
-				8954B387243EA7BC007039CB /* UserHomeViewController.swift */,
-				89E2F19C243F08D000138365 /* CompanyHomeViewController.swift */,
+				47419CC12441810C00B68BF2 /* CustomerView */,
+				47419CC0244180EA00B68BF2 /* CompanyView */,
+				47419CBF244180C600B68BF2 /* SignUp and Login */,
 				8954B389243EAC64007039CB /* InstructionsViewController.swift */,
 			);
 			path = "View Controllers";
