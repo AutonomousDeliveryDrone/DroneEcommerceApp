@@ -80,11 +80,28 @@ extension DisplayedCompanyViewController: UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: "CompanyCell", for: indexPath) as! CompanyCell
         
         cell.companyName.text = companies[indexPath.row].companyName
+        let imageURL = companies[indexPath.row].imageURL
+        cell.companyImage?.sd_setImage(with: URL(string: imageURL), placeholderImage: UIImage(named: "Companies"), options: .highPriority, progress: nil, completed: { (downloadImage, downloadException, cacheType, downloadURL) in
+            
+            if let downloadException = downloadException {
+                print("Error downloading an image: \(downloadException.localizedDescription)")
+            } else {
+                print("Succesfully donwloaded image")
+            }
+        })
         
-//        var hi : UIImageView = UIImageView()
+
+
+            
 //        hi.sd_setImage(with: URL(string: "http://www.domain.com/path/to/image.jpg"), placeholderImage: UIImage(named: "placeholder.png"))
-        let file = URL(string: companies[indexPath.row].imageURL)!
-        cell.imageView?.load(url: file )
+//        let file = URL(string: companies[indexPath.row].imageURL)!
+//        cell.imageView?.load(url: file )
+        
+        
+        
+        
+        
+        
 //        tableView.reloadData()
 //        cell.imageView
         

@@ -291,9 +291,9 @@ PODS:
   - PKRevealController (2.0.6)
   - PMSuperButton (3.0.2)
   - PromisesObjC (1.2.8)
-  - SDWebImage (5.7.1):
-    - SDWebImage/Core (= 5.7.1)
-  - SDWebImage/Core (5.7.1)
+  - SDWebImage (5.7.2):
+    - SDWebImage/Core (= 5.7.2)
+  - SDWebImage/Core (5.7.2)
   - SVProgressHUD (2.2.5)
   - TextFieldEffects (1.6.0)
 
@@ -369,7 +369,7 @@ SPEC CHECKSUMS:
   PKRevealController: ffb45a16f5a5032ad90a3d16e5cbb0d8e035bd58
   PMSuperButton: 72105fef415890c8792a9e5a784f75c461066f8b
   PromisesObjC: c119f3cd559f50b7ae681fa59dc1acd19173b7e6
-  SDWebImage: 5d4cf6afccd9ac1d2ee701ed0c4917cbb1b80536
+  SDWebImage: d9ea4959d99c52276dfada481987018fcaea3d58
   SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
   TextFieldEffects: 529b8aff706fb40f82c41c780c0777941a893796
 
