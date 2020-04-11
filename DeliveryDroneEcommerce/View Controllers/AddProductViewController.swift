@@ -23,6 +23,7 @@ class AddProductViewController: UIViewController {
     @IBOutlet weak var productLink: UITextField!
     @IBOutlet weak var addButton: UIButton!
     @IBOutlet weak var categoryButton: UIButton!
+    @IBOutlet weak var productImage: UIImageView!
     
     var ref: DatabaseReference!
     

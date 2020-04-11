@@ -43,7 +43,7 @@
                         </connections>
                     </button>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Left: 10" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cag-5P-guv">
-                        <rect key="frame" x="247" y="89" width="59" height="24"/>
+                        <rect key="frame" x="247" y="89" width="42" height="24"/>
                         <fontDescription key="fontDescription" name="PingFangSC-Regular" family="PingFang SC" pointSize="12"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
@@ -51,33 +51,32 @@
                 </subviews>
                 <constraints>
                     <constraint firstAttribute="bottom" secondItem="X9X-sh-lhS" secondAttribute="bottom" constant="11" id="1Vl-Ij-FDQ"/>
+                    <constraint firstAttribute="trailing" secondItem="cag-5P-guv" secondAttribute="trailing" constant="37" id="1nY-EL-TE1"/>
+                    <constraint firstAttribute="bottom" secondItem="cag-5P-guv" secondAttribute="bottom" constant="22" id="4Wb-1k-VLL"/>
+                    <constraint firstItem="cag-5P-guv" firstAttribute="leading" secondItem="X9X-sh-lhS" secondAttribute="trailing" constant="152" id="6mQ-oJ-dDa"/>
                     <constraint firstAttribute="trailing" secondItem="X9X-sh-lhS" secondAttribute="trailing" constant="231" id="74e-Gh-w8a"/>
-                    <constraint firstItem="8kP-0r-HSY" firstAttribute="leading" secondItem="cag-5P-guv" secondAttribute="trailing" constant="-34" id="CIf-z8-uJb"/>
+                    <constraint firstItem="cag-5P-guv" firstAttribute="top" secondItem="O5q-WQ-TGq" secondAttribute="top" constant="89" id="CPg-Rw-D9C"/>
                     <constraint firstItem="8kP-0r-HSY" firstAttribute="leading" secondItem="jEO-vk-rhU" secondAttribute="trailing" constant="48" id="EIk-iw-Ug8"/>
                     <constraint firstAttribute="trailing" secondItem="8kP-0r-HSY" secondAttribute="trailing" constant="20" id="ELa-vV-Y5A"/>
                     <constraint firstItem="8kP-0r-HSY" firstAttribute="top" secondItem="O5q-WQ-TGq" secondAttribute="top" constant="14" id="Eye-6a-qwZ"/>
+                    <constraint firstItem="cag-5P-guv" firstAttribute="leading" secondItem="O5q-WQ-TGq" secondAttribute="leading" constant="247" id="FZS-nh-gUV"/>
                     <constraint firstAttribute="bottom" secondItem="jEO-vk-rhU" secondAttribute="bottom" constant="90" id="HFh-Ft-3yK"/>
                     <constraint firstItem="DF8-Rr-0jF" firstAttribute="leading" secondItem="O5q-WQ-TGq" secondAttribute="leading" constant="21" id="Ne4-zo-Kwf"/>
                     <constraint firstItem="X9X-sh-lhS" firstAttribute="leading" secondItem="O5q-WQ-TGq" secondAttribute="leading" constant="20" id="OwW-dR-oRJ"/>
+                    <constraint firstItem="cag-5P-guv" firstAttribute="top" secondItem="8kP-0r-HSY" secondAttribute="bottom" constant="52" id="PYq-Uh-egJ"/>
                     <constraint firstItem="X9X-sh-lhS" firstAttribute="leading" secondItem="DF8-Rr-0jF" secondAttribute="trailing" constant="-29.5" id="Q4P-B8-h6T"/>
-                    <constraint firstItem="cag-5P-guv" firstAttribute="leading" secondItem="X9X-sh-lhS" secondAttribute="trailing" constant="152" id="SSF-Ie-Gqj"/>
                     <constraint firstAttribute="bottom" secondItem="DF8-Rr-0jF" secondAttribute="bottom" constant="70" id="SbN-WR-GHA"/>
                     <constraint firstAttribute="trailing" secondItem="jEO-vk-rhU" secondAttribute="trailing" constant="102" id="TId-gu-T4N"/>
                     <constraint firstAttribute="bottom" secondItem="8kP-0r-HSY" secondAttribute="bottom" constant="98" id="TSz-OF-GEZ"/>
                     <constraint firstItem="jEO-vk-rhU" firstAttribute="leading" secondItem="O5q-WQ-TGq" secondAttribute="leading" constant="20" id="Y6V-Cr-slJ"/>
                     <constraint firstItem="jEO-vk-rhU" firstAttribute="leading" secondItem="DF8-Rr-0jF" secondAttribute="trailing" constant="-29.5" id="Ye8-JA-Kue"/>
                     <constraint firstItem="8kP-0r-HSY" firstAttribute="leading" secondItem="O5q-WQ-TGq" secondAttribute="leading" constant="272" id="aFj-kt-hXy"/>
-                    <constraint firstAttribute="bottom" secondItem="cag-5P-guv" secondAttribute="bottom" constant="22" id="bvW-US-IEr"/>
                     <constraint firstItem="jEO-vk-rhU" firstAttribute="top" secondItem="O5q-WQ-TGq" secondAttribute="top" constant="14" id="gqV-09-HYy"/>
                     <constraint firstItem="X9X-sh-lhS" firstAttribute="top" secondItem="DF8-Rr-0jF" secondAttribute="bottom" constant="24" id="hTR-CD-XfV"/>
                     <constraint firstAttribute="trailing" secondItem="DF8-Rr-0jF" secondAttribute="trailing" constant="276.5" id="i4J-xF-Lmo"/>
-                    <constraint firstItem="cag-5P-guv" firstAttribute="top" secondItem="8kP-0r-HSY" secondAttribute="bottom" constant="52" id="iIM-3g-TlB"/>
-                    <constraint firstItem="cag-5P-guv" firstAttribute="top" secondItem="O5q-WQ-TGq" secondAttribute="top" constant="89" id="kx2-Ql-SaX"/>
                     <constraint firstItem="DF8-Rr-0jF" firstAttribute="top" secondItem="O5q-WQ-TGq" secondAttribute="top" constant="50" id="mpT-kq-TbA"/>
                     <constraint firstItem="DF8-Rr-0jF" firstAttribute="top" secondItem="jEO-vk-rhU" secondAttribute="bottom" constant="5" id="mq5-zA-Unf"/>
-                    <constraint firstAttribute="trailing" secondItem="cag-5P-guv" secondAttribute="trailing" constant="20" id="oyx-7V-xdy"/>
                     <constraint firstItem="X9X-sh-lhS" firstAttribute="top" secondItem="O5q-WQ-TGq" secondAttribute="top" constant="89" id="pNr-cq-iKy"/>
-                    <constraint firstItem="cag-5P-guv" firstAttribute="leading" secondItem="O5q-WQ-TGq" secondAttribute="leading" constant="247" id="unC-3v-wb1"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="mES-X8-Y50"/>
