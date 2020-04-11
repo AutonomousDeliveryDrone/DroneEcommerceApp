@@ -14,6 +14,7 @@
 		479DB380243ED7AB00F10F95 /* CategoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 479DB37E243ED7AB00F10F95 /* CategoryCell.swift */; };
 		479DB381243ED7AB00F10F95 /* CategoryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 479DB37F243ED7AB00F10F95 /* CategoryCell.xib */; };
 		890437DA24415CDC0064A9E5 /* ProductViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 890437D924415CDC0064A9E5 /* ProductViewController.swift */; };
+		890437DC24417B940064A9E5 /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 890437DB24417B940064A9E5 /* CollectionViewCell.swift */; };
 		891C6B7F244061C200919896 /* DisplayedCompanyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 891C6B7E244061C200919896 /* DisplayedCompanyViewController.swift */; };
 		8954B36C243EA6E9007039CB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8954B36B243EA6E9007039CB /* AppDelegate.swift */; };
 		8954B36E243EA6E9007039CB /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8954B36D243EA6E9007039CB /* SceneDelegate.swift */; };
@@ -46,6 +47,7 @@
 		6990D97A82998C59DC7A1E30 /* Pods-DeliveryDroneEcommerce.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DeliveryDroneEcommerce.debug.xcconfig"; path = "Target Support Files/Pods-DeliveryDroneEcommerce/Pods-DeliveryDroneEcommerce.debug.xcconfig"; sourceTree = "<group>"; };
 		83AC5065F53DC05256506E20 /* Pods_DeliveryDroneEcommerce.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DeliveryDroneEcommerce.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		890437D924415CDC0064A9E5 /* ProductViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductViewController.swift; sourceTree = "<group>"; };
+		890437DB24417B940064A9E5 /* CollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
 		891C6B7E244061C200919896 /* DisplayedCompanyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisplayedCompanyViewController.swift; sourceTree = "<group>"; };
 		8954B368243EA6E9007039CB /* DeliveryDroneEcommerce.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DeliveryDroneEcommerce.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8954B36B243EA6E9007039CB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -107,6 +109,7 @@
 				479DB37F243ED7AB00F10F95 /* CategoryCell.xib */,
 				89E2F198243F06AC00138365 /* ProductCellTableViewCell.swift */,
 				89E2F199243F06AC00138365 /* ProductCellTableViewCell.xib */,
+				890437DB24417B940064A9E5 /* CollectionViewCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -308,6 +311,7 @@
 				89E2F1A1243F160900138365 /* AddProductViewController.swift in Sources */,
 				89E2F19A243F06AC00138365 /* ProductCellTableViewCell.swift in Sources */,
 				8954B38A243EAC64007039CB /* InstructionsViewController.swift in Sources */,
+				890437DC24417B940064A9E5 /* CollectionViewCell.swift in Sources */,
 				8954B376243EA6E9007039CB /* DeliveryDroneEcommerce.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
