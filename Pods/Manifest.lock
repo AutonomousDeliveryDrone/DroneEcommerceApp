@@ -311,7 +311,7 @@ DEPENDENCIES:
   - TextFieldEffects
 
 SPEC REPOS:
-  https://github.com/CocoaPods/Specs.git:
+  https://github.com/cocoapods/specs.git:
     - abseil
     - BoringSSL-GRPC
     - Firebase
@@ -338,10 +338,9 @@ SPEC REPOS:
     - PKRevealController
     - PMSuperButton
     - PromisesObjC
+    - SDWebImage
     - SVProgressHUD
     - TextFieldEffects
-  trunk:
-    - SDWebImage
 
 SPEC CHECKSUMS:
   abseil: 18063d773f5366ff8736a050fe035a28f635fd27
@@ -376,4 +375,4 @@ SPEC CHECKSUMS:
 
 PODFILE CHECKSUM: 63f85bb4840982073889ef2d4565f14279bac053
 
-COCOAPODS: 1.8.4
+COCOAPODS: 1.7.5
