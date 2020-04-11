@@ -363,6 +363,7 @@
                     <navigationItem key="navigationItem" id="p6X-qS-H44"/>
                     <connections>
                         <outlet property="tableView" destination="0D8-qR-3Gw" id="bcz-mx-247"/>
+                        <segue destination="LCl-GE-TvH" kind="show" identifier="toProductList" id="dOY-Bh-6CS"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cXb-y4-z5C" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -650,7 +651,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="D9J-qc-tTE">
-                                <rect key="frame" x="0.0" y="44" width="414" height="852"/>
+                                <rect key="frame" x="0.0" y="88" width="414" height="808"/>
                                 <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="WuD-D2-6gq">
                                     <size key="itemSize" width="221" height="198"/>
@@ -720,6 +721,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="A7N-gu-j7s"/>
                     </view>
+                    <navigationItem key="navigationItem" id="vFh-rI-yPq"/>
                     <connections>
                         <outlet property="collectionView" destination="D9J-qc-tTE" id="AtS-nr-aeS"/>
                     </connections>

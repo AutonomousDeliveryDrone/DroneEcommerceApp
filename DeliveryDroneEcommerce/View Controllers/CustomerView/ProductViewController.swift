@@ -10,6 +10,7 @@ import UIKit
 
 class ProductViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
 
+    
     @IBOutlet weak var collectionView : UICollectionView!
     var colectionArr : [String] = ["1","2","3","4"]
     let titlesF = [("Apple"),("Apricot"),("Banana"),("Grapes"),("Kiwi"),("Orange"),("Peach")]
@@ -29,6 +30,8 @@ class ProductViewController: UIViewController, UICollectionViewDelegate, UIColle
     let relativeFontCellTitle:CGFloat = 0.023
     let relativeFontCellDescription:CGFloat = 0.015
 
+    
+    var company : String = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()

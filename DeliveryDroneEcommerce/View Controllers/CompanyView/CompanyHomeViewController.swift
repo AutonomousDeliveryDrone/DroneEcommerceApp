@@ -12,7 +12,6 @@ import Firebase
 class CompanyHomeViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
-    @IBOutlet weak var addButton: UIBarButtonItem!
     
     var ref: DatabaseReference!
     

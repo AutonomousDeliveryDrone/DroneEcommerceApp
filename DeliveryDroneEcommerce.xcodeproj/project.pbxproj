@@ -103,7 +103,6 @@
 		47419CC0244180EA00B68BF2 /* CompanyView */ = {
 			isa = PBXGroup;
 			children = (
-				890437D924415CDC0064A9E5 /* ProductViewController.swift */,
 				89E2F1A0243F160900138365 /* AddProductViewController.swift */,
 				89E2F19C243F08D000138365 /* CompanyHomeViewController.swift */,
 			);
@@ -115,6 +114,7 @@
 			children = (
 				8954B387243EA7BC007039CB /* UserHomeViewController.swift */,
 				891C6B7E244061C200919896 /* DisplayedCompanyViewController.swift */,
+				890437D924415CDC0064A9E5 /* ProductViewController.swift */,
 			);
 			path = CustomerView;
 			sourceTree = "<group>";

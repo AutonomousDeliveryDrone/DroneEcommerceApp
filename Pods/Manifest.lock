@@ -291,6 +291,9 @@ PODS:
   - PKRevealController (2.0.6)
   - PMSuperButton (3.0.2)
   - PromisesObjC (1.2.8)
+  - SDWebImage (5.7.1):
+    - SDWebImage/Core (= 5.7.1)
+  - SDWebImage/Core (5.7.1)
   - SVProgressHUD (2.2.5)
   - TextFieldEffects (1.6.0)
 
@@ -303,11 +306,12 @@ DEPENDENCIES:
   - LTMorphingLabel
   - PKRevealController
   - PMSuperButton
+  - SDWebImage (~> 5.0)
   - SVProgressHUD
   - TextFieldEffects
 
 SPEC REPOS:
-  https://github.com/cocoapods/specs.git:
+  https://github.com/CocoaPods/Specs.git:
     - abseil
     - BoringSSL-GRPC
     - Firebase
@@ -336,6 +340,8 @@ SPEC REPOS:
     - PromisesObjC
     - SVProgressHUD
     - TextFieldEffects
+  trunk:
+    - SDWebImage
 
 SPEC CHECKSUMS:
   abseil: 18063d773f5366ff8736a050fe035a28f635fd27
@@ -364,9 +370,10 @@ SPEC CHECKSUMS:
   PKRevealController: ffb45a16f5a5032ad90a3d16e5cbb0d8e035bd58
   PMSuperButton: 72105fef415890c8792a9e5a784f75c461066f8b
   PromisesObjC: c119f3cd559f50b7ae681fa59dc1acd19173b7e6
+  SDWebImage: 5d4cf6afccd9ac1d2ee701ed0c4917cbb1b80536
   SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
   TextFieldEffects: 529b8aff706fb40f82c41c780c0777941a893796
 
-PODFILE CHECKSUM: 94fa71a9df9bee712fc5425317db3452e091374e
+PODFILE CHECKSUM: 63f85bb4840982073889ef2d4565f14279bac053
 
-COCOAPODS: 1.7.5
+COCOAPODS: 1.8.4

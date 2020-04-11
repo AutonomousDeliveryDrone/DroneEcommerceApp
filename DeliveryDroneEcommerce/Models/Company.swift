@@ -9,6 +9,7 @@
 import Foundation
 
 struct Company {
-    let imageURL: String
-    let companyName: String
+    var imageURL: String
+    var companyName: String
+    var companyID : String
 }

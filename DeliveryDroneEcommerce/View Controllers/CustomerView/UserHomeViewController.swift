@@ -74,8 +74,9 @@ extension UserHomeViewController: UITableViewDataSource {
 
 extension UserHomeViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        performSegue(withIdentifier: "toCompaniesDisplay", sender: self)
+        
         categorySelected = categories[indexPath.row].categoryType
+        performSegue(withIdentifier: "toCompaniesDisplay", sender: self)
         print(indexPath.row)
     }
 }

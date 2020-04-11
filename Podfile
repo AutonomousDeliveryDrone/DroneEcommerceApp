@@ -16,5 +16,6 @@ target 'DeliveryDroneEcommerce' do
     pod 'PKRevealController'
     pod 'PMSuperButton'
     pod 'LTMorphingLabel'
+    pod 'SDWebImage', '~> 5.0'
 
 end
