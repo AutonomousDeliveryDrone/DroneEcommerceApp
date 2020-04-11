@@ -26,6 +26,8 @@ class UserHomeViewController: UIViewController {
         UIImage(named: "Clothings")!,
         UIImage(named: "Stationaries")!
     ]
+    
+    var categorySelected: String = ""
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -36,6 +38,12 @@ class UserHomeViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if (segue.identifier == "toCompaniesDisplay") {
+            let secondVC = segue.destination as! DisplayedCompanyViewController
+            secondVC.category = categorySelected
+        }
+    }
 
     /*
     // MARK: - Navigation
@@ -66,7 +74,8 @@ extension UserHomeViewController: UITableViewDataSource {
 
 extension UserHomeViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        performSegue(withIdentifier: "toChoices", sender: self)
+        performSegue(withIdentifier: "toCompaniesDisplay", sender: self)
+        categorySelected = categories[indexPath.row].categoryType
         print(indexPath.row)
     }
 }

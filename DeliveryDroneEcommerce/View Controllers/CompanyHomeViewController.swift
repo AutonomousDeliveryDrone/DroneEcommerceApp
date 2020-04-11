@@ -25,7 +25,7 @@ class CompanyHomeViewController: UIViewController {
         tableView.dataSource = self
         tableView.delegate = self
         tableView.register(UINib(nibName: "ProductCellTableViewCell", bundle: nil), forCellReuseIdentifier: "ReusableCell2" )
-                ref = Database.database().reference()
+        ref = Database.database().reference()
         retrieveData()
         
 

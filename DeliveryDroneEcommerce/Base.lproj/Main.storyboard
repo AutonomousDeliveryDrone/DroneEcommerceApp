@@ -338,7 +338,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="14g-Sx-qXx" id="Yx0-Kx-TQ9"/>
-                        <segue destination="9LQ-AH-7Sq" kind="show" identifier="toChoices" id="lWP-oZ-Ksc"/>
+                        <segue destination="9LQ-AH-7Sq" kind="show" identifier="toCompaniesDisplay" id="lWP-oZ-Ksc"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NIN-K5-k60" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
