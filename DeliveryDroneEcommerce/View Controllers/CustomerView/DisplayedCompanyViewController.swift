@@ -12,8 +12,7 @@ import Firebase
 class DisplayedCompanyViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
-    var companies: [CompanyCell] = [
-       ]
+    var companies: [Company] = []
     
     var category: String = "" //Will get filled out during segue
     var ref: DatabaseReference!
@@ -23,68 +22,46 @@ class DisplayedCompanyViewController: UIViewController {
         ref = Database.database().reference()
         
         tableView.register(UINib(nibName: "CompanyCell", bundle: nil), forCellReuseIdentifier: "CompanyCell")
-    
+//        retrieveCompanies()
 
         // Do any additional setup after loading the view.
     }
     
-    func retrieveCompanies () {
-        self.ref.child("Storage").child(category).observeSingleEvent(of: .value) { (snapshot) in
-            //gettin the companyID
-            for children in snapshot.children.allObjects as! [DataSnapshot] {
-                guard let value = children.value as? NSDictionary else {
-                    print("could not collect data")
-                    return
-                }
-                
-                let companyID = value["companyID"] as! String
-                
-                //making the company cells
-                self.ref.child("UserInfo").child(companyID).child("Information").observeSingleEvent(of: .value) { (snap) in
-                    guard let val = snapshot.value as? NSDictionary else {
-                        print("could not collect data")
-                        return
-                    }
-                    
-                    
-                }
-            }
-        }
-        
-        
-    }
-    
-
-//func retrieveData() {
-//        print(Auth.auth().currentUser!.uid)
-//        self.ref.child("UserInfo").child(Auth.auth().currentUser!.uid).child("Products").observeSingleEvent(of: .value, with: { (snapshot) in
+//    func retrieveCompanies() {
+//        print("gay")
+//        self.ref.child("Storage").child(category).observeSingleEvent(of: .value) { (snapshot) in
+//            //gettin the companyID
+//            print("getting companyID")
 //            for children in snapshot.children.allObjects as! [DataSnapshot] {
-////                print(snapshot)
 //                guard let value = children.value as? NSDictionary else {
-//                    print("could not collect label data")
+//                    print("could not collect data")
 //                    return
 //                }
 //
-//                let amount = value["Amount"] as! Int
-//                let company = value["Company"] as! String
-//                let desc = value["Description"] as! String
-//                let index = value["Index"] as! Int
-//                let link = value["Link"] as! String
-//                let name = value["Product"] as! String
-//                let price = value["Price"] as! Int
-//                let category = value["Category"] as! String
-//                let compID = value["companyID"] as! String
+//                let companyID = value["companyID"] as! String
+//                print("----------------")
+//                print(companyID)
+//                print("----------------")
 //
+//                //making the company cells
+//                self.ref.child("UserInfo").child(companyID).child("Information").observeSingleEvent(of: .value) { (snap) in
+//                    guard let val = snapshot.value as? NSDictionary else {
+//                        print("could not collect data")
+//                        return
+//                    }
+//                    let Name = val["Company"] as! String
+//                    let Image = val["CompanyImage"] as! String
 //
-//                let productStorage = Product(name: name, price: price, amount: amount, desc: desc, link: link, company: company, category: category, companyID: compID, index: index)
+//                    let company = Company(imageURL: Image, companyName: Name)
+//                    self.companies.append(company)
 //
-//                self.productList.append(productStorage)
-//                self.tableView.reloadData()
+//                }
 //            }
-//        }) { (error) in
-//            print("error:\(error.localizedDescription)")
 //        }
+//
+//
 //    }
+    
 }
 
 extension DisplayedCompanyViewController: UITableViewDataSource {
@@ -95,6 +72,22 @@ extension DisplayedCompanyViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "CompanyCell", for: indexPath) as! CompanyCell
+        
+//        let companyImage = companies[indexPath.row].imageURL
+//        let url = NSURL(string: companyImage)
+//        URLSession.shared.dataTask(with: url! as URL, completionHandler: { (data, response, error) in
+//
+//            //download hit an error so return
+//            if (error != nil) {
+//                print(error)
+//                return
+//            }
+//
+//            cell.companyImage?.image = UIImage(data: data!)
+//
+//
+//            }).resume()
+        
         return cell
     }
     
