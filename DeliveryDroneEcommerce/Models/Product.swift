@@ -18,4 +18,5 @@ struct Product {
     var category: String
     var companyID: String
     var index: Int
+    var productImage : String
 }

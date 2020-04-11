@@ -18,6 +18,10 @@ class DisplayedCompanyViewController: UIViewController {
     var category: String = "" //Will get filled out during segue
     
     var companySelected : String = ""
+    
+    
+    
+    
     var ref: DatabaseReference!
     override func viewDidLoad() {
         super.viewDidLoad()

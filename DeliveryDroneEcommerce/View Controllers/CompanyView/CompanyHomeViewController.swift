@@ -55,7 +55,7 @@ class CompanyHomeViewController: UIViewController {
                 let compID = value["companyID"] as! String
                 
                 
-                let productStorage = Product(name: name, price: price, amount: amount, desc: desc, link: link, company: company, category: category, companyID: compID, index: index)
+                let productStorage = Product(name: name, price: price, amount: amount, desc: desc, link: link, company: company, category: category, companyID: compID, index: index, productImage: "")
                 
                 self.productList.append(productStorage)
                 self.tableView.reloadData()

@@ -34,6 +34,11 @@ class ProductViewController: UIViewController, UICollectionViewDelegate, UIColle
     
     var company : String = ""
     var categoryType : String = ""
+    var name1 : String = ""
+    var price1 : Int = 0
+    var desc1 : String = ""
+    var link1 : String = ""
+    var index1 : Int = 0
     
     var productList: [Product] = []
     
@@ -76,15 +81,29 @@ class ProductViewController: UIViewController, UICollectionViewDelegate, UIColle
                 let price = value["Price"] as! Int
                 let category = value["Category"] as! String
                 let compID = value["companyID"] as! String
+//                let image = value["productImage"] as! String
                 
                 
-                let productStorage = Product(name: name, price: price, amount: amount, desc: desc, link: link, company: company, category: category, companyID: compID, index: index)
+                let productStorage = Product(name: name, price: price, amount: amount, desc: desc, link: link, company: company, category: category, companyID: compID, index: index, productImage:"")
                 
                 self.productList.append(productStorage)
                 self.collectionView.reloadData()
             }
         }) { (error) in
             print("error:\(error.localizedDescription)")
+        }
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if (segue.identifier == "toUserOrder") {
+            let secondVC = segue.destination as! UserOrderViewController
+//            secondVC.company = company
+//            secondVC.categoryType = categoryType
+//            secondVC.name = name1
+//            secondVC.price = price1
+//            secondVC.desc = desc1
+//            secondVC.link = link1
+//            secondVC.index = index1
         }
     }
     
@@ -105,6 +124,9 @@ class ProductViewController: UIViewController, UICollectionViewDelegate, UIColle
         //let thisElement = colectionArr[indexPath.item]
         let cellIndex = indexPath.item
         let closeFrameSize = bestFrameSize()
+        
+//        declare
+
         
         
         cell.imageCell.image = imagesF[cellIndex]
@@ -172,6 +194,16 @@ extension ProductViewController : UICollectionViewDelegateFlowLayout {
         return 20
     }
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        name1 = productList[indexPath.row].name
+        price1 = productList[indexPath.row].price
+        desc1 = productList[indexPath.row].desc
+        link1 = productList[indexPath.row].link
+        index1 = productList[indexPath.row].index
+        
+        performSegue(withIdentifier: "toUserOrder", sender: self)
+        
+        
+        
         print(indexPath)
     }
 }//end of extension  ViewController

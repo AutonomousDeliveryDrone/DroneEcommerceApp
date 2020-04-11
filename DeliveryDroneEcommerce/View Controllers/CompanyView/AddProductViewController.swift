@@ -89,7 +89,7 @@ class AddProductViewController: UIViewController {
                     
                     self.ref.child("UserInfo").child(Auth.auth().currentUser!.uid).child("Products").updateChildValues(["Index" : index+1])
                     
-                    var productList = ["Product":self.productTitle.text, "Price": priceInt, "Amount":amountInt, "Description" : self.desc.text, "Link" : self.productLink.text, "Company" : name, "Index":index, "Category": categoryText, "companyID" :Auth.auth().currentUser!.uid ] as [String : Any]
+                    var productList = ["Product":self.productTitle.text, "Price": priceInt, "Amount":amountInt, "Description" : self.desc.text, "Link" : self.productLink.text, "Company" : name, "Index":index, "Category": categoryText, "companyID" :Auth.auth().currentUser!.uid] as [String : Any]
                     self.ref.child("Storage").child(categoryText).child(Auth.auth().currentUser!.uid).child(String(index)).setValue(productList)
                     
                     self.ref.child("Storage").child(categoryText).child(Auth.auth().currentUser!.uid).updateChildValues(["companyID" :Auth.auth().currentUser!.uid ])
