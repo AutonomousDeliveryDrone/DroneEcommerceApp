@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Firebase
 
 class UserHomeViewController: UIViewController {
     
@@ -34,7 +35,7 @@ class UserHomeViewController: UIViewController {
         tableView.dataSource = self
         tableView.delegate = self
         tableView.register(UINib(nibName: "CategoryCell", bundle: nil), forCellReuseIdentifier: "ReusableCell" )
-
+        
         // Do any additional setup after loading the view.
     }
     
@@ -44,17 +45,28 @@ class UserHomeViewController: UIViewController {
             secondVC.category = categorySelected
         }
     }
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    
+    
+    @IBAction func signOut(_ sender: Any) {
+        do {
+            try Auth.auth().signOut()
+            performSegue(withIdentifier: "userBack", sender: self)
+            
+        }catch let signOutError as NSError {
+            print("Logout Error")
+        }
+        
     }
-    */
-
+    /*
+     // MARK: - Navigation
+     
+     // In a storyboard-based application, you will often want to do a little preparation before navigation
+     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+     // Get the new view controller using segue.destination.
+     // Pass the selected object to the new view controller.
+     }
+     */
+    
 }
 
 extension UserHomeViewController: UITableViewDataSource {

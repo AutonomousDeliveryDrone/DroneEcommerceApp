@@ -65,7 +65,20 @@ class CompanyHomeViewController: UIViewController {
         }
     }
     
+
+
     
+    @IBAction func signOut(_ sender: Any) {
+        do {
+                 try Auth.auth().signOut()
+                 performSegue(withIdentifier: "companyBack", sender: self)
+                 
+             }catch let signOutError as NSError {
+                 print("Logout Error")
+             }
+
+        
+    }
     
     
     

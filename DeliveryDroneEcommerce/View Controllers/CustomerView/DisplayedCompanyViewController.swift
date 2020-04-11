@@ -70,6 +70,7 @@ class DisplayedCompanyViewController: UIViewController {
         if (segue.identifier == "toProductList") {
             let secondVC = segue.destination as! ProductViewController
             secondVC.company = companySelected
+            secondVC.categoryType = category
         }
     }
     

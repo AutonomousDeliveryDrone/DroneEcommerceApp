@@ -333,10 +333,22 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="hT7-w3-C0Y"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Order" id="5QI-pb-amI"/>
+                    <navigationItem key="navigationItem" title="Order" id="5QI-pb-amI">
+                        <barButtonItem key="leftBarButtonItem" style="plain" id="d2D-mc-TDA">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="eJk-du-DtS">
+                                <rect key="frame" x="20" y="7" width="92" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Sign Out"/>
+                                <connections>
+                                    <action selector="signOut:" destination="o89-Jk-cf7" eventType="touchUpInside" id="n7Z-Hy-AMp"/>
+                                </connections>
+                            </button>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="14g-Sx-qXx" id="Yx0-Kx-TQ9"/>
                         <segue destination="9LQ-AH-7Sq" kind="show" identifier="toCompaniesDisplay" id="lWP-oZ-Ksc"/>
+                        <segue destination="ApY-qC-425" kind="presentation" identifier="userBack" id="MZE-tL-85Q"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NIN-K5-k60" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -477,6 +489,16 @@
                         <viewLayoutGuide key="safeArea" id="EQY-qq-XVJ"/>
                     </view>
                     <navigationItem key="navigationItem" title="Delivery" id="3nm-dR-Icr">
+                        <barButtonItem key="leftBarButtonItem" style="plain" id="xJY-Sw-Plb">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="vuC-h7-8w4">
+                                <rect key="frame" x="20" y="7" width="92" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Sign Out"/>
+                                <connections>
+                                    <action selector="signOut:" destination="X1t-H4-Rv7" eventType="touchUpInside" id="tmB-2G-0Zt"/>
+                                </connections>
+                            </button>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Item" image="plus" catalog="system" id="oLZ-hc-TNo">
                             <connections>
                                 <segue destination="gMv-rr-jZY" kind="show" id="Awh-Nv-jXk"/>
@@ -485,6 +507,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="ZKp-fc-ebT" id="hfi-vD-tks"/>
+                        <segue destination="ApY-qC-425" kind="presentation" identifier="companyBack" id="QFt-c9-YeP"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JCM-Lc-kMv" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -741,6 +764,6 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="3WI-Oj-mKU"/>
-        <segue reference="xUl-KB-cCF"/>
+        <segue reference="MZE-tL-85Q"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -7,9 +7,10 @@
 //
 
 import UIKit
+import Firebase
 
 class ProductViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
-
+    
     
     @IBOutlet weak var collectionView : UICollectionView!
     var colectionArr : [String] = ["1","2","3","4"]
@@ -29,43 +30,87 @@ class ProductViewController: UIViewController, UICollectionViewDelegate, UIColle
     let relativeFontButton:CGFloat = 0.060
     let relativeFontCellTitle:CGFloat = 0.023
     let relativeFontCellDescription:CGFloat = 0.015
-
+    
     
     var company : String = ""
+    var categoryType : String = ""
+    
+    var productList: [Product] = []
+    
+    var ref: DatabaseReference!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        ref = Database.database().reference()
+        retrieveData()
         // delegate and dataSource
         collectionView.delegate = self
         collectionView.dataSource = self
-//        collectionView.backgroundColor = UIColor.green
+        //        collectionView.backgroundColor = UIColor.green
         
     }
-
-
+    
+    
+    func retrieveData() {
+        print(Auth.auth().currentUser!.uid)
+        self.ref.child("Storage").child(categoryType).child(company).observeSingleEvent(of: .value, with: { (snapshot) in
+            print("Retrieve: \(self.categoryType) + \(self.company)")
+            
+            for children in snapshot.children.allObjects as! [DataSnapshot] {
+                //                print(snapshot)
+                
+                guard let value = children.value as? NSDictionary else {
+                    print("could not collect label data")
+                    return
+                }
+                
+                
+                
+                let amount = value["Amount"] as! Int
+                let company = value["Company"] as! String
+                let desc = value["Description"] as! String
+                let index = value["Index"] as! Int
+                let link = value["Link"] as! String
+                let name = value["Product"] as! String
+                let price = value["Price"] as! Int
+                let category = value["Category"] as! String
+                let compID = value["companyID"] as! String
+                
+                
+                let productStorage = Product(name: name, price: price, amount: amount, desc: desc, link: link, company: company, category: category, companyID: compID, index: index)
+                
+                self.productList.append(productStorage)
+                self.collectionView.reloadData()
+            }
+        }) { (error) in
+            print("error:\(error.localizedDescription)")
+        }
+    }
+    
+    
     // UICollectionViewDelegate, UICollectionViewDataSource functions
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 1
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return titlesF.count
+        return productList.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! CollectionViewCell
-    
+        
         //let thisElement = colectionArr[indexPath.item]
         let cellIndex = indexPath.item
         let closeFrameSize = bestFrameSize()
-
+        
         
         cell.imageCell.image = imagesF[cellIndex]
-        cell.labelTitle.text = titlesF[cellIndex]
+        cell.labelTitle.text = productList[cellIndex].name
         cell.labelTitle.font = cell.labelTitle.font.withSize(closeFrameSize * relativeFontCellTitle)
-        cell.labelDetails.text =  desF[cellIndex]
+        cell.labelDetails.text =  String(productList[cellIndex].price)
         cell.labelDetails.font = cell.labelDetails.font.withSize(closeFrameSize * relativeFontCellDescription)
         
         
@@ -77,7 +122,7 @@ class ProductViewController: UIViewController, UICollectionViewDelegate, UIColle
         cell.contentView.layer.masksToBounds = true
         cell.contentView.backgroundColor = UIColor.white
         cell.backgroundColor = UIColor.lightGray
-
+        
         cell.layer.shadowColor = UIColor.gray.cgColor
         cell.layer.shadowOffset = CGSize(width: 0, height: 2.0)
         cell.layer.shadowRadius = 2.0
@@ -89,7 +134,7 @@ class ProductViewController: UIViewController, UICollectionViewDelegate, UIColle
         
         return cell
     }
-   
+    
     
     func bestFrameSize() -> CGFloat {
         let frameHeight = self.view.frame.height
