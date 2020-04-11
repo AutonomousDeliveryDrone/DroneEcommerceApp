@@ -148,16 +148,7 @@ class CompanySignUpViewController: UIViewController, UIImagePickerControllerDele
                     
                     
                     
-                    if (!self.isFood && !self.isStationaries && !self.isClothing && !self.isSupplies && !self.isGadgets ) {
-                        let alert = UIAlertController(title: "Registration Error", message: "Please select a delivery category to register", preferredStyle: .alert)
-                        
-                        let OK = UIAlertAction(title: "OK", style: .default) { (alert) in
-                            return
-                        }
-                        
-                        alert.addAction(OK)
-                        self.present(alert, animated: true, completion: nil)
-                    }
+
                     self.performSegue(withIdentifier: "companyToLogin", sender: self)
                 } else {
                     //                    SVProgressHUD.dismiss()
