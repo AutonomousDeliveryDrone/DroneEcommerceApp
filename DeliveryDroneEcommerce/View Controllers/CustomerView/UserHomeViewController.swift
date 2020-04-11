@@ -77,6 +77,5 @@ extension UserHomeViewController: UITableViewDelegate {
         
         categorySelected = categories[indexPath.row].categoryType
         performSegue(withIdentifier: "toCompaniesDisplay", sender: self)
-        print(indexPath.row)
     }
 }

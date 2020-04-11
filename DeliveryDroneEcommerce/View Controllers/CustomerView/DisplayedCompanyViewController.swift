@@ -22,6 +22,7 @@ class DisplayedCompanyViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.dataSource = self
+        tableView.delegate = self
         ref = Database.database().reference()
         
         tableView.register(UINib(nibName: "CompanyCell", bundle: nil), forCellReuseIdentifier: "CompanyCell")
@@ -63,6 +64,13 @@ class DisplayedCompanyViewController: UIViewController {
         }
 
 
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if (segue.identifier == "toProductList") {
+            let secondVC = segue.destination as! ProductViewController
+            secondVC.company = companySelected
+        }
     }
     
     
@@ -129,10 +137,9 @@ extension DisplayedCompanyViewController: UITableViewDataSource {
 
 extension DisplayedCompanyViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print("hi")
-        
         companySelected = companies[indexPath.row].companyID
-        performSegue(withIdentifier: "toCompaniesDisplay", sender: self)
+        print(companySelected)
+        performSegue(withIdentifier: "toProductList", sender: self)
     }
 }
 
