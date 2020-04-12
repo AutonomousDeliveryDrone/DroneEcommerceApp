@@ -8,12 +8,13 @@
 
 import UIKit
 import Firebase
+import FirebaseStorage
 
 
 class CellClass: UITableViewCell {
     
 }
-class AddProductViewController: UIViewController {
+class AddProductViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
     
     @IBOutlet weak var productTitle: UITextField!
@@ -25,7 +26,9 @@ class AddProductViewController: UIViewController {
     @IBOutlet weak var categoryButton: UIButton!
     @IBOutlet weak var productImage: UIImageView!
     
+    var imageURL: String = ""
     var ref: DatabaseReference!
+    var storageRef: StorageReference!
     
     let transparentView = UIView()
     let tableView = UITableView()
@@ -40,16 +43,46 @@ class AddProductViewController: UIViewController {
         ref = Database.database().reference()
         
         
+        
     
         tableView.delegate = self
         tableView.dataSource = self
         tableView.register(CellClass.self, forCellReuseIdentifier: "Cell")
+        productImage.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(handleSelectProfileImageView)))
+        productImage.isUserInteractionEnabled = true
         // Do any additional setup after loading the view.
     }
     
+    @objc func handleSelectProfileImageView () {
+        let picker = UIImagePickerController()
+        picker.delegate = self
+        picker.allowsEditing = true
+        
+        present(picker, animated: true, completion: nil)
+    }
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        print("selecting")
+        var selectedImageFromPicker: UIImage?
+        if let editedImage = info[.editedImage] as? UIImage {
+            selectedImageFromPicker = editedImage
+        } else if let originalImage = info[.originalImage] as? UIImage{
+            selectedImageFromPicker = originalImage
+        }
+
+        if let selectedImage = selectedImageFromPicker {
+            print("changing image")
+            productImage.image = selectedImage
+        }
+        dismiss(animated: true, completion: nil)
+    }
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        dismiss(animated: true, completion: nil)
+    }
+    
     @IBAction func Add(_ sender: Any) {
+        
+        
         let categoryText = categoryButton.titleLabel?.text as! String
-        print("yote:"+categoryText)
         if (productTitle.text?.isEmpty ?? true || price.text?.isEmpty ?? true || amount.text?.isEmpty ?? true || desc.text?.isEmpty ?? true || productLink.text?.isEmpty ?? true) {
             
             print("THERE IS AN ERROR")
@@ -89,28 +122,34 @@ class AddProductViewController: UIViewController {
                     
                     self.ref.child("UserInfo").child(Auth.auth().currentUser!.uid).child("Products").updateChildValues(["Index" : index+1])
                     
-                    var productList = ["Product":self.productTitle.text, "Price": priceInt, "Amount":amountInt, "Description" : self.desc.text, "Link" : self.productLink.text, "Company" : name, "Index":index, "Category": categoryText, "companyID" :Auth.auth().currentUser!.uid] as [String : Any]
-                    self.ref.child("Storage").child(categoryText).child(Auth.auth().currentUser!.uid).child(String(index)).setValue(productList)
+                    self.storageRef = Storage.storage().reference().child("ProductImages").child(Auth.auth().currentUser!.uid).child("\(self.productTitle.text as! String).png")
+                    if let uploadData = self.productImage.image?.pngData() {
+                        print("storing image")
+                        self.storageRef.putData(uploadData, metadata: nil) { (metadata, error) in
+                            if (error != nil) {
+                                
+                                print(error)
+                                return
+                            }
+                            self.storageRef.downloadURL(completion: { (url, error) in
+                                if let err = error {
+                                    print("-----------------")
+                                    print("there was an error")
+                                    print("----------------")
+                                    print(err)
+                                } else {
+                                    self.imageURL = url!.absoluteString
+                                    self.addProduct(self.imageURL, priceInt!, amountInt!, name, categoryText, index)
+                                }
+                            })
+                            
+                            
+                        }
+                    }
                     
-                    self.ref.child("Storage").child(categoryText).child(Auth.auth().currentUser!.uid).updateChildValues(["companyID" :Auth.auth().currentUser!.uid ])
-                        
-                    
-                    self.ref.child("UserInfo").child(Auth.auth().currentUser!.uid).child("Products").child(String(index)).updateChildValues(productList)
                     
                     
-                    //                    self.ref.child("UserInfo").child(Auth.auth().currentUser!.uid).child("Products").observeSingleEvent(of: .value, with: { (snapshot) in
-                    //                        guard let value1 = snapshot.value as? NSDictionary else {
-                    //                            print("No Data!!!")
-                    //                            return
-                    //                        }
-                    //                        let i = value1["Index"] as! Int
-                    //
-                    //                        self.ref.child("UserInfo").child(Auth.auth().currentUser!.uid).child("Products").child(String(i)).updateChildValues(productList)
-                    //                        self.ref.child("UserInfo").child(Auth.auth().currentUser!.uid).child("Products").updateChildValues(["Index": i+1])
-                    //
-                    //                    }) { (error) in
-                    //                        print("error:\(error.localizedDescription)")
-                    //                    }
+                    
                     
                     self.performSegue(withIdentifier: "backToCompanyHome", sender: self)
                     
@@ -129,6 +168,17 @@ class AddProductViewController: UIViewController {
             
             
         }
+    }
+    
+    func addProduct(_ url : String, _ priceInt : Int, _ amountInt : Int, _ name : String, _ categoryText : String, _ index : Int) {
+        var productList = ["Product":self.productTitle.text, "Price": priceInt, "Amount":amountInt, "Description" : self.desc.text, "Link" : self.productLink.text, "Company" : name, "Index":index, "Category": categoryText, "companyID" :Auth.auth().currentUser!.uid, "ProductImage": url] as [String : Any]
+       self.ref.child("Storage").child(categoryText).child(Auth.auth().currentUser!.uid).child(String(index)).setValue(productList)
+       
+       self.ref.child("Storage").child(categoryText).child(Auth.auth().currentUser!.uid).updateChildValues(["companyID" :Auth.auth().currentUser!.uid ])
+           
+       
+       self.ref.child("UserInfo").child(Auth.auth().currentUser!.uid).child("Products").child(String(index)).updateChildValues(productList)
+       
     }
     @IBAction func categoryChoose(_ sender: Any) {
         dataSource = ["Food", "Supplies", "Gadgets", "Clothing", "Stationaries"]

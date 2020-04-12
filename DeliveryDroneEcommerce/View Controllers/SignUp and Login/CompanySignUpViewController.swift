@@ -58,10 +58,8 @@ class CompanySignUpViewController: UIViewController, UIImagePickerControllerDele
         print("selecting")
         var selectedImageFromPicker: UIImage?
         if let editedImage = info[.editedImage] as? UIImage {
-            print(1234)
             selectedImageFromPicker = editedImage
         } else if let originalImage = info[.originalImage] as? UIImage{
-            print(5678)
             selectedImageFromPicker = originalImage
         }
 
@@ -72,7 +70,6 @@ class CompanySignUpViewController: UIViewController, UIImagePickerControllerDele
         dismiss(animated: true, completion: nil)
     }
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
-        print(789)
         dismiss(animated: true, completion: nil)
     }
     
@@ -101,7 +98,7 @@ class CompanySignUpViewController: UIViewController, UIImagePickerControllerDele
         } else {
             Auth.auth().createUser(withEmail: email.text!, password: password.text!) { (user, error) in
                 if (error == nil) {
-                    self.storageRef = Storage.storage().reference().child("\(self.Name.text as! String).png")
+                    self.storageRef = Storage.storage().reference().child("CompanyImages").child("\(self.Name.text as! String).png")
                     if let uploadData = self.companyImage.image?.pngData() {
                         print("storing image")
                         self.storageRef.putData(uploadData, metadata: nil) { (metadata, error) in
