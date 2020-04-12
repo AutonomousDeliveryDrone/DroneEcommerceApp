@@ -151,7 +151,7 @@ class AddProductViewController: UIViewController, UIImagePickerControllerDelegat
                     
                     
                     
-                    self.performSegue(withIdentifier: "backToCompanyHome", sender: self)
+                    
                     
                     
                     
@@ -178,6 +178,8 @@ class AddProductViewController: UIViewController, UIImagePickerControllerDelegat
            
        
        self.ref.child("UserInfo").child(Auth.auth().currentUser!.uid).child("Products").child(String(index)).updateChildValues(productList)
+        
+        self.performSegue(withIdentifier: "backToCompanyHome", sender: self)
        
     }
     @IBAction func categoryChoose(_ sender: Any) {

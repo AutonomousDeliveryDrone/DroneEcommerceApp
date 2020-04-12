@@ -39,6 +39,7 @@ class ProductViewController: UIViewController, UICollectionViewDelegate, UIColle
     var desc1 : String = ""
     var link1 : String = ""
     var index1 : Int = 0
+    var imageURL : String = ""
     
     var productList: [Product] = []
     
@@ -81,10 +82,10 @@ class ProductViewController: UIViewController, UICollectionViewDelegate, UIColle
                 let price = value["Price"] as! Int
                 let category = value["Category"] as! String
                 let compID = value["companyID"] as! String
-//                let image = value["productImage"] as! String
+                let image = value["ProductImage"] as! String
                 
                 
-                let productStorage = Product(name: name, price: price, amount: amount, desc: desc, link: link, company: company, category: category, companyID: compID, index: index, productImage:"")
+                let productStorage = Product(name: name, price: price, amount: amount, desc: desc, link: link, company: company, category: category, companyID: compID, index: index, productImage:image)
                 
                 self.productList.append(productStorage)
                 self.collectionView.reloadData()
@@ -97,13 +98,14 @@ class ProductViewController: UIViewController, UICollectionViewDelegate, UIColle
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if (segue.identifier == "toUserOrder") {
             let secondVC = segue.destination as! UserOrderViewController
-//            secondVC.company = company
-//            secondVC.categoryType = categoryType
-//            secondVC.name = name1
-//            secondVC.price = price1
-//            secondVC.desc = desc1
-//            secondVC.link = link1
-//            secondVC.index = index1
+            secondVC.company = company
+            secondVC.categoryType = categoryType
+            secondVC.name = name1
+            secondVC.price = price1
+            secondVC.desc = desc1
+            secondVC.link = link1
+            secondVC.index = index1
+            secondVC.url = imageURL
         }
     }
     
@@ -127,13 +129,20 @@ class ProductViewController: UIViewController, UICollectionViewDelegate, UIColle
         
 //        declare
 
-        
-        
-        cell.imageCell.image = imagesF[cellIndex]
         cell.labelTitle.text = productList[cellIndex].name
         cell.labelTitle.font = cell.labelTitle.font.withSize(closeFrameSize * relativeFontCellTitle)
-        cell.labelDetails.text =  String(productList[cellIndex].price)
+        cell.labelDetails.text =  "$" + String(productList[cellIndex].price)
         cell.labelDetails.font = cell.labelDetails.font.withSize(closeFrameSize * relativeFontCellDescription)
+        
+        let imageURL = productList[indexPath.row].productImage
+        cell.imageCell?.sd_setImage(with: URL(string: imageURL), placeholderImage: UIImage(named: "Products"), options: .highPriority, progress: nil, completed: { (downloadImage, downloadException, cacheType, downloadURL) in
+            
+            if let downloadException = downloadException {
+                print("Error downloading an image: \(downloadException.localizedDescription)")
+            } else {
+                print("Succesfully donwloaded image")
+            }
+        })
         
         
         cell.contentView.layer.cornerRadius = 10
@@ -199,6 +208,7 @@ extension ProductViewController : UICollectionViewDelegateFlowLayout {
         desc1 = productList[indexPath.row].desc
         link1 = productList[indexPath.row].link
         index1 = productList[indexPath.row].index
+        imageURL = productList[indexPath.row].productImage
         
         performSegue(withIdentifier: "toUserOrder", sender: self)
         

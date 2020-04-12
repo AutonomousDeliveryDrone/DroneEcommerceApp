@@ -53,9 +53,10 @@ class CompanyHomeViewController: UIViewController {
                 let price = value["Price"] as! Int
                 let category = value["Category"] as! String
                 let compID = value["companyID"] as! String
+                let image = value["ProductImage"] as! String
                 
                 
-                let productStorage = Product(name: name, price: price, amount: amount, desc: desc, link: link, company: company, category: category, companyID: compID, index: index, productImage: "")
+                let productStorage = Product(name: name, price: price, amount: amount, desc: desc, link: link, company: company, category: category, companyID: compID, index: index, productImage: image)
                 
                 self.productList.append(productStorage)
                 self.tableView.reloadData()
@@ -111,6 +112,16 @@ extension CompanyHomeViewController: UITableViewDataSource {
         cell.price.text = "$\(String(current.price)).00"
         cell.category.text = current.category
         cell.amount.text = "Left: \(String(current.amount))"
+        
+        let imageURL = current.productImage
+        cell.prodImage?.sd_setImage(with: URL(string: imageURL), placeholderImage: UIImage(named: "Products"), options: .highPriority, progress: nil, completed: { (downloadImage, downloadException, cacheType, downloadURL) in
+            
+            if let downloadException = downloadException {
+                print("Error downloading an image: \(downloadException.localizedDescription)")
+            } else {
+                print("Succesfully donwloaded image")
+            }
+        })
         
         
         

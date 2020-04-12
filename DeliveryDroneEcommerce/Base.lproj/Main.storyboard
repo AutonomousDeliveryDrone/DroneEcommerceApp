@@ -780,7 +780,7 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="g6C-TO-jeF">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="g6C-TO-jeF">
                                 <rect key="frame" x="54" y="428" width="307" height="238"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
@@ -812,7 +812,6 @@
                         <outlet property="productLink" destination="7o0-m4-s7n" id="wN0-aw-EtI"/>
                         <outlet property="productName" destination="IQB-bt-igu" id="6kA-e0-gwS"/>
                         <outlet property="productPrice" destination="b6C-B7-YPy" id="Kbn-Ib-oRC"/>
-                        <outlet property="title" destination="IQB-bt-igu" id="5iP-fq-P5k"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CnW-Q9-a6Y" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

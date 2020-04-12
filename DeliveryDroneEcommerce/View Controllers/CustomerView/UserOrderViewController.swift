@@ -18,6 +18,7 @@ class UserOrderViewController: UIViewController {
     var desc : String = ""
     var link : String = ""
     var index : Int = 0
+    var url : String = ""
     
     @IBOutlet weak var productName: UILabel!
     @IBOutlet weak var productPrice: UILabel!
@@ -29,11 +30,18 @@ class UserOrderViewController: UIViewController {
         super.viewDidLoad()
         
         productName.text = name
-        productPrice.text = String(price)
+        productPrice.text = "$" + String(price)
         productDesc.text = desc
         productLink.text = link
         
-        
+        productImage?.sd_setImage(with: URL(string: url), placeholderImage: UIImage(named: "Products"), options: .highPriority, progress: nil, completed: { (downloadImage, downloadException, cacheType, downloadURL) in
+            
+            if let downloadException = downloadException {
+                print("Error downloading an image: \(downloadException.localizedDescription)")
+            } else {
+                print("Succesfully donwloaded image")
+            }
+        })
 
         // Do any additional setup after loading the view.
     }
