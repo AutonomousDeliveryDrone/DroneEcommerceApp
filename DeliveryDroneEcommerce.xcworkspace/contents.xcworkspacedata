@@ -2,6 +2,12 @@
 <Workspace
    version = "1.0">
    <FileRef
+      location = "group:/Users/gavinwong/Desktop/Repos/DroneEcommerceApp/DeliveryDroneEcommerce/Cells/CustomerOrderCell.swift">
+   </FileRef>
+   <FileRef
+      location = "group:/Users/gavinwong/Desktop/Repos/DroneEcommerceApp/DeliveryDroneEcommerce/Cells/CustomerOrderCell.xib">
+   </FileRef>
+   <FileRef
       location = "group:DeliveryDroneEcommerce.xcodeproj">
    </FileRef>
    <FileRef
