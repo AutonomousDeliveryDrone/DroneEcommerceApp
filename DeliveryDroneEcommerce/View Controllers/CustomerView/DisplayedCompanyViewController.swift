@@ -103,35 +103,6 @@ extension DisplayedCompanyViewController: UITableViewDataSource {
             }
         })
         
-
-
-            
-//        hi.sd_setImage(with: URL(string: "http://www.domain.com/path/to/image.jpg"), placeholderImage: UIImage(named: "placeholder.png"))
-//        let file = URL(string: companies[indexPath.row].imageURL)!
-//        cell.imageView?.load(url: file )
-        
-        
-        
-        
-        
-        
-//        tableView.reloadData()
-//        cell.imageView
-        
-//        let companyImage = companies[indexPath.row].imageURL
-//        let url = NSURL(string: companyImage)
-//        URLSession.shared.dataTask(with: url! as URL, completionHandler: { (data, response, error) in
-//
-//            //download hit an error so return
-//            if (error != nil) {
-//                print(error)
-//                return
-//            }
-//
-//            cell.companyImage?.image = UIImage(data: data!)
-//
-//
-//            }).resume()
         
         return cell
     }
