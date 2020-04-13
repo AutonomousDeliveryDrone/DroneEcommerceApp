@@ -11,6 +11,6 @@ import Foundation
 struct Order {
     var name: String
     var company: String
-    var cost : String
-//    var image : String
+    var cost : Int
+    var image : String
 }
