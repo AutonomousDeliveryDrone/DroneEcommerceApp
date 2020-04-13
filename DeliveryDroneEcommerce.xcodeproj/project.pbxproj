@@ -41,8 +41,6 @@
 /* Begin PBXFileReference section */
 		3B7BD32E85583476F2592404 /* Pods-DeliveryDroneEcommerce.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DeliveryDroneEcommerce.release.xcconfig"; path = "Target Support Files/Pods-DeliveryDroneEcommerce/Pods-DeliveryDroneEcommerce.release.xcconfig"; sourceTree = "<group>"; };
 		472A1D2E244418440044EAC5 /* OrdersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrdersViewController.swift; sourceTree = "<group>"; };
-		472A1D3424441F8D0044EAC5 /* CustomerOrderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CustomerOrderCell.swift; path = /Users/gavinwong/Desktop/Repos/DroneEcommerceApp/DeliveryDroneEcommerce/Cells/CustomerOrderCell.swift; sourceTree = "<absolute>"; };
-		472A1D3524441F8D0044EAC5 /* CustomerOrderCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = CustomerOrderCell.xib; path = /Users/gavinwong/Desktop/Repos/DroneEcommerceApp/DeliveryDroneEcommerce/Cells/CustomerOrderCell.xib; sourceTree = "<absolute>"; };
 		4737772D24413469006648D6 /* CompanyCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompanyCell.swift; sourceTree = "<group>"; };
 		4737772E24413469006648D6 /* CompanyCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CompanyCell.xib; sourceTree = "<group>"; };
 		47377731244135C2006648D6 /* Company.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Company.swift; sourceTree = "<group>"; };
@@ -140,8 +138,6 @@
 		479DB37D243ED78F00F10F95 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
-				472A1D3424441F8D0044EAC5 /* CustomerOrderCell.swift */,
-				472A1D3524441F8D0044EAC5 /* CustomerOrderCell.xib */,
 				4737772D24413469006648D6 /* CompanyCell.swift */,
 				4737772E24413469006648D6 /* CompanyCell.xib */,
 				479DB37E243ED7AB00F10F95 /* CategoryCell.swift */,
