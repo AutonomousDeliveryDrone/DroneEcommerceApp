@@ -66,17 +66,40 @@ class UserOrderViewController: UIViewController {
     
     @IBAction func orderPressed(_ sender: Any) {
         
-    
+        
+        
+        
         let productStorage = Product(name: name, price: price, amount: amount, desc: desc, link: link, company: company, category: categoryType, companyID: compID, index: index, productImage:url)
         
+        
         var productList = ["Product":productStorage.name, "Price": productStorage.price, "Amount":productStorage.amount, "Description" : productStorage.desc, "Link" : productStorage.link, "Company" : productStorage.company, "Index":productStorage.index, "Category": productStorage.category, "companyID" :productStorage.companyID, "ProductImage": productStorage.productImage] as [String : Any]
-        
-        ref.child("Orders").child("Users").child(Auth.auth().currentUser!.uid).child("Product").setValue(productList)
-        ref.child("Orders").child("Companies").child(compID).child("Product").setValue(productList)
-        
-        
-        
+        self.ref.child("UserInfo").child(Auth.auth().currentUser!.uid).child("Information").observeSingleEvent(of: .value, with: { (snapshot) in
+            guard let value = snapshot.value as? NSDictionary else {
+                print("No Data!")
+                return
+            }
+            
+            let address = value["Address"] as! String
+            
+            self.ref.child("Orders").observeSingleEvent(of: .value, with: { (snapshot1) in
+                guard let value0 = snapshot1.value as? NSDictionary else {
+                    print("No Data!")
+                    return
+                }
+                let place = value0["orderNum"] as! Int
+                
+                self.ref.child("Orders").child("Users").child(Auth.auth().currentUser!.uid).child(String(place)).child("Product").updateChildValues(productList)
+                
+                
+                self.ref.child("Orders").child("Companies").child(self.compID).child(String(place)).child("Product").updateChildValues(productList)
+                self.ref.child("Orders").child("Companies").child(self.compID).child(String(place)).updateChildValues(["Address": address])
+                self.ref.child("Orders").updateChildValues(["orderNum" : place+1])
+                
+                
+            })
+        })
     }
+    
     
     
     
