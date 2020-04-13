@@ -12,7 +12,8 @@ import SDWebImage
 
 class OrdersViewController: UIViewController {
 
-    var orders: [Order] = []
+    var orders: [Order] = [Order(name: "Apples", company: "Walmart", cost: "15"),
+                           Order(name: "Oranges", company: "Target", cost: "20")]
     var ref : DatabaseReference!
     @IBOutlet weak var tableView: UITableView!
     override func viewDidLoad() {
@@ -22,6 +23,11 @@ class OrdersViewController: UIViewController {
         ref = Database.database().reference()
 
         tableView.register(UINib(nibName: "CustomerOrderCell", bundle: nil), forCellReuseIdentifier: "CustomerOrderCell")
+    }
+    
+    //Mike do this part. Goes with firebase part
+    func retrieveOrders() {
+        
     }
     
 }
@@ -37,7 +43,10 @@ extension OrdersViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "CustomerCellOrder", for: indexPath) as! CustomerOrderCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "CustomerOrderCell", for: indexPath) as! CustomerOrderCell
+        cell.productName.text = orders[indexPath.row].name
+        cell.cost.text = orders[indexPath.row].cost
+        cell.company.text = orders[indexPath.row].company
         return cell
     }
     

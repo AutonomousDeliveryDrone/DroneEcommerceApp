@@ -316,7 +316,7 @@
             </objects>
             <point key="canvasLocation" x="2211.594202898551" y="126.5625"/>
         </scene>
-        <!--Order-->
+        <!--Categories-->
         <scene sceneID="3mq-1m-ZXg">
             <objects>
                 <viewController automaticallyAdjustsScrollViewInsets="NO" modalPresentationStyle="fullScreen" id="o89-Jk-cf7" customClass="UserHomeViewController" customModule="DeliveryDroneEcommerce" customModuleProvider="target" sceneMemberID="viewController">
@@ -333,7 +333,7 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="hT7-w3-C0Y"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Order" id="5QI-pb-amI">
+                    <navigationItem key="navigationItem" title="Categories" id="5QI-pb-amI">
                         <barButtonItem key="leftBarButtonItem" style="plain" id="d2D-mc-TDA">
                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="eJk-du-DtS">
                                 <rect key="frame" x="20" y="7" width="92" height="30"/>
@@ -343,6 +343,12 @@
                                     <action selector="signOut:" destination="o89-Jk-cf7" eventType="touchUpInside" id="n7Z-Hy-AMp"/>
                                 </connections>
                             </button>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="Item" image="bag.fill" catalog="system" width="10" style="plain" id="mac-VR-Vve">
+                            <inset key="largeContentSizeImageInsets" minX="0.0" minY="1" maxX="0.0" maxY="1"/>
+                            <connections>
+                                <segue destination="K2A-1z-xwE" kind="show" id="qh5-CB-dCY"/>
+                            </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
@@ -380,7 +386,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cXb-y4-z5C" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="6065" y="-559"/>
+            <point key="canvasLocation" x="6145" y="-131"/>
         </scene>
         <!--Instructions View Controller-->
         <scene sceneID="hGM-yu-VDA">
@@ -744,14 +750,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="A7N-gu-j7s"/>
                     </view>
-                    <navigationItem key="navigationItem" id="vFh-rI-yPq">
-                        <barButtonItem key="rightBarButtonItem" title="Item" image="bag.fill" catalog="system" style="plain" id="mac-VR-Vve">
-                            <inset key="largeContentSizeImageInsets" minX="0.0" minY="1" maxX="0.0" maxY="1"/>
-                            <connections>
-                                <segue destination="K2A-1z-xwE" kind="show" id="qh5-CB-dCY"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" id="vFh-rI-yPq"/>
                     <connections>
                         <outlet property="collectionView" destination="D9J-qc-tTE" id="AtS-nr-aeS"/>
                         <segue destination="rdM-cJ-ofn" kind="show" identifier="toUserOrder" id="dfj-jC-vj4"/>
@@ -759,7 +758,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ab4-et-kAk" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="7112" y="-559"/>
+            <point key="canvasLocation" x="7104" y="-131"/>
         </scene>
         <!--User Order View Controller-->
         <scene sceneID="MPD-hL-7g6">
@@ -826,7 +825,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CnW-Q9-a6Y" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="8281" y="-88"/>
+            <point key="canvasLocation" x="8184" y="-131"/>
         </scene>
         <!--Orders View Controller-->
         <scene sceneID="bXt-kl-hwH">
@@ -852,7 +851,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3Cd-oC-4v6" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="8279.710144927536" y="-860.49107142857144"/>
+            <point key="canvasLocation" x="6145" y="-891"/>
         </scene>
     </scenes>
     <resources>
