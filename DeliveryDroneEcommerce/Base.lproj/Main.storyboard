@@ -807,6 +807,9 @@
                                 <rect key="frame" x="187" y="771" width="40" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Order"/>
+                                <connections>
+                                    <action selector="orderPressed:" destination="rdM-cJ-ofn" eventType="touchUpInside" id="Hnn-p7-mz9"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
