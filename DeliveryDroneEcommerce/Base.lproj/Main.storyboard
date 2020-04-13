@@ -353,7 +353,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NIN-K5-k60" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4203" y="108"/>
+            <point key="canvasLocation" x="5096" y="-559"/>
         </scene>
         <!--Displayed Company View Controller-->
         <scene sceneID="swU-tt-87K">
@@ -380,7 +380,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cXb-y4-z5C" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5557.971014492754" y="123.88392857142857"/>
+            <point key="canvasLocation" x="6065" y="-559"/>
         </scene>
         <!--Instructions View Controller-->
         <scene sceneID="hGM-yu-VDA">
@@ -744,7 +744,14 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="A7N-gu-j7s"/>
                     </view>
-                    <navigationItem key="navigationItem" id="vFh-rI-yPq"/>
+                    <navigationItem key="navigationItem" id="vFh-rI-yPq">
+                        <barButtonItem key="rightBarButtonItem" title="Item" image="bag.fill" catalog="system" style="plain" id="mac-VR-Vve">
+                            <inset key="largeContentSizeImageInsets" minX="0.0" minY="1" maxX="0.0" maxY="1"/>
+                            <connections>
+                                <segue destination="K2A-1z-xwE" kind="show" id="qh5-CB-dCY"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="collectionView" destination="D9J-qc-tTE" id="AtS-nr-aeS"/>
                         <segue destination="rdM-cJ-ofn" kind="show" identifier="toUserOrder" id="dfj-jC-vj4"/>
@@ -752,7 +759,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ab4-et-kAk" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="6908.6956521739139" y="126.5625"/>
+            <point key="canvasLocation" x="7112" y="-559"/>
         </scene>
         <!--User Order View Controller-->
         <scene sceneID="MPD-hL-7g6">
@@ -816,7 +823,23 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CnW-Q9-a6Y" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="8094.202898550725" y="129.91071428571428"/>
+            <point key="canvasLocation" x="8281" y="-88"/>
+        </scene>
+        <!--Orders View Controller-->
+        <scene sceneID="bXt-kl-hwH">
+            <objects>
+                <viewController id="K2A-1z-xwE" customClass="OrdersViewController" customModule="DeliveryDroneEcommerce" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="COA-yI-aUm">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="oeh-nG-Ceb"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="TKj-dD-ebo"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="3Cd-oC-4v6" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="8280" y="-860"/>
         </scene>
     </scenes>
     <resources>
@@ -824,6 +847,7 @@
         <image name="Icon" width="182.5" height="204.5"/>
         <image name="Screen Shot 2020-04-08 at 1.55.16 AM" width="564" height="1064"/>
         <image name="Slide1" width="240" height="361"/>
+        <image name="bag.fill" catalog="system" width="64" height="64"/>
         <image name="plus" catalog="system" width="64" height="56"/>
         <image name="plus.square" catalog="system" width="64" height="56"/>
     </resources>

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		472A1D2F244418440044EAC5 /* OrdersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 472A1D2E244418440044EAC5 /* OrdersViewController.swift */; };
 		4737772F24413469006648D6 /* CompanyCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4737772D24413469006648D6 /* CompanyCell.swift */; };
 		4737773024413469006648D6 /* CompanyCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4737772E24413469006648D6 /* CompanyCell.xib */; };
 		47377732244135C2006648D6 /* Company.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47377731244135C2006648D6 /* Company.swift */; };
@@ -39,6 +40,7 @@
 
 /* Begin PBXFileReference section */
 		3B7BD32E85583476F2592404 /* Pods-DeliveryDroneEcommerce.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DeliveryDroneEcommerce.release.xcconfig"; path = "Target Support Files/Pods-DeliveryDroneEcommerce/Pods-DeliveryDroneEcommerce.release.xcconfig"; sourceTree = "<group>"; };
+		472A1D2E244418440044EAC5 /* OrdersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrdersViewController.swift; sourceTree = "<group>"; };
 		4737772D24413469006648D6 /* CompanyCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompanyCell.swift; sourceTree = "<group>"; };
 		4737772E24413469006648D6 /* CompanyCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CompanyCell.xib; sourceTree = "<group>"; };
 		47377731244135C2006648D6 /* Company.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Company.swift; sourceTree = "<group>"; };
@@ -118,6 +120,7 @@
 				890437DD244266D10064A9E5 /* UserOrderViewController.swift */,
 				891C6B7E244061C200919896 /* DisplayedCompanyViewController.swift */,
 				890437D924415CDC0064A9E5 /* ProductViewController.swift */,
+				472A1D2E244418440044EAC5 /* OrdersViewController.swift */,
 			);
 			path = CustomerView;
 			sourceTree = "<group>";
@@ -331,6 +334,7 @@
 				8954B36C243EA6E9007039CB /* AppDelegate.swift in Sources */,
 				8954B36E243EA6E9007039CB /* SceneDelegate.swift in Sources */,
 				479DB380243ED7AB00F10F95 /* CategoryCell.swift in Sources */,
+				472A1D2F244418440044EAC5 /* OrdersViewController.swift in Sources */,
 				890437DE244266D10064A9E5 /* UserOrderViewController.swift in Sources */,
 				8954B386243EA7AE007039CB /* LoginViewController.swift in Sources */,
 				891C6B7F244061C200919896 /* DisplayedCompanyViewController.swift in Sources */,
