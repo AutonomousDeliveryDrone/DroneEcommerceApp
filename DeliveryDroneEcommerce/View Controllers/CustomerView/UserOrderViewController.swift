@@ -7,9 +7,10 @@
 //
 
 import UIKit
+import Firebase
 
 class UserOrderViewController: UIViewController {
-
+    
     
     var company : String = ""
     var categoryType : String = ""
@@ -19,6 +20,8 @@ class UserOrderViewController: UIViewController {
     var link : String = ""
     var index : Int = 0
     var url : String = ""
+    var amount : Int = 0
+    var compID : String = ""
     
     @IBOutlet weak var productName: UILabel!
     @IBOutlet weak var productPrice: UILabel!
@@ -26,8 +29,12 @@ class UserOrderViewController: UIViewController {
     
     @IBOutlet weak var productDesc: UITextView!
     @IBOutlet weak var productLink: UILabel!
+    
+    var ref: DatabaseReference!
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        ref = Database.database().reference()
         
         productName.text = name
         productPrice.text = "$" + String(price)
@@ -42,21 +49,35 @@ class UserOrderViewController: UIViewController {
                 print("Succesfully donwloaded image")
             }
         })
-
+        
         // Do any additional setup after loading the view.
     }
     
-
+    
     /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+     // MARK: - Navigation
+     
+     // In a storyboard-based application, you will often want to do a little preparation before navigation
+     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+     // Get the new view controller using segue.destination.
+     // Pass the selected object to the new view controller.
+     }
+     */
+    
     @IBAction func orderPressed(_ sender: Any) {
+        
+    
+        let productStorage = Product(name: name, price: price, amount: amount, desc: desc, link: link, company: company, category: categoryType, companyID: compID, index: index, productImage:url)
+        
+        var productList = ["Product":productStorage.name, "Price": productStorage.price, "Amount":productStorage.amount, "Description" : productStorage.desc, "Link" : productStorage.link, "Company" : productStorage.company, "Index":productStorage.index, "Category": productStorage.category, "companyID" :productStorage.companyID, "ProductImage": productStorage.productImage] as [String : Any]
+        
+        ref.child("Orders").child("Users").child(Auth.auth().currentUser!.uid).child("Product").setValue(productList)
+        ref.child("Orders").child("Companies").child(compID).child("Product").setValue(productList)
+        
+        
+        
     }
+    
+    
+    
 }

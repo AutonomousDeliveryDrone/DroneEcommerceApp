@@ -40,6 +40,8 @@ class ProductViewController: UIViewController, UICollectionViewDelegate, UIColle
     var link1 : String = ""
     var index1 : Int = 0
     var imageURL : String = ""
+    var amount1 : Int = 0
+    var compID : String  = ""
     
     var productList: [Product] = []
     
@@ -106,6 +108,8 @@ class ProductViewController: UIViewController, UICollectionViewDelegate, UIColle
             secondVC.link = link1
             secondVC.index = index1
             secondVC.url = imageURL
+            secondVC.amount = amount1
+            secondVC.compID = compID
         }
     }
     
@@ -209,6 +213,8 @@ extension ProductViewController : UICollectionViewDelegateFlowLayout {
         link1 = productList[indexPath.row].link
         index1 = productList[indexPath.row].index
         imageURL = productList[indexPath.row].productImage
+        amount1 = productList[indexPath.row].amount
+        compID = productList[indexPath.row].companyID
         
         performSegue(withIdentifier: "toUserOrder", sender: self)
         
