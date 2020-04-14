@@ -12,7 +12,7 @@ struct CompanyOrder {
     var productName: String
     var price: Int
 //    var description: String
-//    var customerName: String
+    var customerName: String
     var address : String
     var time: String
     var place: Int

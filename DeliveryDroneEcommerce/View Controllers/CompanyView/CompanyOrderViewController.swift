@@ -54,6 +54,7 @@ class CompanyOrderViewController: UIViewController {
                         let place = value["Place"] as! Int
                         let desc = value["Description"] as! String
                         let address = value["Address"] as! String
+                        let name = value["CustomerName"] as! String
                         let time = value["Time"] as! String
                         
                         
@@ -66,7 +67,7 @@ class CompanyOrderViewController: UIViewController {
                             let Name = val["Company"] as! String
                             let Image = val["CompanyImage"] as! String
                             
-                            let order = CompanyOrder(productName: product, price: price, address: address, time: time, place: place)
+                            let order = CompanyOrder(productName: product, price: price, customerName: name, address: address, time: time, place: place)
                             self.orders.append(order)
                             self.orders.sort(by: {$0.place < $1.place})
                             print("Prduct:" + product)
@@ -90,9 +91,9 @@ extension CompanyOrderViewController: UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: "CompanyOrderCell", for: indexPath) as! CompanyOrderCell
 //        cell.productDescription.text = orders[indexPath.row].description
         cell.productName.text = orders[indexPath.row].productName
-        cell.customerAddress.text = orders[indexPath.row].address
-        cell.timePurchased.text = orders[indexPath.row].time
-//        cell.customerName.text = orders[indexPath.row].customerName
+        cell.customerAddress.text = "Deliver to: \(orders[indexPath.row].address)"
+        cell.timePurchased.text = "Time purchased: \(orders[indexPath.row].time)"
+        cell.customerName.text = "Customer: \(orders[indexPath.row].customerName)"
         cell.price.text = "$\(orders[indexPath.row].price)"
         return cell
     }
