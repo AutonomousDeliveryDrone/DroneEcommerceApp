@@ -18,6 +18,17 @@ class CompanyHomeViewController: UIViewController {
     
     var productList: [Product] = [Product]()
     
+    var company : String = ""
+    var categoryType : String = ""
+    var name1 : String = ""
+    var price1 : Int = 0
+    var desc1 : String = ""
+    var link1 : String = ""
+    var index1 : Int = 0
+    var imageURL : String = ""
+    var amount1 : Int = 0
+    var compID : String  = ""
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -27,7 +38,7 @@ class CompanyHomeViewController: UIViewController {
         ref = Database.database().reference()
         retrieveData()
         
-
+        
         // Do any additional setup after loading the view.
     }
     
@@ -38,7 +49,7 @@ class CompanyHomeViewController: UIViewController {
             //        print("retrieve data: " + String(Data.childrenCount))
             //
             for children in snapshot.children.allObjects as! [DataSnapshot] {
-//                print(snapshot)
+                //                print(snapshot)
                 guard let value = children.value as? NSDictionary else {
                     print("could not collect label data")
                     return
@@ -66,21 +77,36 @@ class CompanyHomeViewController: UIViewController {
         }
     }
     
-
-
+    
+    
     
     @IBAction func signOut(_ sender: Any) {
         do {
-                 try Auth.auth().signOut()
-                 performSegue(withIdentifier: "companyBack", sender: self)
-                 
-             }catch let signOutError as NSError {
-                 print("Logout Error")
-             }
-
+            try Auth.auth().signOut()
+            performSegue(withIdentifier: "companyBack", sender: self)
+            
+        }catch let signOutError as NSError {
+            print("Logout Error")
+        }
+        
         
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if (segue.identifier == "toProdView") {
+            let secondVC = segue.destination as! CompanyProductViewController
+            secondVC.company = company
+            secondVC.categoryType = categoryType
+            secondVC.name = name1
+            secondVC.price = price1
+            secondVC.desc = desc1
+            secondVC.link = link1
+            secondVC.index = index1
+            secondVC.url = imageURL
+            secondVC.amount = amount1
+            secondVC.compID = compID
+        }
+    }
     
     
     /*
@@ -133,6 +159,15 @@ extension CompanyHomeViewController: UITableViewDataSource {
 
 extension CompanyHomeViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        name1 = productList[indexPath.row].name
+        price1 = productList[indexPath.row].price
+        desc1 = productList[indexPath.row].desc
+        link1 = productList[indexPath.row].link
+        index1 = productList[indexPath.row].index
+        imageURL = productList[indexPath.row].productImage
+        amount1 = productList[indexPath.row].amount
+        compID = productList[indexPath.row].companyID
+        performSegue(withIdentifier: "toProdView", sender: self)
         print(indexPath.row)
     }
 }

@@ -14,6 +14,7 @@ class CustomerOrderCell: UITableViewCell {
     @IBOutlet weak var productName: UILabel!
     @IBOutlet weak var cost: UILabel!
     @IBOutlet weak var company: UILabel!
+    @IBOutlet weak var status: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()

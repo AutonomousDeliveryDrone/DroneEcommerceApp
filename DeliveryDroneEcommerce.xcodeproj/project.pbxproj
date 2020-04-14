@@ -26,6 +26,7 @@
 		8946FE8F24445F08000ED523 /* CompanyCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4737772D24413469006648D6 /* CompanyCell.swift */; };
 		8946FE9024445F08000ED523 /* ProductCellTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89E2F198243F06AC00138365 /* ProductCellTableViewCell.swift */; };
 		8946FE9124445F0C000ED523 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 479DB37B243ED42C00F10F95 /* Category.swift */; };
+		8946FE93244633D6000ED523 /* CompanyProductViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8946FE92244633D6000ED523 /* CompanyProductViewController.swift */; };
 		8954B36C243EA6E9007039CB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8954B36B243EA6E9007039CB /* AppDelegate.swift */; };
 		8954B36E243EA6E9007039CB /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8954B36D243EA6E9007039CB /* SceneDelegate.swift */; };
 		8954B370243EA6E9007039CB /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8954B36F243EA6E9007039CB /* SignUpViewController.swift */; };
@@ -67,6 +68,7 @@
 		890437DB24417B940064A9E5 /* CollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
 		890437DD244266D10064A9E5 /* UserOrderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserOrderViewController.swift; sourceTree = "<group>"; };
 		891C6B7E244061C200919896 /* DisplayedCompanyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisplayedCompanyViewController.swift; sourceTree = "<group>"; };
+		8946FE92244633D6000ED523 /* CompanyProductViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompanyProductViewController.swift; sourceTree = "<group>"; };
 		8954B368243EA6E9007039CB /* DeliveryDroneEcommerce.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DeliveryDroneEcommerce.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8954B36B243EA6E9007039CB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8954B36D243EA6E9007039CB /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -122,6 +124,7 @@
 			isa = PBXGroup;
 			children = (
 				89E2F1A0243F160900138365 /* AddProductViewController.swift */,
+				8946FE92244633D6000ED523 /* CompanyProductViewController.swift */,
 				89E2F19C243F08D000138365 /* CompanyHomeViewController.swift */,
 				471AE38224456B6C003E2CEF /* CompanyOrderViewController.swift */,
 			);
@@ -366,6 +369,7 @@
 				89E2F1A4243FA5D200138365 /* Product.swift in Sources */,
 				47377732244135C2006648D6 /* Company.swift in Sources */,
 				89E2F1A1243F160900138365 /* AddProductViewController.swift in Sources */,
+				8946FE93244633D6000ED523 /* CompanyProductViewController.swift in Sources */,
 				47F258682444EB7D00596765 /* CustomerOrderCell.swift in Sources */,
 				471AE38924457C3F003E2CEF /* CompanyOrder.swift in Sources */,
 				8954B38A243EAC64007039CB /* InstructionsViewController.swift in Sources */,

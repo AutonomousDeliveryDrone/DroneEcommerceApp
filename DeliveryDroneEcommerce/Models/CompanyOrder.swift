@@ -16,4 +16,8 @@ struct CompanyOrder {
     var address : String
     var time: String
     var place: Int
+    var status : String
+    var userID : String
+    let companyID : String
+    
 }
