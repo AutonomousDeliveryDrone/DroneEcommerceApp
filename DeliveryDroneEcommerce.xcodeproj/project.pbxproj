@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		471AE38324456B6C003E2CEF /* CompanyOrderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 471AE38224456B6C003E2CEF /* CompanyOrderViewController.swift */; };
+		471AE38624456CF4003E2CEF /* CompanyOrderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 471AE38424456CF4003E2CEF /* CompanyOrderCell.swift */; };
+		471AE38724456CF4003E2CEF /* CompanyOrderCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 471AE38524456CF4003E2CEF /* CompanyOrderCell.xib */; };
 		472A1D2F244418440044EAC5 /* OrdersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 472A1D2E244418440044EAC5 /* OrdersViewController.swift */; };
 		4737773024413469006648D6 /* CompanyCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4737772E24413469006648D6 /* CompanyCell.xib */; };
 		47377732244135C2006648D6 /* Company.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47377731244135C2006648D6 /* Company.swift */; };
@@ -43,6 +46,9 @@
 
 /* Begin PBXFileReference section */
 		3B7BD32E85583476F2592404 /* Pods-DeliveryDroneEcommerce.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DeliveryDroneEcommerce.release.xcconfig"; path = "Target Support Files/Pods-DeliveryDroneEcommerce/Pods-DeliveryDroneEcommerce.release.xcconfig"; sourceTree = "<group>"; };
+		471AE38224456B6C003E2CEF /* CompanyOrderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompanyOrderViewController.swift; sourceTree = "<group>"; };
+		471AE38424456CF4003E2CEF /* CompanyOrderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompanyOrderCell.swift; sourceTree = "<group>"; };
+		471AE38524456CF4003E2CEF /* CompanyOrderCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CompanyOrderCell.xib; sourceTree = "<group>"; };
 		472A1D2E244418440044EAC5 /* OrdersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrdersViewController.swift; sourceTree = "<group>"; };
 		4737772D24413469006648D6 /* CompanyCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompanyCell.swift; sourceTree = "<group>"; };
 		4737772E24413469006648D6 /* CompanyCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CompanyCell.xib; sourceTree = "<group>"; };
@@ -115,6 +121,7 @@
 			children = (
 				89E2F1A0243F160900138365 /* AddProductViewController.swift */,
 				89E2F19C243F08D000138365 /* CompanyHomeViewController.swift */,
+				471AE38224456B6C003E2CEF /* CompanyOrderViewController.swift */,
 			);
 			path = CompanyView;
 			sourceTree = "<group>";
@@ -151,6 +158,8 @@
 				479DB37F243ED7AB00F10F95 /* CategoryCell.xib */,
 				89E2F198243F06AC00138365 /* ProductCellTableViewCell.swift */,
 				89E2F199243F06AC00138365 /* ProductCellTableViewCell.xib */,
+				471AE38424456CF4003E2CEF /* CompanyOrderCell.swift */,
+				471AE38524456CF4003E2CEF /* CompanyOrderCell.xib */,
 				890437DB24417B940064A9E5 /* CollectionViewCell.swift */,
 				47F258662444EB7D00596765 /* CustomerOrderCell.swift */,
 				47F258672444EB7D00596765 /* CustomerOrderCell.xib */,
@@ -282,6 +291,7 @@
 				89E2F19B243F06AC00138365 /* ProductCellTableViewCell.xib in Resources */,
 				8954B378243EA6EB007039CB /* Assets.xcassets in Resources */,
 				8954B373243EA6E9007039CB /* Main.storyboard in Resources */,
+				471AE38724456CF4003E2CEF /* CompanyOrderCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -336,6 +346,7 @@
 			files = (
 				8946FE9124445F0C000ED523 /* Category.swift in Sources */,
 				8946FE8F24445F08000ED523 /* CompanyCell.swift in Sources */,
+				471AE38324456B6C003E2CEF /* CompanyOrderViewController.swift in Sources */,
 				8946FE9024445F08000ED523 /* ProductCellTableViewCell.swift in Sources */,
 				89E2F19F243F104900138365 /* CompanySignUpViewController.swift in Sources */,
 				8954B388243EA7BC007039CB /* UserHomeViewController.swift in Sources */,
@@ -355,6 +366,7 @@
 				47F258682444EB7D00596765 /* CustomerOrderCell.swift in Sources */,
 				8954B38A243EAC64007039CB /* InstructionsViewController.swift in Sources */,
 				47F2586B2444EC1500596765 /* Order.swift in Sources */,
+				471AE38624456CF4003E2CEF /* CompanyOrderCell.swift in Sources */,
 				890437DC24417B940064A9E5 /* CollectionViewCell.swift in Sources */,
 				8954B376243EA6E9007039CB /* DeliveryDroneEcommerce.xcdatamodeld in Sources */,
 			);

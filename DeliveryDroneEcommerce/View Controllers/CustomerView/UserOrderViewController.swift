@@ -23,6 +23,7 @@ class UserOrderViewController: UIViewController {
     var amount : Int = 0
     var compID : String = ""
     
+    
     @IBOutlet weak var productName: UILabel!
     @IBOutlet weak var productPrice: UILabel!
     @IBOutlet weak var productImage: UIImageView!
@@ -67,6 +68,12 @@ class UserOrderViewController: UIViewController {
     
     @IBAction func orderPressed(_ sender: Any) {
         
+        let date = Date()
+        let formatter = DateFormatter()
+        formatter.dateStyle = .full
+        formatter.timeStyle = .long
+        formatter.locale = Locale(identifier: "en_US")
+        let time = formatter.string(from: date)
         
         
         
@@ -90,7 +97,7 @@ class UserOrderViewController: UIViewController {
                     return
                 }
                 let place = value0["orderNum"] as! Int
-                let productList = ["Product":productStorage.name, "Price": productStorage.price, "Amount":productStorage.amount, "Description" : productStorage.desc, "Link" : productStorage.link, "Company" : productStorage.company, "Index":productStorage.index, "Category": productStorage.category, "companyID" :productStorage.companyID, "ProductImage": productStorage.productImage, "Address" : address, "Place" : place] as [String : Any]
+                let productList = ["Product":productStorage.name, "Price": productStorage.price, "Amount":productStorage.amount, "Description" : productStorage.desc, "Link" : productStorage.link, "Company" : productStorage.company, "Index":productStorage.index, "Category": productStorage.category, "companyID" :productStorage.companyID, "ProductImage": productStorage.productImage, "Address" : address, "Place" : place, "Time" : time] as [String : Any]
                 
                 
                 self.ref.child("Orders").child("Users").child(Auth.auth().currentUser!.uid).child(String(place)).updateChildValues(productList)

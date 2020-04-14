@@ -216,6 +216,7 @@ extension ProductViewController : UICollectionViewDelegateFlowLayout {
         amount1 = productList[indexPath.row].amount
         compID = productList[indexPath.row].companyID
         
+        
         performSegue(withIdentifier: "toUserOrder", sender: self)
         
         
