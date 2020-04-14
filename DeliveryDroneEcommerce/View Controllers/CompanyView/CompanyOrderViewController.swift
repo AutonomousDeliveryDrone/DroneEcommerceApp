@@ -12,6 +12,7 @@ import SDWebImage
 
 class CompanyOrderViewController: UIViewController {
 
+    var orders : [CompanyOrder] = []
     @IBOutlet weak var tableView: UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,17 +25,26 @@ class CompanyOrderViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
+    func retrieveOrders () {
+        
+    }
+    
 
 
 }
 
 extension CompanyOrderViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 5
+        return orders.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "CompanyOrderCell", for: indexPath) as! CompanyOrderCell
+        cell.productDescription.text = orders[indexPath.row].description
+        cell.productName.text = orders[indexPath.row].productName
+        cell.customerAddress.text = orders[indexPath.row].address
+        cell.customerName.text = orders[indexPath.row].customerName
+        cell.price.text = orders[indexPath.row].price
         return cell
     }
     

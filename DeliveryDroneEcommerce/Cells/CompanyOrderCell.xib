@@ -50,9 +50,16 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="product description" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" highlighted="YES" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wtx-Oi-sBN">
-                        <rect key="frame" x="265" y="-2" width="67" height="68"/>
+                        <rect key="frame" x="185" y="-2" width="67" height="68"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <fontDescription key="fontDescription" type="system" pointSize="8"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Price" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JDs-Gk-b5y">
+                        <rect key="frame" x="353" y="0.0" width="39" height="21"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
@@ -60,7 +67,9 @@
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
-                <outlet property="customerAddress" destination="gFk-6W-drC" id="0df-G3-7cI"/>
+                <outlet property="customerAddress" destination="9nl-uo-HOO" id="a1S-pt-1Ys"/>
+                <outlet property="customerName" destination="gFk-6W-drC" id="vCj-By-MFW"/>
+                <outlet property="price" destination="JDs-Gk-b5y" id="SEv-HO-raP"/>
                 <outlet property="productDescription" destination="Wtx-Oi-sBN" id="at3-4Y-gtf"/>
                 <outlet property="productName" destination="3uW-aR-WFM" id="XYR-na-XHq"/>
                 <outlet property="timePurchased" destination="iQN-uS-aAN" id="tS8-1N-HFp"/>

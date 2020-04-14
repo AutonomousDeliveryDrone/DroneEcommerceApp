@@ -25,9 +25,10 @@ class LoginViewController: UIViewController {
         let date = Date()
         let formatter = DateFormatter()
         formatter.dateStyle = .full
-        formatter.timeStyle = .long
+        formatter.timeStyle = .medium
         formatter.locale = Locale(identifier: "en_US")
         let time = formatter.string(from: date)
+
         
         ref = Database.database().reference()
         // Do any additional setup after loading the view.
