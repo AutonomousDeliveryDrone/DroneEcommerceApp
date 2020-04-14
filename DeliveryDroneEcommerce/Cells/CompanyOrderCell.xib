@@ -16,9 +16,8 @@
                 <rect key="frame" x="0.0" y="0.0" width="395" height="129"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3uW-aR-WFM">
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3uW-aR-WFM">
                         <rect key="frame" x="20" y="17" width="157" height="30"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <attributedString key="attributedText">
                             <fragment content="Product Name">
                                 <attributes>
@@ -28,49 +27,56 @@
                         </attributedString>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Customer name:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gFk-6W-drC">
-                        <rect key="frame" x="36" y="80" width="127" height="21"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Customer address:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9nl-uo-HOO">
+                        <rect key="frame" x="20" y="97" width="146" height="21"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Time purchased:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iQN-uS-aAN">
-                        <rect key="frame" x="36" y="55" width="129" height="21"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Price" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JDs-Gk-b5y">
+                        <rect key="frame" x="336" y="22" width="39" height="21"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Customer address:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9nl-uo-HOO">
-                        <rect key="frame" x="36" y="103" width="146" height="21"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Deliver To:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Lah-fz-yEm">
+                        <rect key="frame" x="62" y="83" width="60" height="15"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="product description" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" highlighted="YES" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wtx-Oi-sBN">
-                        <rect key="frame" x="185" y="-2" width="67" height="68"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="8"/>
-                        <nil key="textColor"/>
-                        <nil key="highlightedColor"/>
-                    </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Price" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JDs-Gk-b5y">
-                        <rect key="frame" x="353" y="0.0" width="39" height="21"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Time purchased:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iQN-uS-aAN">
+                        <rect key="frame" x="20" y="54" width="355" height="21"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
+                <constraints>
+                    <constraint firstAttribute="trailing" secondItem="iQN-uS-aAN" secondAttribute="trailing" constant="20" id="1UC-pE-rDn"/>
+                    <constraint firstItem="iQN-uS-aAN" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" id="2OB-7J-N0S"/>
+                    <constraint firstItem="Lah-fz-yEm" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="62" id="9D3-4E-SSs"/>
+                    <constraint firstAttribute="bottom" secondItem="3uW-aR-WFM" secondAttribute="bottom" constant="82" id="Hua-UU-SAe"/>
+                    <constraint firstItem="Lah-fz-yEm" firstAttribute="top" secondItem="iQN-uS-aAN" secondAttribute="bottom" constant="8" id="ISc-C0-m3O"/>
+                    <constraint firstAttribute="trailing" secondItem="3uW-aR-WFM" secondAttribute="trailing" constant="218" id="OFm-rW-7AF"/>
+                    <constraint firstItem="3uW-aR-WFM" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="17" id="VOm-Ac-ceU"/>
+                    <constraint firstAttribute="trailing" secondItem="JDs-Gk-b5y" secondAttribute="trailing" constant="20" id="ahH-hj-IuJ"/>
+                    <constraint firstAttribute="trailing" secondItem="9nl-uo-HOO" secondAttribute="trailing" constant="229" id="cr9-ov-JbD"/>
+                    <constraint firstItem="3uW-aR-WFM" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" id="d2U-Pn-Pwc"/>
+                    <constraint firstAttribute="trailing" secondItem="Lah-fz-yEm" secondAttribute="trailing" constant="273" id="h5O-wS-ro8"/>
+                    <constraint firstItem="iQN-uS-aAN" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="54" id="heq-tA-mYB"/>
+                    <constraint firstItem="9nl-uo-HOO" firstAttribute="top" secondItem="Lah-fz-yEm" secondAttribute="bottom" constant="-1" id="hyq-XG-Iea"/>
+                    <constraint firstItem="9nl-uo-HOO" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" id="kjd-vP-KCM"/>
+                    <constraint firstAttribute="bottom" secondItem="9nl-uo-HOO" secondAttribute="bottom" constant="11" id="mTC-n6-gTp"/>
+                    <constraint firstItem="JDs-Gk-b5y" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="22" id="vSP-UR-0g6"/>
+                    <constraint firstAttribute="bottom" secondItem="JDs-Gk-b5y" secondAttribute="bottom" constant="86" id="wId-kl-ckq"/>
+                    <constraint firstItem="JDs-Gk-b5y" firstAttribute="leading" secondItem="3uW-aR-WFM" secondAttribute="trailing" constant="159" id="zkc-g2-90w"/>
+                </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
                 <outlet property="customerAddress" destination="9nl-uo-HOO" id="a1S-pt-1Ys"/>
-                <outlet property="customerName" destination="gFk-6W-drC" id="vCj-By-MFW"/>
                 <outlet property="price" destination="JDs-Gk-b5y" id="SEv-HO-raP"/>
-                <outlet property="productDescription" destination="Wtx-Oi-sBN" id="at3-4Y-gtf"/>
                 <outlet property="productName" destination="3uW-aR-WFM" id="XYR-na-XHq"/>
                 <outlet property="timePurchased" destination="iQN-uS-aAN" id="tS8-1N-HFp"/>
             </connections>
