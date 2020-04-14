@@ -17,18 +17,32 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jEO-vk-rhU">
-                        <rect key="frame" x="109.5" y="10" width="168" height="39.5"/>
+                        <rect key="frame" x="120" y="10" width="147" height="33"/>
                         <attributedString key="attributedText">
-                            <fragment content="Product Title">
+                            <fragment content="Product">
                                 <attributes>
-                                    <font key="NSFont" size="28" name="PingFangSC-Regular"/>
+                                    <font key="NSFont" size="28" name="Times-Roman"/>
+                                </attributes>
+                            </fragment>
+                            <fragment content=" ">
+                                <attributes>
+                                    <font key="NSFont" size="28" name="DevanagariMT"/>
+                                </attributes>
+                            </fragment>
+                            <fragment content="Title">
+                                <attributes>
+                                    <font key="NSFont" size="28" name="Times-Roman"/>
                                 </attributes>
                             </fragment>
                         </attributedString>
                         <nil key="highlightedColor"/>
                     </label>
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Ozg-2W-Paf">
-                        <rect key="frame" x="20" y="57" width="180" height="127"/>
+                        <rect key="frame" x="20" y="50.5" width="180" height="133.5"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="133.5" id="el4-Yh-to8"/>
+                            <constraint firstAttribute="width" constant="180" id="hdL-jI-pa6"/>
+                        </constraints>
                     </imageView>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8kP-0r-HSY">
                         <rect key="frame" x="357" y="25" width="18" height="23"/>
@@ -39,29 +53,43 @@
                         </connections>
                     </button>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cag-5P-guv">
-                        <rect key="frame" x="258" y="119.5" width="74" height="28.5"/>
+                        <rect key="frame" x="258" y="130" width="74" height="23"/>
                         <attributedString key="attributedText">
-                            <fragment content="Left: 10">
+                            <fragment content="Left">
                                 <attributes>
-                                    <font key="NSFont" size="20" name="ChalkboardSE-Regular"/>
+                                    <color key="NSColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                    <font key="NSFont" size="20" name="Times-Roman"/>
+                                </attributes>
+                            </fragment>
+                            <fragment content=": 10">
+                                <attributes>
+                                    <color key="NSColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                    <font key="NSFont" size="20" name="DevanagariMT"/>
                                 </attributes>
                             </fragment>
                         </attributedString>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f9Z-6h-XF5">
-                        <rect key="frame" x="239.5" y="147.5" width="111" height="28.5"/>
+                        <rect key="frame" x="239.5" y="152.5" width="111" height="23.5"/>
                         <attributedString key="attributedText">
-                            <fragment content="Ordered: 10">
+                            <fragment content="Ordered">
                                 <attributes>
-                                    <font key="NSFont" size="20" name="ChalkboardSE-Regular"/>
+                                    <color key="NSColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                    <font key="NSFont" size="20" name="Times-Roman"/>
+                                </attributes>
+                            </fragment>
+                            <fragment content=": 10">
+                                <attributes>
+                                    <color key="NSColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                    <font key="NSFont" size="20" name="DevanagariMT"/>
                                 </attributes>
                             </fragment>
                         </attributedString>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="X9X-sh-lhS">
-                        <rect key="frame" x="258" y="63" width="73.5" height="30.5"/>
+                        <rect key="frame" x="258" y="63" width="74" height="30.5"/>
                         <attributedString key="attributedText">
                             <fragment content="$ 15.00">
                                 <attributes>
@@ -71,9 +99,9 @@
                         </attributedString>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Food" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DF8-Rr-0jF">
-                        <rect key="frame" x="7" y="16" width="43" height="26"/>
-                        <fontDescription key="fontDescription" name="PingFangSC-Regular" family="PingFang SC" pointSize="18"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Food" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DF8-Rr-0jF">
+                        <rect key="frame" x="7" y="16" width="37.5" height="21"/>
+                        <fontDescription key="fontDescription" name="Times-Roman" family="Times" pointSize="18"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
