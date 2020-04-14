@@ -821,6 +821,7 @@
                         <outlet property="productLink" destination="7o0-m4-s7n" id="wN0-aw-EtI"/>
                         <outlet property="productName" destination="IQB-bt-igu" id="6kA-e0-gwS"/>
                         <outlet property="productPrice" destination="b6C-B7-YPy" id="Kbn-Ib-oRC"/>
+                        <segue destination="pAw-5x-8bL" kind="presentation" identifier="orderBack" id="Pn5-A2-Hwd"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CnW-Q9-a6Y" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -865,6 +866,7 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="3WI-Oj-mKU"/>
+        <segue reference="Pn5-A2-Hwd"/>
         <segue reference="MZE-tL-85Q"/>
     </inferredMetricsTieBreakers>
 </document>

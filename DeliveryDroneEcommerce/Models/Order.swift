@@ -13,4 +13,5 @@ struct Order {
     var company: String
     var cost : Int
     var image : String
+    var place : Int
 }

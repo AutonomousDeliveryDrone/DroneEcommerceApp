@@ -28,8 +28,13 @@ class OrdersViewController: UIViewController {
     
     //Mike do this part. Goes with firebase part
     func retrieveOrders() {
-        ref.child("Orders").child("Users").child(Auth.auth().currentUser!.uid).observeSingleEvent(of: .value) { (snapshot) in
+        ref.child("Orders").child("Users").child(Auth.auth().currentUser!.uid).queryOrdered(byChild: "Price").observeSingleEvent(of: .value) { (snapshot) in
             //gettin the companyID
+//            let post = Post.init(key: snapshot.key, date: snapshot.value!["date"] as! String, postedBy: snapshot.value!["postedBy"] as! String, status: snapshot.value!["status"] as! String)
+
+//            let post = Post.init(key: snapshot.key, date: snapshot.value!["date"] as! String, postedBy: snapshot.value!["postedBy"] as! String, status: snapshot.value!["status"] as! String)
+
+            
             print("loop")
             for children in snapshot.children.allObjects as! [DataSnapshot] {
                 guard let value = children.value as? NSDictionary else {
@@ -43,7 +48,7 @@ class OrdersViewController: UIViewController {
                 print("----------------")
                 let price = value["Price"] as! Int
                 let product = value["Product"] as! String
-                
+                let place = value["Place"] as! Int
                 
                 
                 //making the company cells
@@ -55,12 +60,14 @@ class OrdersViewController: UIViewController {
                     let Name = val["Company"] as! String
                     let Image = val["CompanyImage"] as! String
                     
-                    let order = Order(name: product, company: Name , cost: price, image: Image)
+                    let order = Order(name: product, company: Name , cost: price, image: Image, place: place)
                     self.orders.append(order)
+                    self.orders.sort(by: {$0.place < $1.place})
                     print("Prduct:" + product)
                     self.tableView.reloadData()
                 }
             }
+            
         }
         
     }

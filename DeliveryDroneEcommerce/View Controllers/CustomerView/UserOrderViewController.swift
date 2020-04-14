@@ -82,7 +82,7 @@ class UserOrderViewController: UIViewController {
             
             let address = value["Address"] as! String
             
-            let productList = ["Product":productStorage.name, "Price": productStorage.price, "Amount":productStorage.amount, "Description" : productStorage.desc, "Link" : productStorage.link, "Company" : productStorage.company, "Index":productStorage.index, "Category": productStorage.category, "companyID" :productStorage.companyID, "ProductImage": productStorage.productImage, "Address" : address] as [String : Any]
+            
             
             self.ref.child("Orders").observeSingleEvent(of: .value, with: { (snapshot1) in
                 guard let value0 = snapshot1.value as? NSDictionary else {
@@ -90,6 +90,8 @@ class UserOrderViewController: UIViewController {
                     return
                 }
                 let place = value0["orderNum"] as! Int
+                let productList = ["Product":productStorage.name, "Price": productStorage.price, "Amount":productStorage.amount, "Description" : productStorage.desc, "Link" : productStorage.link, "Company" : productStorage.company, "Index":productStorage.index, "Category": productStorage.category, "companyID" :productStorage.companyID, "ProductImage": productStorage.productImage, "Address" : address, "Place" : place] as [String : Any]
+                
                 
                 self.ref.child("Orders").child("Users").child(Auth.auth().currentUser!.uid).child(String(place)).updateChildValues(productList)
                 
@@ -97,7 +99,7 @@ class UserOrderViewController: UIViewController {
                 self.ref.child("Orders").child("Companies").child(self.compID).child(String(place)).updateChildValues(productList)
                 self.ref.child("Orders").updateChildValues(["orderNum" : place+1])
                 
-                
+                self.performSegue(withIdentifier: "orderBack", sender: self)
             })
         })
     }
