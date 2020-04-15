@@ -36,6 +36,9 @@ class UserOrderViewController: UIViewController, UITextFieldDelegate {
     var ref: DatabaseReference!
     override func viewDidLoad() {
         super.viewDidLoad()
+        print("------------------")
+        print(previousOrderAmt)
+        print("------------------")
         
         orderAmount.delegate = self
         ref = Database.database().reference()
@@ -122,7 +125,7 @@ class UserOrderViewController: UIViewController, UITextFieldDelegate {
                     
                     
                     self.ref.child("Orders").child("Companies").child(self.compID).child(String(place)).updateChildValues(productList)
-                    self.ref.child("Storage").child(self.categoryType).child(self.compID).child(String(self.index)).updateChildValues(["Amount" : self.amount - orderAmt, "OrderedAmount" : 5])
+                    self.ref.child("Storage").child(self.categoryType).child(self.compID).child(String(self.index)).updateChildValues(["Amount" : self.amount - orderAmt, "OrderedAmount" : self.previousOrderAmt + orderAmt])
                     self.ref.child("Orders").updateChildValues(["orderNum" : place+1])
                     
                     self.performSegue(withIdentifier: "orderBack", sender: self)
