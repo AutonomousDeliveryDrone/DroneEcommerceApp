@@ -15,6 +15,14 @@ class OrdersViewController: UIViewController {
     var orders: [Order] = []
     var ref : DatabaseReference!
     @IBOutlet weak var tableView: UITableView!
+    
+    var company : String = ""
+    var time : String = ""
+    var name : String = ""
+    var address : String = ""
+    var price : Int = 0
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.dataSource = self
@@ -26,6 +34,17 @@ class OrdersViewController: UIViewController {
         tableView.register(UINib(nibName: "CustomerOrderCell", bundle: nil), forCellReuseIdentifier: "CustomerOrderCell")
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if (segue.identifier == "toOrderProgress") {
+            let secondVC = segue.destination as! ProgressScreenViewController
+            secondVC.company = company
+            secondVC.timeOrdered = time
+            secondVC.productName = name
+            secondVC.price = price
+            secondVC.address = address
+
+        }
+    }
     //Mike do this part. Goes with firebase part
     func retrieveOrders() {
         orders = []
@@ -107,26 +126,32 @@ extension OrdersViewController: UITableViewDataSource {
 
 extension OrdersViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print(orders[indexPath.row].status )
-                if orders[indexPath.row].status == "In Transit" {
-            let alert = UIAlertController(title: "Complete Order", message: "Did the product deliver to your house yet?", preferredStyle: .alert)
-            
-            let change = UIAlertAction(title: "Complete", style: .default) { (alert) in
-                self.ref.child("Orders").child("Users").child(self.orders[indexPath.row].userID).child(String(self.orders[indexPath.row].place)).removeValue()
-                self.ref.child("Orders").child("Companies").child(self.orders[indexPath.row].companyID).child(String(self.orders[indexPath.row].place)).removeValue()
-                self.retrieveOrders()
-                self.tableView.reloadData()
-                
-            }
-            let cancel = UIAlertAction(title: "Cancel", style: .default) { (alert) in
-                return
-            }
-            
-            alert.addAction(change)
-            alert.addAction(cancel)
-            self.present(alert, animated: true, completion: nil)
-            print(indexPath.row)
-        }
+        company = orders[indexPath.row].company
+        address = orders[indexPath.row].address
+        price = orders[indexPath.row].cost
+        name = orders[indexPath.row].name
+        time = orders[indexPath.row].time
+        print(orders[indexPath.row].status)
+        performSegue(withIdentifier: "toOrderProgress", sender: self)
+//                if orders[indexPath.row].status == "In Transit" {
+//            let alert = UIAlertController(title: "Complete Order", message: "Did the product deliver to your house yet?", preferredStyle: .alert)
+//
+//            let change = UIAlertAction(title: "Complete", style: .default) { (alert) in
+//                self.ref.child("Orders").child("Users").child(self.orders[indexPath.row].userID).child(String(self.orders[indexPath.row].place)).removeValue()
+//                self.ref.child("Orders").child("Companies").child(self.orders[indexPath.row].companyID).child(String(self.orders[indexPath.row].place)).removeValue()
+//                self.retrieveOrders()
+//                self.tableView.reloadData()
+//
+//            }
+//            let cancel = UIAlertAction(title: "Cancel", style: .default) { (alert) in
+//                return
+//            }
+//
+//            alert.addAction(change)
+//            alert.addAction(cancel)
+//            self.present(alert, animated: true, completion: nil)
+//            print(indexPath.row)
+//        }
     }
 }
 
