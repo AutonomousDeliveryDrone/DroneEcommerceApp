@@ -8,6 +8,7 @@
 
 import UIKit
 import Firebase
+import BetterSegmentedControl
 
 class LoginViewController: UIViewController {
     
@@ -17,6 +18,7 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var accountButton: UIButton!
     @IBOutlet weak var loginButton: UIButton!
 //    @IBOutlet weak var `switch`: BetterSegmentedControl!
+    @IBOutlet weak var regSwitch: BetterSegmentedControl!
     
     
     
@@ -24,6 +26,18 @@ class LoginViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        
+//        let control = BetterSegmentedControl(frame: CGRect(x: 0, y: 0, width: 300, height: 44), segments: LabelSegment.segments(withTitles: ["One", "Two", "Three"],
+//        normalFont: UIFont(name: "HelveticaNeue-Light", size: 14.0)!,
+//        normalTextColor: .lightGray,
+//        selectedFont: UIFont(name: "HelveticaNeue-Bold", size: 14.0)!,
+//        selectedTextColor: .white),
+//        index: 1,
+//        options: [.backgroundColor(.darkGray),
+//                  .indicatorViewBackgroundColor(.blue)])
+//
+        
         
         loginButton.layer.cornerRadius = accountButton.frame.height / 3
         loginButton.layer.shadowColor = UIColor.black.cgColor

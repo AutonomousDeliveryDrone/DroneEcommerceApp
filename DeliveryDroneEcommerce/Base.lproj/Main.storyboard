@@ -318,7 +318,7 @@
                                 </connections>
                             </button>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9Dp-zD-TTO" customClass="BetterSegmentedControl" customModule="BetterSegmentedControl">
-                                <rect key="frame" x="20" y="228" width="374" height="32"/>
+                                <rect key="frame" x="20" y="228" width="374" height="46"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
@@ -351,6 +351,7 @@
                         <outlet property="email" destination="jZo-Ya-OCr" id="lQd-RO-Rsj"/>
                         <outlet property="loginButton" destination="IOB-dY-I1t" id="cIA-QR-uU0"/>
                         <outlet property="password" destination="BSi-ib-qoT" id="BpG-iz-h6J"/>
+                        <outlet property="regSwitch" destination="9Dp-zD-TTO" id="PG0-pV-mxH"/>
                         <segue destination="pAw-5x-8bL" kind="presentation" identifier="toUserHome" id="5B2-jC-LhC"/>
                         <segue destination="Efm-iF-wSz" kind="presentation" identifier="toCompanyHome" id="Nsf-mg-lBY"/>
                     </connections>
