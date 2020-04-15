@@ -22,7 +22,7 @@ class UserOrderViewController: UIViewController, UITextFieldDelegate {
     var url : String = ""
     var amount : Int = 0
     var compID : String = ""
-    var previousOrderAmt: Int = 0 //MIKE PLEASE ADD THE VALUE INTO THIS, DELETE COMMENT WHEN YOU DID
+    var previousOrderAmt: Int = 0 
     
     
     @IBOutlet weak var productName: UILabel!
@@ -81,7 +81,7 @@ class UserOrderViewController: UIViewController, UITextFieldDelegate {
         
         
         
-        let productStorage = Product(name: name, price: price, amount: amount, desc: desc, link: link, company: company, category: categoryType, companyID: compID, index: index, productImage:url)
+        let productStorage = Product(name: name, price: price, amount: amount, orderedAmount: previousOrderAmt, desc: desc, link: link, company: company, category: categoryType, companyID: compID, index: index, productImage:url)
         
         
       

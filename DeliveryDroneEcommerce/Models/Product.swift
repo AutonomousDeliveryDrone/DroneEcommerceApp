@@ -12,6 +12,7 @@ struct Product {
     var name : String
     var price : Int
     var amount : Int
+    var orderedAmount: Int
     var desc : String
     var link: String
     var company: String

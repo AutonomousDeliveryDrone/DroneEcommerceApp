@@ -42,6 +42,7 @@ class ProductViewController: UIViewController, UICollectionViewDelegate, UIColle
     var imageURL : String = ""
     var amount1 : Int = 0
     var compID : String  = ""
+    var orderAmount1 : Int = 0
     
     var productList: [Product] = []
     
@@ -85,9 +86,10 @@ class ProductViewController: UIViewController, UICollectionViewDelegate, UIColle
                 let category = value["Category"] as! String
                 let compID = value["companyID"] as! String
                 let image = value["ProductImage"] as! String
+                let orderAmount = value["OrderedAmount"] as! Int
                 
                 
-                let productStorage = Product(name: name, price: price, amount: amount, desc: desc, link: link, company: company, category: category, companyID: compID, index: index, productImage:image)
+                let productStorage = Product(name: name, price: price, amount: amount, orderedAmount: orderAmount, desc: desc, link: link, company: company, category: category, companyID: compID, index: index, productImage:image)
                 
                 self.productList.append(productStorage)
                 self.collectionView.reloadData()
@@ -110,6 +112,7 @@ class ProductViewController: UIViewController, UICollectionViewDelegate, UIColle
             secondVC.url = imageURL
             secondVC.amount = amount1
             secondVC.compID = compID
+            secondVC.previousOrderAmt = orderAmount1
         }
     }
     
@@ -215,6 +218,7 @@ extension ProductViewController : UICollectionViewDelegateFlowLayout {
         imageURL = productList[indexPath.row].productImage
         amount1 = productList[indexPath.row].amount
         compID = productList[indexPath.row].companyID
+        orderAmount1 = productList[indexPath.row].orderedAmount
         
         
         performSegue(withIdentifier: "toUserOrder", sender: self)

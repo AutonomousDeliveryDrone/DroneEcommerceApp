@@ -28,6 +28,7 @@ class CompanyHomeViewController: UIViewController {
     var imageURL : String = ""
     var amount1 : Int = 0
     var compID : String  = ""
+    var orderAmount1 : Int = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -65,9 +66,10 @@ class CompanyHomeViewController: UIViewController {
                 let category = value["Category"] as! String
                 let compID = value["companyID"] as! String
                 let image = value["ProductImage"] as! String
+                let orderAmount = value["OrderedAmount"] as! Int
                 
                 
-                let productStorage = Product(name: name, price: price, amount: amount, desc: desc, link: link, company: company, category: category, companyID: compID, index: index, productImage: image)
+                let productStorage = Product(name: name, price: price, amount: amount, orderedAmount: orderAmount, desc: desc, link: link, company: company, category: category, companyID: compID, index: index, productImage: image)
                 
                 self.productList.append(productStorage)
                 self.tableView.reloadData()
@@ -105,6 +107,7 @@ class CompanyHomeViewController: UIViewController {
             secondVC.url = imageURL
             secondVC.amount = amount1
             secondVC.compID = compID
+            secondVC.orderAmount = orderAmount1
         }
     }
     
@@ -167,6 +170,7 @@ extension CompanyHomeViewController: UITableViewDelegate {
         imageURL = productList[indexPath.row].productImage
         amount1 = productList[indexPath.row].amount
         compID = productList[indexPath.row].companyID
+        orderAmount1 = productList[indexPath.row].orderedAmount
         performSegue(withIdentifier: "toProdView", sender: self)
         print(indexPath.row)
     }

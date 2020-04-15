@@ -21,6 +21,7 @@ class CompanyProductViewController: UIViewController {
     var url : String = ""
     var amount : Int = 0
     var compID : String = ""
+    var orderAmount: Int = 0
     
     @IBOutlet weak var productName: UILabel!
     @IBOutlet weak var productImage: UIImageView!
