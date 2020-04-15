@@ -7,6 +7,8 @@ target 'DeliveryDroneEcommerce' do
 
   # Pods for DeliveryDroneEcommerce
     pod 'TextFieldEffects'
+    pod "GTProgressBar"
+    pod "MBCircularProgressBar"
     pod 'Firebase'
     pod 'Firebase/Auth'
     pod 'Firebase/Database'

@@ -68,7 +68,7 @@ class OrdersViewController: UIViewController {
                     let Name = val["Company"] as! String
                     let Image = val["CompanyImage"] as! String
                     
-                    let order = Order(name: product, company: Name , cost: price, image: Image, place: place, status: status, userID: userID, companyID: compID)
+                    let order = Order(name: product, company: Name , cost: price, image: Image, place: place, status: status, userID: userID, companyID: compID, time: time, address: address)
                     self.orders.append(order)
                     self.orders.sort(by: {$0.place < $1.place})
                     print("Prduct:" + product)
@@ -93,14 +93,10 @@ extension OrdersViewController: UITableViewDataSource {
         cell.productName.text = orders[indexPath.row].name
         cell.cost.text = "$\(orders[indexPath.row].cost)"
         cell.company.text = orders[indexPath.row].company
-        cell.productImage?.sd_setImage(with: URL(string: orders[indexPath.row].image), placeholderImage: UIImage(named: "Companies"), options: .highPriority, progress: nil, completed: { (downloadImage, downloadException, cacheType, downloadURL) in
-            
-            if let downloadException = downloadException {
-                print("Error downloading an image: \(downloadException.localizedDescription)")
-            } else {
-                print("Succesfully donwloaded image")
-            }
-        })
+        cell.time.text = orders[indexPath.row].time
+        cell.address.text = orders[indexPath.row].address
+        
+
         cell.status.text = "Status:\(orders[indexPath.row].status)"
         return cell
     }

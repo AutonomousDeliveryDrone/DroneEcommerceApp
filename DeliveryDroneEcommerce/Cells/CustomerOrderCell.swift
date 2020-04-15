@@ -10,12 +10,13 @@ import UIKit
 
 class CustomerOrderCell: UITableViewCell {
 
-    @IBOutlet weak var productImage: UIImageView!
+
     @IBOutlet weak var productName: UILabel!
-    @IBOutlet weak var cost: UILabel!
+    @IBOutlet weak var time: UILabel!
     @IBOutlet weak var company: UILabel!
+    @IBOutlet weak var address: UILabel!
+    @IBOutlet weak var cost: UILabel!
     @IBOutlet weak var status: UILabel!
-    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
