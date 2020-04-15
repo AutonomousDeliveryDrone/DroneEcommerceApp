@@ -140,7 +140,8 @@ extension CompanyHomeViewController: UITableViewDataSource {
         cell.title.text = current.name
         cell.price.text = "$\(String(current.price)).00"
         cell.category.text = current.category
-        cell.amount.text = "Left: \(String(current.amount))"
+        cell.amountLeft.text = "Left: \(String(current.amount))"
+        cell.orderedAmt.text = "Ordered: \(String(current.orderedAmount))"
         
         let imageURL = current.productImage
         cell.prodImage?.sd_setImage(with: URL(string: imageURL), placeholderImage: UIImage(named: "Products"), options: .highPriority, progress: nil, completed: { (downloadImage, downloadException, cacheType, downloadURL) in

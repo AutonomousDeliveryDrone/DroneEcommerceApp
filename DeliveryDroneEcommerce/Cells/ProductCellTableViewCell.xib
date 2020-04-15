@@ -79,8 +79,9 @@
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="mES-X8-Y50"/>
             <connections>
-                <outlet property="amount" destination="cag-5P-guv" id="QLE-Wu-6b7"/>
+                <outlet property="amountLeft" destination="cag-5P-guv" id="XBo-EO-u6g"/>
                 <outlet property="category" destination="DF8-Rr-0jF" id="MPr-1o-kgk"/>
+                <outlet property="orderedAmt" destination="f9Z-6h-XF5" id="c9B-WK-qwa"/>
                 <outlet property="price" destination="X9X-sh-lhS" id="GLG-Qb-2wS"/>
                 <outlet property="prodImage" destination="Ozg-2W-Paf" id="BK8-m9-tMM"/>
                 <outlet property="title" destination="jEO-vk-rhU" id="UGQ-g0-DfS"/>

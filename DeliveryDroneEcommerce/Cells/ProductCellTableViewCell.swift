@@ -13,8 +13,8 @@ class ProductCellTableViewCell: UITableViewCell {
     @IBOutlet weak var title: UILabel!
     @IBOutlet weak var category: UILabel!
     @IBOutlet weak var price: UILabel!
-    @IBOutlet weak var amount: UILabel!
-    @IBOutlet weak var addButton: UIButton!
+    @IBOutlet weak var amountLeft: UILabel!
+    @IBOutlet weak var orderedAmt: UILabel!
 //    @IBOutlet weak var productImage: UIView!
     @IBOutlet weak var prodImage: UIImageView!
     override func awakeFromNib() {
