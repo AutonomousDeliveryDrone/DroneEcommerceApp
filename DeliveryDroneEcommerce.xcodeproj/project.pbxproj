@@ -27,6 +27,7 @@
 		8946FE9024445F08000ED523 /* ProductCellTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89E2F198243F06AC00138365 /* ProductCellTableViewCell.swift */; };
 		8946FE9124445F0C000ED523 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 479DB37B243ED42C00F10F95 /* Category.swift */; };
 		8946FE93244633D6000ED523 /* CompanyProductViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8946FE92244633D6000ED523 /* CompanyProductViewController.swift */; };
+		8946FE95244790E7000ED523 /* ProgressScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8946FE94244790E7000ED523 /* ProgressScreenViewController.swift */; };
 		8954B36C243EA6E9007039CB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8954B36B243EA6E9007039CB /* AppDelegate.swift */; };
 		8954B36E243EA6E9007039CB /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8954B36D243EA6E9007039CB /* SceneDelegate.swift */; };
 		8954B370243EA6E9007039CB /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8954B36F243EA6E9007039CB /* SignUpViewController.swift */; };
@@ -69,6 +70,7 @@
 		890437DD244266D10064A9E5 /* UserOrderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserOrderViewController.swift; sourceTree = "<group>"; };
 		891C6B7E244061C200919896 /* DisplayedCompanyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisplayedCompanyViewController.swift; sourceTree = "<group>"; };
 		8946FE92244633D6000ED523 /* CompanyProductViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompanyProductViewController.swift; sourceTree = "<group>"; };
+		8946FE94244790E7000ED523 /* ProgressScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressScreenViewController.swift; sourceTree = "<group>"; };
 		8954B368243EA6E9007039CB /* DeliveryDroneEcommerce.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DeliveryDroneEcommerce.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8954B36B243EA6E9007039CB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8954B36D243EA6E9007039CB /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -139,6 +141,7 @@
 				891C6B7E244061C200919896 /* DisplayedCompanyViewController.swift */,
 				890437D924415CDC0064A9E5 /* ProductViewController.swift */,
 				472A1D2E244418440044EAC5 /* OrdersViewController.swift */,
+				8946FE94244790E7000ED523 /* ProgressScreenViewController.swift */,
 			);
 			path = CustomerView;
 			sourceTree = "<group>";
@@ -363,6 +366,7 @@
 				8954B36E243EA6E9007039CB /* SceneDelegate.swift in Sources */,
 				479DB380243ED7AB00F10F95 /* CategoryCell.swift in Sources */,
 				472A1D2F244418440044EAC5 /* OrdersViewController.swift in Sources */,
+				8946FE95244790E7000ED523 /* ProgressScreenViewController.swift in Sources */,
 				890437DE244266D10064A9E5 /* UserOrderViewController.swift in Sources */,
 				8954B386243EA7AE007039CB /* LoginViewController.swift in Sources */,
 				891C6B7F244061C200919896 /* DisplayedCompanyViewController.swift in Sources */,

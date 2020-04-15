@@ -286,6 +286,7 @@
                                 <connections>
                                     <action selector="registerCompany:" destination="dUI-ag-HJH" eventType="touchUpInside" id="CDI-fb-MGc"/>
                                     <action selector="registerCompany:" destination="BYZ-38-t0r" eventType="touchUpInside" id="SHS-vq-IGj"/>
+                                    <segue destination="Ct0-0P-HEo" kind="presentation" id="ByH-it-dwV"/>
                                 </connections>
                             </button>
                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="First Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Xld-MS-xwP" customClass="YoshikoTextField" customModule="TextFieldEffects">
@@ -1095,11 +1096,11 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="GXn-T0-HDT">
-                                <rect key="frame" x="0.0" y="88" width="414" height="226"/>
+                                <rect key="frame" x="0.0" y="88" width="414" height="309"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </mapView>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="jU8-7R-bWH" customClass="MBCircularProgressBarView">
-                                <rect key="frame" x="20" y="322" width="374" height="209"/>
+                                <rect key="frame" x="20" y="405" width="374" height="215"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <userDefinedRuntimeAttributes>
@@ -1153,8 +1154,9 @@
         <image name="plus.square" catalog="system" width="64" height="56"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="3WI-Oj-mKU"/>
+        <segue reference="Nsf-mg-lBY"/>
         <segue reference="5B2-jC-LhC"/>
-        <segue reference="AAU-Ta-gD1"/>
+        <segue reference="QiH-kv-kaZ"/>
+        <segue reference="xkU-Um-Tfc"/>
     </inferredMetricsTieBreakers>
 </document>
