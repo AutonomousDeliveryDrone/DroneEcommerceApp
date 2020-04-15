@@ -170,7 +170,7 @@ class AddProductViewController: UIViewController, UIImagePickerControllerDelegat
     }
     
     func addProduct(_ url : String, _ priceInt : Int, _ amountInt : Int, _ name : String, _ categoryText : String, _ index : Int) {
-        var productList = ["Product":self.productTitle.text, "Price": priceInt, "Amount":amountInt, "Description" : self.desc.text, "Link" : self.productLink.text, "Company" : name, "Index":index, "Category": categoryText, "companyID" :Auth.auth().currentUser!.uid, "ProductImage": url] as [String : Any]
+        var productList = ["Product":self.productTitle.text, "Price": priceInt, "Amount":amountInt, "OrderedAmount" : 0, "Description" : self.desc.text, "Link" : self.productLink.text, "Company" : name, "Index":index, "Category": categoryText, "companyID" :Auth.auth().currentUser!.uid, "ProductImage": url] as [String : Any]
        self.ref.child("Storage").child(categoryText).child(Auth.auth().currentUser!.uid).child(String(index)).setValue(productList)
        
        self.ref.child("Storage").child(categoryText).child(Auth.auth().currentUser!.uid).updateChildValues(["companyID" :Auth.auth().currentUser!.uid ])

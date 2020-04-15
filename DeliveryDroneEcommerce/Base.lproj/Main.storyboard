@@ -939,19 +939,26 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cnC-DU-ReI">
-                                <rect key="frame" x="187" y="771" width="40" height="30"/>
+                                <rect key="frame" x="188" y="802" width="40" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Order"/>
                                 <connections>
                                     <action selector="orderPressed:" destination="rdM-cJ-ofn" eventType="touchUpInside" id="Hnn-p7-mz9"/>
                                 </connections>
                             </button>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Order Amount..." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="FbK-xN-YhR">
+                                <rect key="frame" x="143" y="767" width="129" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="1b5-6L-Wdx"/>
                     </view>
                     <navigationItem key="navigationItem" id="QXy-D5-G0K"/>
                     <connections>
+                        <outlet property="orderAmount" destination="FbK-xN-YhR" id="GQP-pf-fQu"/>
                         <outlet property="productDesc" destination="g6C-TO-jeF" id="nmd-Pu-4cC"/>
                         <outlet property="productImage" destination="e7n-xA-CoQ" id="2KY-oB-Izd"/>
                         <outlet property="productLink" destination="7o0-m4-s7n" id="wN0-aw-EtI"/>
@@ -962,7 +969,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CnW-Q9-a6Y" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="8184" y="-131"/>
+            <point key="canvasLocation" x="8182.6086956521749" y="-131.25"/>
         </scene>
         <!--Orders View Controller-->
         <scene sceneID="bXt-kl-hwH">
@@ -1003,7 +1010,7 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="3WI-Oj-mKU"/>
-        <segue reference="5B2-jC-LhC"/>
+        <segue reference="Pn5-A2-Hwd"/>
         <segue reference="AAU-Ta-gD1"/>
     </inferredMetricsTieBreakers>
 </document>

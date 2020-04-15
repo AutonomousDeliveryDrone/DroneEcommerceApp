@@ -9,7 +9,7 @@
 import UIKit
 import Firebase
 
-class UserOrderViewController: UIViewController {
+class UserOrderViewController: UIViewController, UITextFieldDelegate {
     
     
     var company : String = ""
@@ -22,6 +22,7 @@ class UserOrderViewController: UIViewController {
     var url : String = ""
     var amount : Int = 0
     var compID : String = ""
+    var previousOrderAmt: Int = 0 //MIKE PLEASE ADD THE VALUE INTO THIS, DELETE COMMENT WHEN YOU DID
     
     
     @IBOutlet weak var productName: UILabel!
@@ -30,11 +31,13 @@ class UserOrderViewController: UIViewController {
     
     @IBOutlet weak var productDesc: UITextView!
     @IBOutlet weak var productLink: UILabel!
+    @IBOutlet weak var orderAmount: UITextField!
     
     var ref: DatabaseReference!
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        orderAmount.delegate = self
         ref = Database.database().reference()
 //        ref.child("Orders").setValue(["orderNum" : 1])
         
@@ -68,6 +71,7 @@ class UserOrderViewController: UIViewController {
     
     @IBAction func orderPressed(_ sender: Any) {
         
+        
         let date = Date()
         let formatter = DateFormatter()
         formatter.dateStyle = .full
@@ -99,22 +103,40 @@ class UserOrderViewController: UIViewController {
                     print("No Data!")
                     return
                 }
-                let place = value0["orderNum"] as! Int
-                let productList = ["Product":productStorage.name, "Price": productStorage.price, "Amount":productStorage.amount, "Description" : productStorage.desc, "Link" : productStorage.link, "Company" : productStorage.company, "Index":productStorage.index, "Category": productStorage.category, "companyID" :productStorage.companyID, "ProductImage": productStorage.productImage,"CustomerName" : fullName, "Address" : address, "Place" : place, "Time" : time, "UserID" : Auth.auth().currentUser!.uid, "Status" : "Processing"] as [String : Any]
+                if let orderAmt = Int((self.orderAmount.text!)) {
+                    if (orderAmt > self.amount) {
+                        let alert = UIAlertController(title: "Purchasing Error", message: "Unfortunately, there has no more of this product in stock. Please select another product", preferredStyle: .alert)
+                        
+                        let OK = UIAlertAction(title: "OK", style: .default) { (alert) in
+                            return
+                        }
+                        
+                        alert.addAction(OK)
+                        self.present(alert, animated: true, completion: nil)
+                    }
+                    let place = value0["orderNum"] as! Int
+                    let productList = ["Product":productStorage.name, "Price": productStorage.price, "Amount":productStorage.amount,"OrderedAmount": self.previousOrderAmt + orderAmt, "Description" : productStorage.desc, "Link" : productStorage.link, "Company" : productStorage.company, "Index":productStorage.index, "Category": productStorage.category, "companyID" :productStorage.companyID, "ProductImage": productStorage.productImage,"CustomerName" : fullName, "Address" : address, "Place" : place, "Time" : time, "UserID" : Auth.auth().currentUser!.uid, "Status" : "Processing"] as [String : Any]
+                    
+                    
+                    self.ref.child("Orders").child("Users").child(Auth.auth().currentUser!.uid).child(String(place)).updateChildValues(productList)
+                    
+                    
+                    self.ref.child("Orders").child("Companies").child(self.compID).child(String(place)).updateChildValues(productList)
+                    self.ref.child("Storage").child(self.categoryType).child(self.compID).child(String(self.index)).updateChildValues(["Amount" : self.amount - orderAmt, "OrderedAmount" : 5])
+                    self.ref.child("Orders").updateChildValues(["orderNum" : place+1])
+                    
+                    self.performSegue(withIdentifier: "orderBack", sender: self)
+                    
+                } else {
+                    print("Number was not entered")
+                    return
+                }
                 
-                
-                self.ref.child("Orders").child("Users").child(Auth.auth().currentUser!.uid).child(String(place)).updateChildValues(productList)
-                
-                
-                self.ref.child("Orders").child("Companies").child(self.compID).child(String(place)).updateChildValues(productList)
-                self.ref.child("Orders").updateChildValues(["orderNum" : place+1])
-                
-                self.performSegue(withIdentifier: "orderBack", sender: self)
             })
         })
     }
     
     
-    
-    
 }
+
+
