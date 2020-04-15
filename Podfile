@@ -7,6 +7,7 @@ target 'DeliveryDroneEcommerce' do
 
   # Pods for DeliveryDroneEcommerce
     pod 'TextFieldEffects'
+    pod 'BetterSegmentedControl', '~> 1.3'
     pod "GTProgressBar"
     pod "MBCircularProgressBar"
     pod 'Firebase'

@@ -1,4 +1,5 @@
 ${PODS_ROOT}/Target Support Files/Pods-DeliveryDroneEcommerce/Pods-DeliveryDroneEcommerce-frameworks.sh
+${BUILT_PRODUCTS_DIR}/BetterSegmentedControl/BetterSegmentedControl.framework
 ${BUILT_PRODUCTS_DIR}/BoringSSL-GRPC/openssl_grpc.framework
 ${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework
 ${BUILT_PRODUCTS_DIR}/GTProgressBar/GTProgressBar.framework

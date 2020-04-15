@@ -16,6 +16,7 @@ class LoginViewController: UIViewController {
     
     @IBOutlet weak var accountButton: UIButton!
     @IBOutlet weak var loginButton: UIButton!
+//    @IBOutlet weak var `switch`: BetterSegmentedControl!
     
     
     
@@ -95,7 +96,10 @@ class LoginViewController: UIViewController {
         
         
     }
-        /*
+    @IBAction func switchAction(_ sender: Any) {
+        
+    }
+    /*
          // MARK: - Navigation
          
          // In a storyboard-based application, you will often want to do a little preparation before navigation
