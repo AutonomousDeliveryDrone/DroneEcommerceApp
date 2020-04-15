@@ -14,7 +14,8 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var email: UITextField!
     @IBOutlet weak var password: UITextField!
     
-
+    @IBOutlet weak var accountButton: UIButton!
+    @IBOutlet weak var loginButton: UIButton!
     
     
     
@@ -22,6 +23,16 @@ class LoginViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        loginButton.layer.cornerRadius = accountButton.frame.height / 3
+        loginButton.layer.shadowColor = UIColor.black.cgColor
+        loginButton.layer.shadowRadius = 5
+        loginButton.layer.shadowOpacity = 0.7
+        
+        accountButton.layer.cornerRadius = accountButton.frame.height / 3
+        accountButton.layer.shadowColor = UIColor.black.cgColor
+        accountButton.layer.shadowRadius = 5
+        accountButton.layer.shadowOpacity = 0.7
         
         let date = Date()
         let formatter = DateFormatter()

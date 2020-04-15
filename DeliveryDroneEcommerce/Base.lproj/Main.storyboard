@@ -242,7 +242,8 @@
                         <outlet property="FirstName" destination="WnG-Re-yQf" id="fe4-rm-xlp"/>
                         <outlet property="LastName" destination="c6k-0o-P0K" id="fvf-9b-DSn"/>
                         <outlet property="ShippingAddress" destination="unc-gU-Hlk" id="CMd-Lh-TV2"/>
-                        <outlet property="button" destination="kfA-iD-RBx" id="YZZ-4a-Cbr"/>
+                        <outlet property="accountButton" destination="tL4-l0-oJu" id="Od7-Pn-Eeh"/>
+                        <outlet property="button" destination="tL4-l0-oJu" id="bqk-6l-6qf"/>
                         <outlet property="emailAddress" destination="iA9-0Y-0xa" id="9eZ-B1-7IM"/>
                         <outlet property="password" destination="G3N-pS-ud7" id="Je6-4F-SoO"/>
                         <outlet property="signUpButton" destination="hFu-af-w9u" id="jw3-GM-b96"/>
@@ -278,16 +279,6 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3yA-FH-Jem">
-                                <rect key="frame" x="127" y="290" width="161" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Don't have an account?">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </state>
-                                <connections>
-                                    <segue destination="BYZ-38-t0r" kind="presentation" id="MXA-pF-RwT"/>
-                                </connections>
-                            </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Welcome Back!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nee-cw-ZNO">
                                 <rect key="frame" x="28" y="155" width="359" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -325,12 +316,25 @@
                                     <action selector="login:" destination="ApY-qC-425" eventType="touchUpInside" id="pFC-VX-sIo"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3yA-FH-Jem">
+                                <rect key="frame" x="121" y="290" width="172" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.2274509804" green="0.2274509804" blue="0.2274509804" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <state key="normal" title="Don't have an account?">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <segue destination="BYZ-38-t0r" kind="presentation" id="MXA-pF-RwT"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="fCa-xN-8ly"/>
                     </view>
                     <connections>
+                        <outlet property="accountButton" destination="3yA-FH-Jem" id="W0V-JK-TtG"/>
                         <outlet property="email" destination="jZo-Ya-OCr" id="lQd-RO-Rsj"/>
+                        <outlet property="loginButton" destination="IOB-dY-I1t" id="cIA-QR-uU0"/>
                         <outlet property="password" destination="BSi-ib-qoT" id="BpG-iz-h6J"/>
                         <segue destination="pAw-5x-8bL" kind="presentation" identifier="toUserHome" id="5B2-jC-LhC"/>
                         <segue destination="Efm-iF-wSz" kind="presentation" identifier="toCompanyHome" id="Nsf-mg-lBY"/>
@@ -998,7 +1002,7 @@
         <image name="plus.square" catalog="system" width="64" height="56"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Nsf-mg-lBY"/>
+        <segue reference="3WI-Oj-mKU"/>
         <segue reference="5B2-jC-LhC"/>
         <segue reference="AAU-Ta-gD1"/>
     </inferredMetricsTieBreakers>

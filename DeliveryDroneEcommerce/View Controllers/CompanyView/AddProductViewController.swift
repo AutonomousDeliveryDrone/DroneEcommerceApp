@@ -10,7 +10,6 @@ import UIKit
 import Firebase
 import FirebaseStorage
 
-
 class CellClass: UITableViewCell {
     
 }

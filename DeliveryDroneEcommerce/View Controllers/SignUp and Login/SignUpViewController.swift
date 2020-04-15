@@ -18,6 +18,7 @@ class SignUpViewController: UIViewController {
     @IBOutlet weak var password: UITextField!
     @IBOutlet weak var button: UIButton!
     @IBOutlet weak var signUpButton: UIButton!
+    @IBOutlet weak var accountButton: UIButton!
     
     var ref: DatabaseReference!
     
@@ -39,8 +40,12 @@ class SignUpViewController: UIViewController {
         signUpButton.layer.cornerRadius = signUpButton.frame.height / 3
         signUpButton.layer.shadowColor = UIColor.darkGray.cgColor
         signUpButton.layer.shadowRadius = 10
-        signUpButton.layer.opacity = 0.7
+        signUpButton.layer.shadowOpacity = 0.7
         
+        accountButton.layer.cornerRadius = accountButton.frame.height / 3
+        accountButton.layer.shadowColor = UIColor.black.cgColor
+        accountButton.layer.shadowRadius = 5
+        accountButton.layer.shadowOpacity = 0.7
 
         ref = Database.database().reference()
         // Do any additional setup after loading the view.
