@@ -108,7 +108,7 @@ class UserOrderViewController: UIViewController, UITextFieldDelegate {
                 }
                 if let orderAmt = Int((self.orderAmount.text!)) {
                     if (orderAmt > self.amount) {
-                        let alert = UIAlertController(title: "Purchasing Error", message: "Unfortunately, there has no more of this product in stock. Please select another product", preferredStyle: .alert)
+                        let alert = UIAlertController(title: "Purchasing Error", message: "Unfortunately, you are not able to purchase this amount", preferredStyle: .alert)
                         
                         let OK = UIAlertAction(title: "OK", style: .default) { (alert) in
                             return
@@ -116,6 +116,7 @@ class UserOrderViewController: UIViewController, UITextFieldDelegate {
                         
                         alert.addAction(OK)
                         self.present(alert, animated: true, completion: nil)
+                        return
                     }
                     let place = value0["orderNum"] as! Int
                     let productList = ["Product":productStorage.name, "Price": productStorage.price, "Amount":productStorage.amount,"OrderedAmount": self.previousOrderAmt + orderAmt, "Description" : productStorage.desc, "Link" : productStorage.link, "Company" : productStorage.company, "Index":productStorage.index, "Category": productStorage.category, "companyID" :productStorage.companyID, "ProductImage": productStorage.productImage,"CustomerName" : fullName, "Address" : address, "Place" : place, "Time" : time, "UserID" : Auth.auth().currentUser!.uid, "Status" : "Processing"] as [String : Any]

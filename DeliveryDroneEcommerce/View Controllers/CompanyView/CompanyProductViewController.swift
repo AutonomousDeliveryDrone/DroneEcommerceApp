@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Firebase
 
 class CompanyProductViewController: UIViewController {
 
@@ -28,8 +29,14 @@ class CompanyProductViewController: UIViewController {
     @IBOutlet weak var productPrice: UILabel!
     @IBOutlet weak var productDesc: UITextView!
     @IBOutlet weak var productLink: UILabel!
+    @IBOutlet weak var restockAmount: UITextField!
+    
+    var ref: DatabaseReference!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        ref = Database.database().reference()
         
         productName.text = name
         productPrice.text = "\(price)"
@@ -44,13 +51,35 @@ class CompanyProductViewController: UIViewController {
                 print("Succesfully donwloaded image")
             }
         })
-
-        // Do any additional setup after loading the view.
+        
+        
+        print("---------------")
+        print(categoryType)
+        print(compID)
+        print(index)
+        print(restockAmount)
+        print("---------------")
     }
     
 
     @IBAction func add(_ sender: Any) {
+        if let restockAmt = Int((self.restockAmount.text!)) {
+            amount = amount + restockAmt
+            ref.child("Storage").child(categoryType).child(compID).child(String(index)).updateChildValues(["Amount" : amount])
+            ref.child(("UserInfo")).child(compID).child("Products").child(String(index)).updateChildValues(["Amount": amount])
+            let alert = UIAlertController(title: "Success!", message: "Item has been restocked!", preferredStyle: .alert)
+            
+            let OK = UIAlertAction(title: "OK", style: .default) { (alert) in
+                return
+            }
+            
+            alert.addAction(OK)
+            self.present(alert, animated: true, completion: nil)
+        }
+        restockAmount.text = ""
+        
     }
+    
     /*
     // MARK: - Navigation
 

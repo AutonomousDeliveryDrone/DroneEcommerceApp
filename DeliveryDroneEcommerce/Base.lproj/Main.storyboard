@@ -706,13 +706,16 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="Nv7-tW-sk9"/>
                     </view>
-                    <navigationItem key="navigationItem" id="5kS-tH-nR6"/>
+                    <navigationItem key="navigationItem" id="5kS-tH-nR6">
+                        <barButtonItem key="backBarButtonItem" title="hi" id="0ah-IN-0dB"/>
+                    </navigationItem>
                     <connections>
                         <outlet property="productDesc" destination="HVu-UB-HCi" id="jUJ-pT-vMh"/>
                         <outlet property="productImage" destination="XtO-NC-qfP" id="ZQE-On-8ZI"/>
                         <outlet property="productLink" destination="jGc-u2-y5a" id="rCd-ly-HXk"/>
                         <outlet property="productName" destination="1wc-ae-1Nu" id="m2h-Mh-GUt"/>
                         <outlet property="productPrice" destination="o75-op-sAK" id="oze-nM-ZIk"/>
+                        <outlet property="restockAmount" destination="ZrV-uO-ODb" id="r09-Bj-Sdn"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xsl-73-v5n" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -1156,7 +1159,7 @@
     <inferredMetricsTieBreakers>
         <segue reference="Nsf-mg-lBY"/>
         <segue reference="5B2-jC-LhC"/>
-        <segue reference="QiH-kv-kaZ"/>
+        <segue reference="QFt-c9-YeP"/>
         <segue reference="xkU-Um-Tfc"/>
     </inferredMetricsTieBreakers>
 </document>

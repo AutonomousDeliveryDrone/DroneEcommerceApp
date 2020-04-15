@@ -164,6 +164,7 @@ extension CompanyHomeViewController: UITableViewDataSource {
 extension CompanyHomeViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         name1 = productList[indexPath.row].name
+        categoryType = productList[indexPath.row].category
         price1 = productList[indexPath.row].price
         desc1 = productList[indexPath.row].desc
         link1 = productList[indexPath.row].link
