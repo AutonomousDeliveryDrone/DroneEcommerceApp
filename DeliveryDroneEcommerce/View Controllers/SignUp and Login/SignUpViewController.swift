@@ -16,7 +16,8 @@ class SignUpViewController: UIViewController {
     @IBOutlet weak var ShippingAddress: UITextField!
     @IBOutlet weak var emailAddress: UITextField!
     @IBOutlet weak var password: UITextField!
-    
+    @IBOutlet weak var button: UIButton!
+    @IBOutlet weak var signUpButton: UIButton!
     
     var ref: DatabaseReference!
     
@@ -25,6 +26,22 @@ class SignUpViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        
+        button.layer.shadowColor = UIColor.blue.cgColor
+        button.layer.shadowRadius = 10
+        button.layer.shadowOpacity = 0.5
+       // button.addTarget(self, action: #selector(self.animate(sender:)), for: .touchUpInside)
+        button.layer.cornerRadius = 12
+        button.layer.borderWidth = 3.0
+        button.layer.borderColor = UIColor.darkGray.cgColor
+        
+        signUpButton.layer.cornerRadius = signUpButton.frame.height / 3
+        signUpButton.layer.shadowColor = UIColor.darkGray.cgColor
+        signUpButton.layer.shadowRadius = 10
+        signUpButton.layer.opacity = 0.7
+        
+
         ref = Database.database().reference()
         // Do any additional setup after loading the view.
     }
@@ -69,5 +86,22 @@ class SignUpViewController: UIViewController {
         }
     }
     
+    //@objc func animate(sender: UIButton) {
+//        self.animateView(sender)
+//    }
+//    func animateView(_ viewToAnimate: UIView) {
+//        UIView.animate(withDuration: 0.15, delay: 0, usingSpringWithDamping: 0.2, initialSpringVelocity: 0.5, options: .curveEaseIn, animations: {
+//
+//            viewToAnimate.transform = CGAffineTransform(scaleX: 0.92, y: 0.92)
+//        }) { (_) in
+//            UIView.animate(withDuration: 0.15, delay: 0, usingSpringWithDamping: 0.4, initialSpringVelocity: 2, options: .curveEaseIn, animations: {
+//                viewToAnimate.transform = CGAffineTransform(scaleX: 1, y: 1)
+//            }, completion: nil)
+//        }
+//    }
+//
+    @IBAction func registerCompany(_ sender: Any) {
+        
+    }
 }
 

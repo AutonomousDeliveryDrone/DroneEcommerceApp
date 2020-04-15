@@ -17,7 +17,9 @@ class CompanySignUpViewController: UIViewController, UIImagePickerControllerDele
     @IBOutlet weak var location: UITextField!
     @IBOutlet weak var email: UITextField!
     @IBOutlet weak var password: UITextField!
+    @IBOutlet weak var uploadLabel: UILabel!
     
+    @IBOutlet weak var backButton: UIButton!
     @IBOutlet weak var signUpButton: UIButton!
     
     @IBOutlet weak var companyImage: UIImageView!
@@ -36,6 +38,20 @@ class CompanySignUpViewController: UIViewController, UIImagePickerControllerDele
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        companyImage.layer.borderColor = UIColor.black.cgColor
+        companyImage.layer.borderWidth = 2
+        
+        signUpButton.layer.cornerRadius = signUpButton.frame.height / 3
+        signUpButton.layer.shadowColor = UIColor.darkGray.cgColor
+        signUpButton.layer.shadowRadius = 5
+        signUpButton.layer.shadowOpacity = 0.5
+        
+        backButton.layer.cornerRadius = signUpButton.frame.height / 3
+        backButton.layer.shadowColor = UIColor.black.cgColor
+        backButton.layer.shadowRadius = 2
+        backButton.layer.shadowOpacity = 0.5
+        
         
         ref = Database.database().reference()
         
@@ -67,6 +83,8 @@ class CompanySignUpViewController: UIViewController, UIImagePickerControllerDele
             print("changing image")
             companyImage.image = selectedImage
         }
+        uploadLabel.isHidden = true
+        companyImage.layer.borderWidth = 0
         dismiss(animated: true, completion: nil)
     }
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
