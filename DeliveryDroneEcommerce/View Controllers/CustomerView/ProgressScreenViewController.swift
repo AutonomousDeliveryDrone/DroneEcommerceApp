@@ -35,6 +35,8 @@ class ProgressScreenViewController: UIViewController {
     
     @IBOutlet weak var time: UILabel!
     //    @IBOutlet weak var address: UILabel!
+    @IBOutlet weak var deleteButton: UIButton!
+    @IBOutlet weak var statusLabel: UILabel!
     @IBOutlet weak var comp: UILabel!
     //    @IBOutlet weak var company: UILabel!
     var ref : DatabaseReference!
@@ -45,14 +47,31 @@ class ProgressScreenViewController: UIViewController {
         ref = Database.database().reference()
         completeButton.layer.cornerRadius = 5
         
+        print("Status: \(status)")
+        
+        deleteButton.isHidden = true
+        
+        statusLabel.text = "Status:\(status)"
+        if status == "Processing" {
+            completeButton.isHidden = true
+        }
+        else if status == "Complete" {
+            completeButton.isHidden = true
+            deleteButton.isHidden = false
+        }
+        
+        
+        
         completeButton.touchUpInside {
             if self.status == "In Transit" {
                 let alert = UIAlertController(title: "Complete Order", message: "Did the product deliver to your house yet?", preferredStyle: .alert)
                 
                 let change = UIAlertAction(title: "Complete", style: .default) { (alert) in
-                    self.ref.child("Orders").child("Users").child(self.userID).child(String(self.place)).removeValue()
-                    self.ref.child("Orders").child("Companies").child(self.companyID).child(String(self.place)).removeValue()
-                    self.performSegue(withIdentifier: "dip", sender: self)
+                    self.ref.child("Orders").child("Users").child(self.userID).child(String(self.place)).updateChildValues(["Status" : "Complete"])
+                    self.ref.child("Orders").child("Companies").child(self.companyID).child(String(self.place)).updateChildValues(["Status" : "Complete"])
+//                    self.performSegue(withIdentifier: "dip", sender: self)
+                    self.deleteButton.isHidden = false
+                    self.completeButton.isHidden = true
                     
                 }
                 let cancel = UIAlertAction(title: "Cancel", style: .default) { (alert) in
@@ -183,9 +202,28 @@ class ProgressScreenViewController: UIViewController {
         //        for location in locations
     }
     
+    @IBAction func deleteAct(_ sender: Any) {
+                let alert = UIAlertController(title: "Delete Order", message: "Are you sure you are done with this order?", preferredStyle: .alert)
+                
+                let change = UIAlertAction(title: "Delete", style: .default) { (alert) in
+        //            self.ref.child("Orders").child("Users").child(self.userID).child(String(self.place)).removeValue()
+                    self.ref.child("Orders").child("Users").child(self.userID).child(String(self.place)).removeValue()
+                    self.performSegue(withIdentifier: "dip", sender: self)
+                    
+                }
+                let cancel = UIAlertAction(title: "Cancel", style: .default) { (alert) in
+                    return
+                }
+                
+                alert.addAction(change)
+                alert.addAction(cancel)
+                self.present(alert, animated: true, completion: nil)
+    }
     /*
      // MARK: - Navigation
      
+     @IBAction func deleteAct(_ sender: Any) {
+     }
      // In a storyboard-based application, you will often want to do a little preparation before navigation
      override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
      // Get the new view controller using segue.destination.

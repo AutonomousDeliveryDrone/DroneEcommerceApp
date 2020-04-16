@@ -33,8 +33,11 @@ class CompanyProgressViewController: UIViewController {
     @IBOutlet weak var progressBar: MBCircularProgressBarView!
     @IBOutlet weak var productName: UILabel!
     @IBOutlet weak var timeOrdered: UILabel!
-    @IBOutlet weak var company: UILabel!
+//    @IBOutlet weak var deleteButton: UIBarButtonItem!
     
+    @IBOutlet weak var deleteButton: UIButton!
+    
+    @IBOutlet weak var statusLabel: UILabel!
     
     @IBOutlet weak var transitButton: PMSuperButton!
     override func viewDidLoad() {
@@ -44,6 +47,16 @@ class CompanyProgressViewController: UIViewController {
         
         transitButton.layer.cornerRadius = 5
         
+        deleteButton.isHidden = true
+        
+        statusLabel.text = "Status:\(status)"
+        if status == "In Transit" {
+            transitButton.isHidden = true
+        }
+        else if status == "Complete" {
+            transitButton.isHidden = true
+            deleteButton.isHidden = false
+        }
         transitButton.touchUpInside {
             if self.status == "Processing" {
                 let alert = UIAlertController(title: "Change Status", message: "Change Status of Order", preferredStyle: .alert)
@@ -51,7 +64,7 @@ class CompanyProgressViewController: UIViewController {
                 let change = UIAlertAction(title: "In Transit", style: .default) { (alert) in
                     self.ref.child("Orders").child("Users").child(self.userID).child(String(self.place)).updateChildValues(["Status" : "In Transit"])
                     self.ref.child("Orders").child("Companies").child(self.companyID).child(String(self.place)).updateChildValues(["Status" : "In Transit"])
-
+                    self.transitButton.isHidden = true
                 }
                 let cancel = UIAlertAction(title: "Cancel", style: .default) { (alert) in
                     return
@@ -69,7 +82,7 @@ class CompanyProgressViewController: UIViewController {
         
         
         productName.text = name
-        company.text = comp
+        
         timeOrdered.text = time
         
         UIView.animate(withDuration: 1) {
@@ -174,6 +187,24 @@ class CompanyProgressViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
+   
+    @IBAction func deleteAct(_ sender: Any) {
+        let alert = UIAlertController(title: "Delete Order", message: "Are you sure you are done with this order?", preferredStyle: .alert)
+        
+        let change = UIAlertAction(title: "Delete", style: .default) { (alert) in
+//            self.ref.child("Orders").child("Users").child(self.userID).child(String(self.place)).removeValue()
+            self.ref.child("Orders").child("Companies").child(self.companyID).child(String(self.place)).removeValue()
+            self.performSegue(withIdentifier: "leave", sender: self)
+            
+        }
+        let cancel = UIAlertAction(title: "Cancel", style: .default) { (alert) in
+            return
+        }
+        
+        alert.addAction(change)
+        alert.addAction(cancel)
+        self.present(alert, animated: true, completion: nil)
+    }
     
     /*
      // MARK: - Navigation

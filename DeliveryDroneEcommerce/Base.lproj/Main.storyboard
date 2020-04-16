@@ -1087,6 +1087,13 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Company" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9ET-Rh-jfv">
+                                <rect key="frame" x="20" y="726" width="374" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Delivering To: 1063 Oaktree Drive" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KdF-CS-MTM">
                                 <rect key="frame" x="20" y="755" width="374" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -1105,20 +1112,21 @@
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="ripple" value="YES"/>
                                 </userDefinedRuntimeAttributes>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Status" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vSl-YC-0pG">
-                                <rect key="frame" x="186" y="803" width="50" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Status" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vSl-YC-0pG">
+                                <rect key="frame" x="20" y="784" width="374" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Company" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9ET-Rh-jfv">
-                                <rect key="frame" x="20" y="726" width="374" height="21"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tEd-dg-b6m">
+                                <rect key="frame" x="365" y="394" width="49" height="40"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                                <state key="normal" image="trash" catalog="system"/>
+                                <connections>
+                                    <action selector="deleteAct:" destination="NFc-sr-mtZ" eventType="touchUpInside" id="x7S-q3-dAE"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="z0A-qU-AOo"/>
@@ -1127,9 +1135,11 @@
                     <connections>
                         <outlet property="comp" destination="9ET-Rh-jfv" id="hXD-AB-fyT"/>
                         <outlet property="completeButton" destination="8wE-jE-swC" id="pv4-OS-tvw"/>
+                        <outlet property="deleteButton" destination="tEd-dg-b6m" id="0Ad-UC-CMG"/>
                         <outlet property="droneMap" destination="GXn-T0-HDT" id="rUZ-LT-LUn"/>
                         <outlet property="name" destination="PVg-mt-fsC" id="gQy-im-2IZ"/>
                         <outlet property="progressBar" destination="jU8-7R-bWH" id="E7q-GN-hBd"/>
+                        <outlet property="statusLabel" destination="vSl-YC-0pG" id="Xjb-Rp-aQh"/>
                         <outlet property="time" destination="VDY-wy-Rza" id="gEK-Px-vSb"/>
                         <segue destination="pAw-5x-8bL" kind="show" identifier="dip" id="gf8-wR-iDv"/>
                     </connections>
@@ -1223,30 +1233,40 @@
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="ripple" value="YES"/>
                                 </userDefinedRuntimeAttributes>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Company" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="s4F-xq-fRH">
-                                <rect key="frame" x="20" y="726" width="374" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Status" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xG8-un-MiV">
+                                <rect key="frame" x="20" y="784" width="374" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LgD-HA-Upf">
+                                <rect key="frame" x="365" y="394" width="49" height="40"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" image="trash" catalog="system"/>
+                                <connections>
+                                    <action selector="deleteAct:" destination="3zc-5y-mEG" eventType="touchUpInside" id="Iny-0G-rRr"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="mJt-H7-YzV"/>
                     </view>
                     <navigationItem key="navigationItem" id="DY1-dv-5Sx"/>
                     <connections>
-                        <outlet property="company" destination="s4F-xq-fRH" id="8nV-j2-pG7"/>
+                        <outlet property="deleteButton" destination="LgD-HA-Upf" id="vFt-ib-1so"/>
                         <outlet property="droneMap" destination="Ish-Ly-8x2" id="bQl-Qi-LuW"/>
                         <outlet property="productName" destination="rRH-uT-HgW" id="IJW-uL-fSj"/>
                         <outlet property="progressBar" destination="mK4-AB-HTx" id="G6n-sI-P2Y"/>
+                        <outlet property="statusLabel" destination="xG8-un-MiV" id="0js-Yd-9ns"/>
                         <outlet property="timeOrdered" destination="jJb-vu-ncn" id="Nob-wu-X8c"/>
                         <outlet property="transitButton" destination="Ler-cU-ZWh" id="jm9-aC-i3K"/>
+                        <segue destination="Efm-iF-wSz" kind="show" identifier="leave" id="LSd-Y8-hnq"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MNh-X4-DRi" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="6081" y="2174"/>
+            <point key="canvasLocation" x="6079.7101449275369" y="2173.6607142857142"/>
         </scene>
     </scenes>
     <resources>
@@ -1257,10 +1277,11 @@
         <image name="go" width="16" height="16"/>
         <image name="plus" catalog="system" width="64" height="56"/>
         <image name="plus.square" catalog="system" width="64" height="56"/>
+        <image name="trash" catalog="system" width="60" height="64"/>
         <image name="upload" width="1106" height="1106"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="3WI-Oj-mKU"/>
+        <segue reference="LSd-Y8-hnq"/>
         <segue reference="gf8-wR-iDv"/>
         <segue reference="QiH-kv-kaZ"/>
     </inferredMetricsTieBreakers>
