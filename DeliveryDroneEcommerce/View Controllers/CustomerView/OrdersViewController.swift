@@ -21,6 +21,12 @@ class OrdersViewController: UIViewController {
     var name : String = ""
     var address : String = ""
     var price : Int = 0
+    var dist : Int = 0
+    
+    var status : String = ""
+    var companyID : String = ""
+    var userID : String = ""
+    var place : Int = 0
     
     
     override func viewDidLoad() {
@@ -42,7 +48,12 @@ class OrdersViewController: UIViewController {
             secondVC.productName = name
             secondVC.price = price
             secondVC.address = address
-
+            secondVC.distIndex = dist
+            secondVC.userID = userID
+            secondVC.companyID = companyID
+            secondVC.status = status
+            secondVC.place = place
+            
         }
     }
     //Mike do this part. Goes with firebase part
@@ -50,10 +61,10 @@ class OrdersViewController: UIViewController {
         orders = []
         ref.child("Orders").child("Users").child(Auth.auth().currentUser!.uid).queryOrdered(byChild: "Price").observeSingleEvent(of: .value) { (snapshot) in
             //gettin the companyID
-//            let post = Post.init(key: snapshot.key, date: snapshot.value!["date"] as! String, postedBy: snapshot.value!["postedBy"] as! String, status: snapshot.value!["status"] as! String)
-
-//            let post = Post.init(key: snapshot.key, date: snapshot.value!["date"] as! String, postedBy: snapshot.value!["postedBy"] as! String, status: snapshot.value!["status"] as! String)
-
+            //            let post = Post.init(key: snapshot.key, date: snapshot.value!["date"] as! String, postedBy: snapshot.value!["postedBy"] as! String, status: snapshot.value!["status"] as! String)
+            
+            //            let post = Post.init(key: snapshot.key, date: snapshot.value!["date"] as! String, postedBy: snapshot.value!["postedBy"] as! String, status: snapshot.value!["status"] as! String)
+            
             
             print("loop")
             for children in snapshot.children.allObjects as! [DataSnapshot] {
@@ -76,6 +87,7 @@ class OrdersViewController: UIViewController {
                 let userID = value["UserID"] as! String
                 let status = value["Status"] as! String
                 let compID = value["companyID"] as! String
+                let dist = value["DistanceIndex"] as! Int
                 
                 
                 //making the company cells
@@ -87,7 +99,7 @@ class OrdersViewController: UIViewController {
                     let Name = val["Company"] as! String
                     let Image = val["CompanyImage"] as! String
                     
-                    let order = Order(name: product, company: Name , cost: price, image: Image, place: place, status: status, userID: userID, companyID: compID, time: time, address: address)
+                    let order = Order(name: product, company: Name , cost: price, image: Image, place: place, status: status, userID: userID, companyID: compID, time: time, address: address, distIndex: dist)
                     self.orders.append(order)
                     self.orders.sort(by: {$0.place < $1.place})
                     print("Prduct:" + product)
@@ -115,7 +127,7 @@ extension OrdersViewController: UITableViewDataSource {
         cell.time.text = orders[indexPath.row].time
         cell.address.text = orders[indexPath.row].address
         
-
+        
         cell.status.text = "Status:\(orders[indexPath.row].status)"
         return cell
     }
@@ -131,27 +143,32 @@ extension OrdersViewController: UITableViewDelegate {
         price = orders[indexPath.row].cost
         name = orders[indexPath.row].name
         time = orders[indexPath.row].time
+        dist = orders[indexPath.row].distIndex
+        status = orders[indexPath.row].status
+        companyID = orders[indexPath.row].companyID
+        userID = orders[indexPath.row].userID
+        place = orders[indexPath.row].place
         print(orders[indexPath.row].status)
         performSegue(withIdentifier: "toOrderProgress", sender: self)
-//                if orders[indexPath.row].status == "In Transit" {
-//            let alert = UIAlertController(title: "Complete Order", message: "Did the product deliver to your house yet?", preferredStyle: .alert)
-//
-//            let change = UIAlertAction(title: "Complete", style: .default) { (alert) in
-//                self.ref.child("Orders").child("Users").child(self.orders[indexPath.row].userID).child(String(self.orders[indexPath.row].place)).removeValue()
-//                self.ref.child("Orders").child("Companies").child(self.orders[indexPath.row].companyID).child(String(self.orders[indexPath.row].place)).removeValue()
-//                self.retrieveOrders()
-//                self.tableView.reloadData()
-//
-//            }
-//            let cancel = UIAlertAction(title: "Cancel", style: .default) { (alert) in
-//                return
-//            }
-//
-//            alert.addAction(change)
-//            alert.addAction(cancel)
-//            self.present(alert, animated: true, completion: nil)
-//            print(indexPath.row)
-//        }
+        //                if orders[indexPath.row].status == "In Transit" {
+        //            let alert = UIAlertController(title: "Complete Order", message: "Did the product deliver to your house yet?", preferredStyle: .alert)
+        //
+        //            let change = UIAlertAction(title: "Complete", style: .default) { (alert) in
+        //                self.ref.child("Orders").child("Users").child(self.orders[indexPath.row].userID).child(String(self.orders[indexPath.row].place)).removeValue()
+        //                self.ref.child("Orders").child("Companies").child(self.orders[indexPath.row].companyID).child(String(self.orders[indexPath.row].place)).removeValue()
+        //                self.retrieveOrders()
+        //                self.tableView.reloadData()
+        //
+        //            }
+        //            let cancel = UIAlertAction(title: "Cancel", style: .default) { (alert) in
+        //                return
+        //            }
+        //
+        //            alert.addAction(change)
+        //            alert.addAction(cancel)
+        //            self.present(alert, animated: true, completion: nil)
+        //            print(indexPath.row)
+        //        }
     }
 }
 

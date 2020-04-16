@@ -1,80 +1,76 @@
 //
-//  ProgressScreenViewController.swift
+//  CompanyProgressViewController.swift
 //  DeliveryDroneEcommerce
 //
-//  Created by Michael Peng on 4/15/20.
+//  Created by Michael Peng on 4/16/20.
 //  Copyright © 2020 Michael Peng. All rights reserved.
 //
 
 import UIKit
-import MBCircularProgressBar
-import CoreLocation
-import MapKit
-import PMSuperButton
 import Firebase
+import MapKit
+import MBCircularProgressBar
+import PMSuperButton
 
 
-class ProgressScreenViewController: UIViewController {
+class CompanyProgressViewController: UIViewController {
     
-    @IBOutlet weak var progressBar: MBCircularProgressBarView!
-    @IBOutlet weak var droneMap: MKMapView!
-    @IBOutlet weak var completeButton: PMSuperButton!
     
-    var productName : String = ""
-    var company : String = ""
+    var name : String = ""
+    var comp : String = ""
     var price : Int = 0
     var address : String = ""
-    var timeOrdered : String = ""
+    var time : String = ""
     var distIndex : Int = 0
-    
     
     var status :  String = ""
     var place : Int = 0
     var userID : String = ""
     var companyID : String = ""
     
-    @IBOutlet weak var time: UILabel!
-    //    @IBOutlet weak var address: UILabel!
-    @IBOutlet weak var comp: UILabel!
-    //    @IBOutlet weak var company: UILabel!
-    var ref : DatabaseReference!
-    @IBOutlet weak var name: UILabel!
+    var ref: DatabaseReference!
+    @IBOutlet weak var droneMap: MKMapView!
+    @IBOutlet weak var progressBar: MBCircularProgressBarView!
+    @IBOutlet weak var productName: UILabel!
+    @IBOutlet weak var timeOrdered: UILabel!
+    @IBOutlet weak var company: UILabel!
+    
+    
+    @IBOutlet weak var transitButton: PMSuperButton!
     override func viewDidLoad() {
+        
         super.viewDidLoad()
-        
         ref = Database.database().reference()
-        completeButton.layer.cornerRadius = 5
         
-        completeButton.touchUpInside {
-            if self.status == "In Transit" {
-                let alert = UIAlertController(title: "Complete Order", message: "Did the product deliver to your house yet?", preferredStyle: .alert)
-                
-                let change = UIAlertAction(title: "Complete", style: .default) { (alert) in
-                    self.ref.child("Orders").child("Users").child(self.userID).child(String(self.place)).removeValue()
-                    self.ref.child("Orders").child("Companies").child(self.companyID).child(String(self.place)).removeValue()
-                    self.performSegue(withIdentifier: "dip", sender: self)
-                    
+        transitButton.layer.cornerRadius = 5
+        
+        transitButton.touchUpInside {
+            if self.status == "Processing" {
+                let alert = UIAlertController(title: "Change Status", message: "Change Status of Order", preferredStyle: .alert)
+
+                let change = UIAlertAction(title: "In Transit", style: .default) { (alert) in
+                    self.ref.child("Orders").child("Users").child(self.userID).child(String(self.place)).updateChildValues(["Status" : "In Transit"])
+                    self.ref.child("Orders").child("Companies").child(self.companyID).child(String(self.place)).updateChildValues(["Status" : "In Transit"])
+
                 }
                 let cancel = UIAlertAction(title: "Cancel", style: .default) { (alert) in
                     return
                 }
-                
+
                 alert.addAction(change)
                 alert.addAction(cancel)
                 self.present(alert, animated: true, completion: nil)
-                
+//                print(indexPath.row)
             }
-            print("This button was pressed!")
-            
         }
         
         
         
         
         
-        name.text = productName
-        comp.text = company
-        time.text = timeOrdered
+        productName.text = name
+        company.text = comp
+        timeOrdered.text = time
         
         UIView.animate(withDuration: 1) {
             self.progressBar.value = CGFloat(Double(self.distIndex)*10.0)
@@ -133,7 +129,6 @@ class ProgressScreenViewController: UIViewController {
                 print("\(diffLat) + \(diffLon)")
                 let ind = self.distIndex
                 
-                
                 var arrLat : [Double] = []
                 var arrLon : [Double] = []
                 for i in stride(from: 1, to: 11, by: 1) {
@@ -176,12 +171,9 @@ class ProgressScreenViewController: UIViewController {
         //        print(geoCoder.)
         
         
-        
+        // Do any additional setup after loading the view.
     }
     
-    func createAnnonations(locations : [[String : Any]]) {
-        //        for location in locations
-    }
     
     /*
      // MARK: - Navigation

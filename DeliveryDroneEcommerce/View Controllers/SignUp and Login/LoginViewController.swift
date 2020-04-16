@@ -104,9 +104,9 @@ class LoginViewController: UIViewController {
         
         
         loginButton.touchUpInside {
-            self.loginButton.showLoader(userInteraction: true)
-            var state: UIControl.State = UIControl.State()
-            self.loginButton.setTitle("", for: state)
+            self.loginButton.showLoader(userInteraction: false)
+//            var state: UIControl.State = UIControl.State()
+            self.loginButton.setTitle("", for: .normal)
             print("hi")
             Auth.auth().signIn(withEmail: self.email.text!, password: self.password.text!) { (user, error) in
                 if (error == nil) {
@@ -135,7 +135,7 @@ class LoginViewController: UIViewController {
                     //
                     
                 } else {
-                    
+            
                     
                     let alert = UIAlertController(title: "Login Error", message: "Incorrect username or password", preferredStyle: .alert)
                     let forgotPassword = UIAlertAction(title: "Forgot Password?", style: .default, handler: { (UIAlertAction) in
@@ -151,9 +151,12 @@ class LoginViewController: UIViewController {
                     self.present(alert, animated: true, completion: nil)
                     print("error with logging in: ", error!)
                     self.loginButton.hideLoader()
-                    var state: UIControl.State = UIControl.State()
-                    self.loginButton.setTitle("Login", for: state)
+                    self.loginButton.hideLoader()
+                    self.loginButton.setTitle("Login", for: .normal)
                 }
+                self.loginButton.hideLoader()
+                            //            var state: UIControl.State = UIControl.State()
+                self.loginButton.setTitle("Login", for: .normal)
             }
         self.signUpButton.touchUpInside {
             self.signUpButton.showLoader(userInteraction: true)

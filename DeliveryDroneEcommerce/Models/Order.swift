@@ -19,4 +19,6 @@ struct Order {
     let companyID : String
     var time : String
     var address : String
+    var distIndex : Int
+    
 }

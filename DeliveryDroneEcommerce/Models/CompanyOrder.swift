@@ -19,5 +19,6 @@ struct CompanyOrder {
     var status : String
     var userID : String
     let companyID : String
+    var distIndex : Int
     
 }
