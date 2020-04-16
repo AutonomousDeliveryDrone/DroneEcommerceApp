@@ -10,12 +10,14 @@ import UIKit
 import MBCircularProgressBar
 import CoreLocation
 import MapKit
+import PMSuperButton
 
 
 class ProgressScreenViewController: UIViewController {
     
     @IBOutlet weak var progressBar: MBCircularProgressBarView!
     @IBOutlet weak var droneMap: MKMapView!
+    @IBOutlet weak var completeButton: PMSuperButton!
     
     var productName : String = ""
     var company : String = ""
@@ -31,6 +33,16 @@ class ProgressScreenViewController: UIViewController {
     @IBOutlet weak var name: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        
+        completeButton.layer.cornerRadius = 5
+        
+        completeButton.touchUpInside {
+            print("This button was pressed!")
+        }
+        
+        
+        
         
         
         name.text = productName
@@ -50,7 +62,9 @@ class ProgressScreenViewController: UIViewController {
         
         var geocoder = CLGeocoder()
         geocoder.geocodeAddressString(address) {
+            
             placemarks, error in
+            
             let placemark = placemarks?.first
             let lat = placemark?.location?.coordinate.latitude
             let lon = placemark?.location?.coordinate.longitude
@@ -89,7 +103,7 @@ class ProgressScreenViewController: UIViewController {
                 print("\(diffLat) + \(diffLon)")
                 let ind = 4
                 
-                self.progressBar.progressAngle = CGFloat(ind/10)
+                self.progressBar.value = 50
                 var arrLat : [Double] = []
                 var arrLon : [Double] = []
                 for i in stride(from: 1, to: 11, by: 1) {
@@ -116,7 +130,7 @@ class ProgressScreenViewController: UIViewController {
                 
                 self.droneMap.addAnnotation(annotation)
                 self.droneMap.addAnnotation(annotation2)
-                
+               
                 
             }
         }
