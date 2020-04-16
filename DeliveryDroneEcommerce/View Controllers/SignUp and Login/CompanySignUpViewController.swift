@@ -83,7 +83,6 @@ class CompanySignUpViewController: UIViewController, UIImagePickerControllerDele
             print("changing image")
             companyImage.image = selectedImage
         }
-        uploadLabel.isHidden = true
         companyImage.layer.borderWidth = 0
         dismiss(animated: true, completion: nil)
     }

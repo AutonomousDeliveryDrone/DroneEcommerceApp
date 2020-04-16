@@ -53,8 +53,7 @@ class CompanyProductViewController: UIViewController , UIImagePickerControllerDe
         print("-----------------")
         priceTextField.keyboardType = UIKeyboardType.numberPad
         restockAmount.keyboardType = UIKeyboardType.numberPad
-        
-        nameTextField.delegate = self
+    
         ref = Database.database().reference()
         
         
@@ -160,35 +159,13 @@ class CompanyProductViewController: UIViewController , UIImagePickerControllerDe
             linkTextField.text = productLink.text
             
         } else {
-            
-            
-            //Title
             if (productName.text != nameTextField.text) {
                 titleChanged = true
             }
-            productName.text = nameTextField.text!
-            productName.isHidden = false
-            nameTextField.isHidden = true
-            
-            //Price
-            
-            productPrice.text = priceTextField.text!
-            productPrice.isHidden = false
-            priceTextField.isHidden = true
-            
-            //Description
-            productDesc.text = descriptionTextField.text!
-            productDesc.isHidden = false
-            descriptionTextField.isHidden = true
-            
-            //Link
-            productLink.text = linkTextField.text!
-            productLink.isHidden = false
-            linkTextField.isHidden = true
-            
             //Image + FirStorage
             productImage.isUserInteractionEnabled = false
-            if (!imageChanged) {
+            if (!imageChanged && !titleChanged) {
+                print("NEITHER WERE CHANGED")
                 productImage?.sd_setImage(with: URL(string: url), placeholderImage: UIImage(named: "Products"), options: .highPriority, progress: nil, completed: { (downloadImage, downloadException, cacheType, downloadURL) in
                     
                     if let downloadException = downloadException {
@@ -197,11 +174,19 @@ class CompanyProductViewController: UIViewController , UIImagePickerControllerDe
                         print("Succesfully donwloaded image")
                     }
                 })
-            } else {
-                storageRef = Storage.storage().reference().child("ProductImages").child(compID).child(name + ".png")
-                let deleteImg = storageRef
-                print("BRAAYY")
-                deleteImg!.delete { (error) in
+            } else if (!imageChanged && titleChanged){
+                print("ONLY TITLE WAS CHANGED")
+                productImage?.sd_setImage(with: URL(string: url), placeholderImage: UIImage(named: "Products"), options: .highPriority, progress: nil, completed: { (downloadImage, downloadException, cacheType, downloadURL) in
+                    
+                    if let downloadException = downloadException {
+                        print("Error downloading an image: \(downloadException.localizedDescription)")
+                    } else {
+                        print("Succesfully donwloaded image")
+                    }
+                })
+                let deleteImg = Storage.storage().reference().child("ProductImages").child(compID).child(productName.text! + ".png")
+                storageRef = Storage.storage().reference().child("ProductImages").child(compID).child(nameTextField.text! + ".png")
+                deleteImg.delete { (error) in
                     if let error = error {
                         print("Error occured with deleting image")
                     }
@@ -227,14 +212,100 @@ class CompanyProductViewController: UIViewController , UIImagePickerControllerDe
                         }
                     }
                 }
-                imageChanged = false
             }
+            else if (imageChanged && !titleChanged){
+                print("ONLY IMAGE WAS CHANGED")
+                storageRef = Storage.storage().reference().child("ProductImages").child(compID).child(productName.text! + ".png")
+                let deleteImg = storageRef
+                deleteImg!.delete { (error) in
+                    if let error = error {
+                        print("Error occured with deleting image")
+                    }
+                    if let uploadData = self.productImage.image?.pngData() {
+                        print("storing image")
+                        self.storageRef.putData(uploadData, metadata: nil) { (metadata, error) in
+                            if (error != nil) {
+                                print(error)
+                                return
+                            }
+                            self.storageRef.downloadURL(completion: { (url, error) in
+                                if let err = error {
+                                    print("there was an error")
+                                    print(err)
+                                } else {
+                                    self.url = url!.absoluteString
+                                    self.uploadImageURL(self.url)
+                                }
+                            })
+                            
+                            
+                        }
+                    }
+                }
+                
+            } else { //both were changed
+                print("BOTH WERE CHANGED")
+                print(productName.text!)
+                print(nameTextField.text!)
+                let deleteImg = Storage.storage().reference().child("ProductImages").child(compID).child(productName.text! + ".png")
+                storageRef = Storage.storage().reference().child("ProductImages").child(compID).child(nameTextField.text! + ".png")
+                deleteImg.delete { (error) in
+                    if let error = error {
+                        print("Error occured with deleting image")
+                    }
+                    if let uploadData = self.productImage.image?.pngData() {
+                        print("storing image")
+                        self.storageRef.putData(uploadData, metadata: nil) { (metadata, error) in
+                            if (error != nil) {
+                                print(error)
+                                return
+                            }
+                            self.storageRef.downloadURL(completion: { (url, error) in
+                                if let err = error {
+                                    print("there was an error")
+                                    print(err)
+                                } else {
+                                    self.url = url!.absoluteString
+                                    self.uploadImageURL(self.url)
+                                }
+                            })
+                            
+                            
+                        }
+                    }
+                }
+            }
+            imageChanged = false
+            titleChanged = false
+            
+            //Title
+            
+            productName.text = nameTextField.text!
+            productName.isHidden = false
+            nameTextField.isHidden = true
+            
+            //Price
+            
+            productPrice.text = priceTextField.text!
+            productPrice.isHidden = false
+            priceTextField.isHidden = true
+            
+            //Description
+            productDesc.text = descriptionTextField.text!
+            productDesc.isHidden = false
+            descriptionTextField.isHidden = true
+            
+            //Link
+            productLink.text = linkTextField.text!
+            productLink.isHidden = false
+            linkTextField.isHidden = true
+            
             
             ref.child("Storage").child(categoryType).child(compID).child(String(index)).updateChildValues(["Product": nameTextField.text!, "Price" : Int(priceTextField.text!), "Description": descriptionTextField.text!, "Link": linkTextField.text!])
             ref.child("UserInfo").child(compID).child("Products").child(String(index)).updateChildValues(["Product": nameTextField.text!, "Price" : Int(priceTextField.text!), "Description": descriptionTextField.text!, "Link": linkTextField.text!])
-            nameTextField.text = ""
             editButton.setAttributedTitle(NSAttributedString(string: "EDIT"), for: .normal)
             editButton.imageView?.isHidden = false
+            
             
         }
         
@@ -250,17 +321,3 @@ class CompanyProductViewController: UIViewController , UIImagePickerControllerDe
 
 }
 
-extension CompanyProductViewController: UITextFieldDelegate{
-    
-    func textFieldDidEndEditing(_ textField: UITextField) {
-        if (textField == nameTextField) {
-            productName.text = textField.text!
-            productName.isHidden = false
-            textField.isHidden = true
-            
-            ref.child("Storage").child(categoryType).child(compID).child(String(index)).updateChildValues(["Product": textField.text!])
-            ref.child("UserInfo").child(compID).child("Products").child(String(index)).updateChildValues(["Product": textField.text!])
-            textField.text = ""
-        }
-    }
-}
