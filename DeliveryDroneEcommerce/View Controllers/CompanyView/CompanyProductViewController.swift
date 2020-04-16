@@ -33,6 +33,7 @@ class CompanyProductViewController: UIViewController {
     
     var ref: DatabaseReference!
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -52,13 +53,7 @@ class CompanyProductViewController: UIViewController {
             }
         })
         
-        
-        print("---------------")
-        print(categoryType)
-        print(compID)
-        print(index)
-        print(restockAmount)
-        print("---------------")
+    
     }
     
 

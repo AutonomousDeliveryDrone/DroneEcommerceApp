@@ -30,17 +30,32 @@ class CompanyHomeViewController: UIViewController {
     var compID : String  = ""
     var orderAmount1 : Int = 0
     
+    var rowPressed: Int = 0
+    
+    override func viewDidAppear(_ animated: Bool) {
+        print("VIEWDIDAPPEAR")
+        if (categoryType != "") {
+            ref.child("Storage").child(categoryType).child(compID).child(String(index1)).observeSingleEvent(of: .value, with: { (snapshot) in
+                    guard let value = snapshot.value as? NSDictionary else {
+                        print("could not collect data")
+                        return
+                    }
+                self.productList[self.rowPressed].amount = value["Amount"] as! Int
+                self.tableView.reloadData()
+            })
+        }
+        
+        
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        print("VIEWDIDLOAD")
         tableView.dataSource = self
         tableView.delegate = self
         tableView.register(UINib(nibName: "ProductCellTableViewCell", bundle: nil), forCellReuseIdentifier: "ReusableCell2" )
         ref = Database.database().reference()
         retrieveData()
-        
-        
-        // Do any additional setup after loading the view.
     }
     
     
@@ -163,6 +178,7 @@ extension CompanyHomeViewController: UITableViewDataSource {
 
 extension CompanyHomeViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        rowPressed = indexPath.row
         name1 = productList[indexPath.row].name
         categoryType = productList[indexPath.row].category
         price1 = productList[indexPath.row].price
