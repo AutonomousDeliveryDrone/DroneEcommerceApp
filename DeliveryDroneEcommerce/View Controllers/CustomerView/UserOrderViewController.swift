@@ -36,6 +36,7 @@ class UserOrderViewController: UIViewController, UITextFieldDelegate {
     var ref: DatabaseReference!
     override func viewDidLoad() {
         super.viewDidLoad()
+        orderAmount.keyboardType = UIKeyboardType.numberPad
         print("------------------")
         print(previousOrderAmt)
         print("------------------")

@@ -526,7 +526,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 25BKB2B8F3;
+				DEVELOPMENT_TEAM = 2386LZ47TS;
 				INFOPLIST_FILE = DeliveryDroneEcommerce/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -545,7 +545,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 25BKB2B8F3;
+				DEVELOPMENT_TEAM = 2386LZ47TS;
 				INFOPLIST_FILE = DeliveryDroneEcommerce/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

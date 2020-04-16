@@ -31,12 +31,21 @@ class CompanyProductViewController: UIViewController {
     @IBOutlet weak var productLink: UILabel!
     @IBOutlet weak var restockAmount: UITextField!
     
+    @IBOutlet weak var nameTextField: UITextField!
+    @IBOutlet weak var nameButton: UIButton!
+    
+    
     var ref: DatabaseReference!
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        restockAmount.keyboardType = UIKeyboardType.numberPad
         
+        nameTextField.delegate = self
+        print("------------")
+        print(nameButton.titleLabel?.text)
+        print("---------")
         ref = Database.database().reference()
         
         productName.text = name
@@ -74,15 +83,42 @@ class CompanyProductViewController: UIViewController {
         restockAmount.text = ""
         
     }
-    
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    @IBAction func editTitle(_ sender: Any) {
+        if (nameButton.titleLabel?.text == "EDIT") {
+            productName.isHidden = true
+            nameTextField.isHidden = false
+            nameTextField.text = productName.text
+            nameButton.setAttributedTitle(NSAttributedString(string: "DONE"), for: .normal)
+        } else {
+            productName.text = nameTextField.text!
+            productName.isHidden = false
+            nameTextField.isHidden = true
+            
+        ref.child("Storage").child(categoryType).child(compID).child(String(index)).updateChildValues(["Product": nameTextField.text!])
+            ref.child("UserInfo").child(compID).child("Products").child(String(index)).updateChildValues(["Product": nameTextField.text!])
+                nameTextField.text = ""
+            nameButton.setAttributedTitle(NSAttributedString(string: "EDIT"), for: .normal)
+            
+        }
+        
+        
+        
     }
-    */
+    
 
+}
+
+extension CompanyProductViewController: UITextFieldDelegate{
+    
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        if (textField == nameTextField) {
+            productName.text = textField.text!
+            productName.isHidden = false
+            textField.isHidden = true
+            
+            ref.child("Storage").child(categoryType).child(compID).child(String(index)).updateChildValues(["Product": textField.text!])
+            ref.child("UserInfo").child(compID).child("Products").child(String(index)).updateChildValues(["Product": textField.text!])
+            textField.text = ""
+        }
+    }
 }
