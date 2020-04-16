@@ -149,14 +149,6 @@ class AddProductViewController: UIViewController, UIImagePickerControllerDelegat
                     
                     
                     
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
                 }) { (error) in
                     print("error:\(error.localizedDescription)")
                 }
