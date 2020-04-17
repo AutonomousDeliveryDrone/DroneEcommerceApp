@@ -46,6 +46,7 @@ class CompanyProductViewController: UIViewController , UIImagePickerControllerDe
     var storageRef: StorageReference!
     
     override func viewDidLoad() {
+        
         super.viewDidLoad()
         
         
@@ -60,7 +61,9 @@ class CompanyProductViewController: UIViewController , UIImagePickerControllerDe
         restockButton.layer.shadowOpacity = 0.7
         
         productName.text = name
-        productPrice.text = "$\(price)"
+        
+        let roundedPrice = String(format: "%.2f", price)
+        productPrice.text = "$\(roundedPrice)"
         productDesc.text = desc
         productLink.text = link
         

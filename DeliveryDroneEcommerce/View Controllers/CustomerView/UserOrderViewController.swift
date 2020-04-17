@@ -46,7 +46,8 @@ class UserOrderViewController: UIViewController, UITextFieldDelegate {
 //        ref.child("Orders").setValue(["orderNum" : 1])
         
         productName.text = name
-        productPrice.text = "$" + String(price)
+        let roundedPrice = String(format: "%.2f", price)
+        productPrice.text = "$" + roundedPrice
         productDesc.text = desc
         productLink.text = link
         

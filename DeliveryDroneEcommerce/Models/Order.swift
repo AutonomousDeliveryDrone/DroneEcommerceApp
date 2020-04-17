@@ -20,5 +20,5 @@ struct Order {
     var time : String
     var address : String
     var distIndex : Int
-    
+    var orderAmount: Int
 }

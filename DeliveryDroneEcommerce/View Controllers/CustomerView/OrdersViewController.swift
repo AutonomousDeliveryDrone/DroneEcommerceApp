@@ -27,6 +27,7 @@ class OrdersViewController: UIViewController {
     var companyID : String = ""
     var userID : String = ""
     var place : Int = 0
+    var orderAmount: Int = 0
     
     
     override func viewDidLoad() {
@@ -54,6 +55,7 @@ class OrdersViewController: UIViewController {
             secondVC.companyID = companyID
             secondVC.status = status
             secondVC.place = place
+            secondVC.orderAmount = orderAmount
             
         }
     }
@@ -89,7 +91,7 @@ class OrdersViewController: UIViewController {
                 let status = value["Status"] as! String
                 let compID = value["companyID"] as! String
                 let dist = value["DistanceIndex"] as! Int
-                
+                let orderAmt = value["OrderedAmount"] as! Int
                 
                 //making the company cells
                 self.ref.child("UserInfo").child(companyID).child("Information").observeSingleEvent(of: .value) { (snap) in
@@ -100,7 +102,7 @@ class OrdersViewController: UIViewController {
                     let Name = val["Company"] as! String
                     let Image = val["CompanyImage"] as! String
                     
-                    let order = Order(name: product, company: Name , cost: price, image: Image, place: place, status: status, userID: userID, companyID: compID, time: time, address: address, distIndex: dist)
+                    let order = Order(name: product, company: Name , cost: price, image: Image, place: place, status: status, userID: userID, companyID: compID, time: time, address: address, distIndex: dist, orderAmount: orderAmt)
                     self.orders.append(order)
                     self.orders.sort(by: {$0.place < $1.place})
                     print("Prduct:" + product)
@@ -123,7 +125,13 @@ extension OrdersViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "CustomerOrderCell", for: indexPath) as! CustomerOrderCell
         cell.productName.text = orders[indexPath.row].name
-        cell.cost.text = "$\(orders[indexPath.row].cost)"
+        print("---------------")
+        print(orders[indexPath.row].cost * Double(orders[indexPath.row].orderAmount))
+        print(orders[indexPath.row].cost)
+        print(orders[indexPath.row].orderAmount)
+        print("---------------")
+        let roundedPrice = String(format: "%.2f", orders[indexPath.row].cost * Double(orders[indexPath.row].orderAmount))
+        cell.cost.text = "$\(roundedPrice)"
         cell.company.text = orders[indexPath.row].company
         cell.time.text = orders[indexPath.row].time
         cell.address.text = orders[indexPath.row].address
@@ -149,6 +157,7 @@ extension OrdersViewController: UITableViewDelegate {
         companyID = orders[indexPath.row].companyID
         userID = orders[indexPath.row].userID
         place = orders[indexPath.row].place
+        orderAmount = orders[indexPath.row].orderAmount
         print(orders[indexPath.row].status)
         performSegue(withIdentifier: "toOrderProgress", sender: self)
         //                if orders[indexPath.row].status == "In Transit" {

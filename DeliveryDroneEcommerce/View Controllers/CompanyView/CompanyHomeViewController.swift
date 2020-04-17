@@ -35,6 +35,8 @@ class CompanyHomeViewController: UIViewController {
     var rowPressed: Int = 0
     var searching = false
     
+    let random = 3.5
+    
     
     override func viewDidAppear(_ animated: Bool) {
         print("VIEWDIDAPPEAR")
@@ -54,6 +56,11 @@ class CompanyHomeViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        
+        print("---------------")
+        print(String(format: "%.3f", random))
+        print("--------------")
         print("VIEWDIDLOAD")
         
         tableView.dataSource = self
@@ -170,7 +177,9 @@ extension CompanyHomeViewController: UITableViewDataSource {
             current = productList[indexPath.row]
         }
         cell.title.text = current.name
-        cell.price.text = "$\(String(current.price))"
+        
+        let roundedPrice = String(format: "%.2f", current.price)
+        cell.price.text = "$\(roundedPrice)"
         cell.category.text = current.category
         cell.amountLeft.text = "Left: \(String(current.amount))"
         cell.orderedAmt.text = "Ordered: \(String(current.orderedAmount))"

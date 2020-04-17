@@ -27,6 +27,7 @@ class CompanyProgressViewController: UIViewController {
     var place : Int = 0
     var userID : String = ""
     var companyID : String = ""
+    var orderAmount: Int = 0
     
     var ref: DatabaseReference!
     @IBOutlet weak var droneMap: MKMapView!

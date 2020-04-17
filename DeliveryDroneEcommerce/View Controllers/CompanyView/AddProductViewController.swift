@@ -44,6 +44,9 @@ class AddProductViewController: UIViewController, UIImagePickerControllerDelegat
         super.viewDidLoad()
         ref = Database.database().reference()
         
+        price.keyboardType = UIKeyboardType.decimalPad
+        amount.keyboardType = UIKeyboardType.numberPad
+        
         
         addButton.layer.cornerRadius = 15
         addButton.layer.shadowColor = UIColor.black.cgColor
@@ -87,10 +90,8 @@ class AddProductViewController: UIViewController, UIImagePickerControllerDelegat
     
     @IBAction func Add(_ sender: Any) {
         
-//        SVProgressHUD.show()
         let categoryText = categoryButton.titleLabel?.text as! String
         if (productTitle.text?.isEmpty ?? true || price.text?.isEmpty ?? true || amount.text?.isEmpty ?? true || desc.text?.isEmpty ?? true || productLink.text?.isEmpty ?? true || categoryText == "Category") {
-//            SVProgressHUD.dismiss()
             
             print("THERE IS AN ERROR")
             let alert = UIAlertController(title: "Error Detected", message: "Please make sure you have completed every field", preferredStyle: .alert)

@@ -27,6 +27,7 @@ class CompanyOrderViewController: UIViewController {
     var companyID : String = ""
     var userID : String = ""
     var place : Int = 0
+    var orderAmount: Int = 0
     
     var ref: DatabaseReference!
     override func viewDidLoad() {
@@ -76,6 +77,7 @@ class CompanyOrderViewController: UIViewController {
                 let status = value["Status"] as! String
                 let compID = value["companyID"] as! String
                 let dist = value["DistanceIndex"] as! Int
+                let orderAmt = value["OrderedAmount"] as! Int
                 
                 
                 //making the company cells
@@ -87,7 +89,7 @@ class CompanyOrderViewController: UIViewController {
                     let Name = val["Company"] as! String
                     let Image = val["CompanyImage"] as! String
                     
-                    let order = CompanyOrder(productName: product, price: price, customerName: name, address: address, time: time, place: place, status: status, userID: userID, companyID: compID, distIndex: dist)
+                    let order = CompanyOrder(productName: product, price: price, customerName: name, address: address, time: time, place: place, status: status, userID: userID, companyID: compID, distIndex: dist, orderAmount: orderAmt)
                     self.orders.append(order)
                     self.orders.sort(by: {$0.place < $1.place})
                     print("Prduct:" + product)
@@ -111,6 +113,7 @@ class CompanyOrderViewController: UIViewController {
             secondVC.companyID = companyID
             secondVC.status = status
             secondVC.place = place
+            secondVC.orderAmount = orderAmount
 
         }
     }
@@ -131,7 +134,8 @@ extension CompanyOrderViewController: UITableViewDataSource {
         cell.customerAddress.text = "Deliver to: \(orders[indexPath.row].address)"
         cell.timePurchased.text = "Time purchased: \(orders[indexPath.row].time)"
         cell.customerName.text = "Customer: \(orders[indexPath.row].customerName)"
-        cell.price.text = "$\(orders[indexPath.row].price)"
+        let roundedPrice = String(format: "%.2f", orders[indexPath.row].price * Double(orders[indexPath.row].orderAmount))
+        cell.price.text = "$\(roundedPrice)"
         cell.statusLabel.text = "Status:\(orders[indexPath.row].status)"
         return cell
     }
@@ -169,6 +173,7 @@ extension CompanyOrderViewController: UITableViewDelegate {
         companyID = orders[indexPath.row].companyID
         userID = orders[indexPath.row].userID
         place = orders[indexPath.row].place
+        orderAmount = orders[indexPath.row].orderAmount
         performSegue(withIdentifier: "toCompProgress", sender: self)
         
     }

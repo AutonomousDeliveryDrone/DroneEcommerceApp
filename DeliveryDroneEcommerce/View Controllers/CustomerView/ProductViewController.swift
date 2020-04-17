@@ -138,7 +138,8 @@ class ProductViewController: UIViewController, UICollectionViewDelegate, UIColle
 
         cell.labelTitle.text = productList[cellIndex].name
         cell.labelTitle.font = cell.labelTitle.font.withSize(closeFrameSize * relativeFontCellTitle)
-        cell.labelDetails.text =  "$" + String(productList[cellIndex].price)
+        let roundedPrice = String(format: "%.2f", productList[cellIndex].price)
+        cell.labelDetails.text =  "$" + roundedPrice
         cell.labelDetails.font = cell.labelDetails.font.withSize(closeFrameSize * relativeFontCellDescription)
         
         let imageURL = productList[indexPath.row].productImage

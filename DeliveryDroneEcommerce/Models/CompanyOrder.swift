@@ -20,5 +20,6 @@ struct CompanyOrder {
     var userID : String
     let companyID : String
     var distIndex : Int
+    var orderAmount: Int
     
 }

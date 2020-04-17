@@ -15,6 +15,10 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.80000000000000004" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="company" translatesAutoresizingMaskIntoConstraints="NO" id="a5p-A7-8FI">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Address" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="6WV-A4-Ia0">
                                 <rect key="frame" x="20" y="191" width="374" height="34"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -145,6 +149,7 @@
                             <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WNf-MX-xuc">
                                 <rect key="frame" x="28" y="832" width="359" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <state key="normal" title="Register as a Company?">
                                     <color key="titleShadowColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
@@ -220,7 +225,7 @@
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VWM-ub-iIe" customClass="PMSuperButton" customModule="PMSuperButton">
                                 <rect key="frame" x="20" y="386" width="374" height="45"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <state key="normal" title="Login" image="go">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
@@ -231,7 +236,7 @@
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="f0G-iR-IIF" customClass="PMSuperButton" customModule="PMSuperButton">
                                 <rect key="frame" x="20" y="469" width="374" height="43"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <state key="normal" title="Sign Up">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
@@ -314,7 +319,7 @@
             </objects>
             <point key="canvasLocation" x="5095.652173913044" y="-559.15178571428567"/>
         </scene>
-        <!--Products-->
+        <!--Companies-->
         <scene sceneID="swU-tt-87K">
             <objects>
                 <viewController modalPresentationStyle="fullScreen" id="9LQ-AH-7Sq" customClass="DisplayedCompanyViewController" customModule="DeliveryDroneEcommerce" customModuleProvider="target" sceneMemberID="viewController">
@@ -331,7 +336,7 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="AWD-bN-hWb"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Products" id="p6X-qS-H44"/>
+                    <navigationItem key="navigationItem" title="Companies" id="p6X-qS-H44"/>
                     <connections>
                         <outlet property="tableView" destination="0D8-qR-3Gw" id="bcz-mx-247"/>
                         <segue destination="LCl-GE-TvH" kind="show" identifier="toProductList" id="dOY-Bh-6CS"/>
@@ -711,7 +716,7 @@
         <scene sceneID="Bqa-Yz-vOR">
             <objects>
                 <viewController modalPresentationStyle="fullScreen" id="gMv-rr-jZY" customClass="AddProductViewController" customModule="DeliveryDroneEcommerce" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="GYa-ed-DQi">
+                    <view key="view" contentMode="scaleToFill" ambiguous="YES" id="GYa-ed-DQi">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
@@ -1293,6 +1298,7 @@
         <image name="YOTEy" width="710" height="1526"/>
         <image name="bag.fill" catalog="system" width="64" height="64"/>
         <image name="bag.fill.badge.minus" catalog="system" width="64" height="58"/>
+        <image name="company" width="107" height="84.5"/>
         <image name="done" width="646" height="1396"/>
         <image name="go" width="16" height="16"/>
         <image name="pencil" catalog="system" width="64" height="56"/>
@@ -1302,8 +1308,8 @@
         <image name="upload" width="1106" height="1106"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Nsf-mg-lBY"/>
+        <segue reference="3WI-Oj-mKU"/>
         <segue reference="5B2-jC-LhC"/>
-        <segue reference="QFt-c9-YeP"/>
+        <segue reference="QiH-kv-kaZ"/>
     </inferredMetricsTieBreakers>
 </document>
