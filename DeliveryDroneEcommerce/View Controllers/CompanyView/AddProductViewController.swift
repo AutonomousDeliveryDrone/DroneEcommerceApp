@@ -42,6 +42,10 @@ class AddProductViewController: UIViewController, UIImagePickerControllerDelegat
         ref = Database.database().reference()
         
         
+        addButton.layer.cornerRadius = 5
+        addButton.layer.shadowColor = UIColor.white.cgColor
+        addButton.layer.shadowRadius = 5
+        addButton.layer.shadowOpacity = 0.7
         
     
         tableView.delegate = self
@@ -82,7 +86,7 @@ class AddProductViewController: UIViewController, UIImagePickerControllerDelegat
         
         
         let categoryText = categoryButton.titleLabel?.text as! String
-        if (productTitle.text?.isEmpty ?? true || price.text?.isEmpty ?? true || amount.text?.isEmpty ?? true || desc.text?.isEmpty ?? true || productLink.text?.isEmpty ?? true) {
+        if (productTitle.text?.isEmpty ?? true || price.text?.isEmpty ?? true || amount.text?.isEmpty ?? true || desc.text?.isEmpty ?? true || productLink.text?.isEmpty ?? true || categoryText == "Category") {
             
             print("THERE IS AN ERROR")
             let alert = UIAlertController(title: "Error Detected", message: "Please make sure you have completed every field", preferredStyle: .alert)
