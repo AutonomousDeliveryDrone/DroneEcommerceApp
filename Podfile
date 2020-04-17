@@ -20,6 +20,7 @@ target 'DeliveryDroneEcommerce' do
     pod 'PMSuperButton'
     pod 'LTMorphingLabel'
     pod 'SDWebImage', '~> 5.0'
+    pod 'SVProgressHUD'
 
 
 end
