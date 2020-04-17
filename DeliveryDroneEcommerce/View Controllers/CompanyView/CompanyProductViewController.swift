@@ -307,8 +307,8 @@ class CompanyProductViewController: UIViewController , UIImagePickerControllerDe
             linkTextField.isHidden = true
             
             
-            ref.child("Storage").child(categoryType).child(compID).child(String(index)).updateChildValues(["Product": nameTextField.text!, "Price" : Int(priceTextField.text!), "Description": descriptionTextField.text!, "Link": linkTextField.text!])
-            ref.child("UserInfo").child(compID).child("Products").child(String(index)).updateChildValues(["Product": nameTextField.text!, "Price" : Int(priceTextField.text!), "Description": descriptionTextField.text!, "Link": linkTextField.text!])
+            ref.child("Storage").child(categoryType).child(compID).child(String(index)).updateChildValues(["Product": nameTextField.text!, "Price" : Double(priceTextField.text!), "Description": descriptionTextField.text!, "Link": linkTextField.text!])
+            ref.child("UserInfo").child(compID).child("Products").child(String(index)).updateChildValues(["Product": nameTextField.text!, "Price" : Double(priceTextField.text!), "Description": descriptionTextField.text!, "Link": linkTextField.text!])
             editButton.setAttributedTitle(NSAttributedString(string: "EDIT"), for: .normal)
             editButton.imageView?.isHidden = false
             

@@ -9,7 +9,7 @@
 import UIKit
 import Firebase
 
-class CompanyHomeViewController: UIViewController {
+class CompanyHomeViewController: UIViewController, UISearchBarDelegate {
     
     @IBOutlet weak var tableView: UITableView!
     
@@ -141,6 +141,20 @@ class CompanyHomeViewController: UIViewController {
     }
     
     
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        print("hi")
+        searchedProduct = productList.filter({$0.name.lowercased().prefix(searchText.count) == searchText.lowercased()})
+        searching = true
+        tableView.reloadData()
+    }
+    
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        view.endEditing(true)
+        searching = false
+        searchBar.text = ""
+        tableView.reloadData()
+    }
+    
     /*
      // MARK: - Navigation
      
@@ -220,19 +234,9 @@ extension CompanyHomeViewController: UITableViewDelegate {
     }
 }
 
-extension CompanyHomeViewController: UISearchBarDelegate {
-    
-    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: Product) {
-        searchedProduct = productList.filter({$0.name.lowercased().prefix(searchText.name.count) == searchText.name.lowercased()})
-        searching = true
-        tableView.reloadData()
-    }
-    
-    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
-        searching = false
-        searchBar.text = ""
-        tableView.reloadData()
-    }
-    
-}
+//extension CompanyHomeViewController: UISearchBarDelegate {
+//
+//
+//
+//}
 

@@ -39,18 +39,18 @@ class CompanySignUpViewController: UIViewController, UIImagePickerControllerDele
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        companyImage.layer.borderColor = UIColor.black.cgColor
-        companyImage.layer.borderWidth = 2
+//        companyImage.layer.borderColor = UIColor.black.cgColor
+//        companyImage.layer.borderWidth = 2
         
-        signUpButton.layer.cornerRadius = signUpButton.frame.height / 3
-        signUpButton.layer.shadowColor = UIColor.darkGray.cgColor
-        signUpButton.layer.shadowRadius = 5
-        signUpButton.layer.shadowOpacity = 0.5
+        signUpButton.layer.cornerRadius = 5
+//        signUpButton.layer.shadowColor = UIColor.darkGray.cgColor
+//        signUpButton.layer.shadowRadius = 5
+//        signUpButton.layer.shadowOpacity = 0.5
         
-        backButton.layer.cornerRadius = signUpButton.frame.height / 3
-        backButton.layer.shadowColor = UIColor.black.cgColor
-        backButton.layer.shadowRadius = 2
-        backButton.layer.shadowOpacity = 0.5
+//        backButton.layer.cornerRadius = signUpButton.frame.height / 3
+//        backButton.layer.shadowColor = UIColor.black.cgColor
+//        backButton.layer.shadowRadius = 2
+//        backButton.layer.shadowOpacity = 0.5
         
         
         ref = Database.database().reference()

@@ -124,6 +124,7 @@ class CompanyOrderViewController: UIViewController {
 
 extension CompanyOrderViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        
         return orders.count
     }
     

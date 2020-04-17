@@ -10,16 +10,19 @@ import UIKit
 import Firebase
 import SDWebImage
 
-class DisplayedCompanyViewController: UIViewController {
+class DisplayedCompanyViewController: UIViewController, UISearchBarDelegate {
 
     @IBOutlet weak var tableView: UITableView!
     var companies: [Company] = []
+    var searchedCompany = [Company]()
     
     var category: String = "" //Will get filled out during segue
     
     var companySelected : String = ""
     
+    @IBOutlet weak var sb: UISearchBar!
     
+    var searching = false
     
     
     var ref: DatabaseReference!
@@ -27,12 +30,17 @@ class DisplayedCompanyViewController: UIViewController {
         super.viewDidLoad()
         tableView.dataSource = self
         tableView.delegate = self
+        sb.delegate = self
         ref = Database.database().reference()
         
         tableView.register(UINib(nibName: "CompanyCell", bundle: nil), forCellReuseIdentifier: "CompanyCell")
         retrieveCompanies()
 
         // Do any additional setup after loading the view.
+    }
+    
+    func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
+        self.view.endEditing(true)
     }
     
     func retrieveCompanies() {
@@ -78,6 +86,20 @@ class DisplayedCompanyViewController: UIViewController {
         }
     }
     
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        print("hi")
+        searchedCompany = companies.filter({$0.companyName.lowercased().prefix(searchText.count) == searchText.lowercased()})
+        searching = true
+        tableView.reloadData()
+    }
+    
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        view.endEditing(true)
+        searching = false
+        searchBar.text = ""
+        tableView.reloadData()
+    }
+    
     
     
     
@@ -86,14 +108,26 @@ class DisplayedCompanyViewController: UIViewController {
 extension DisplayedCompanyViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return companies.count
+        if searching {
+         print("hi!")
+            return searchedCompany.count
+        } else {
+            return companies.count
+        }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "CompanyCell", for: indexPath) as! CompanyCell
         
-        cell.companyName.text = companies[indexPath.row].companyName
-        let imageURL = companies[indexPath.row].imageURL
+        var current : Company = companies[indexPath.row]
+        if searching {
+            current = searchedCompany[indexPath.row]
+        } else {
+            current = companies[indexPath.row]
+        }
+        
+        cell.companyName.text = current.companyName
+        let imageURL = current.imageURL
         cell.companyImage?.sd_setImage(with: URL(string: imageURL), placeholderImage: UIImage(named: "Companies"), options: .highPriority, progress: nil, completed: { (downloadImage, downloadException, cacheType, downloadURL) in
             
             if let downloadException = downloadException {
