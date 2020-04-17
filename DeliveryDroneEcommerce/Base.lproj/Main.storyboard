@@ -52,6 +52,7 @@
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="71Z-lV-bRA">
                                 <rect key="frame" x="145" y="832" width="124" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" name="ArialRoundedMTBold" family="Arial Rounded MT Bold" pointSize="17"/>
                                 <state key="normal" title="Back to Login">
                                     <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -725,7 +726,7 @@
         <scene sceneID="Bqa-Yz-vOR">
             <objects>
                 <viewController modalPresentationStyle="fullScreen" id="gMv-rr-jZY" customClass="AddProductViewController" customModule="DeliveryDroneEcommerce" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" ambiguous="YES" id="GYa-ed-DQi">
+                    <view key="view" contentMode="scaleToFill" id="GYa-ed-DQi">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
@@ -1322,6 +1323,6 @@
     <inferredMetricsTieBreakers>
         <segue reference="Nsf-mg-lBY"/>
         <segue reference="5B2-jC-LhC"/>
-        <segue reference="QFt-c9-YeP"/>
+        <segue reference="QiH-kv-kaZ"/>
     </inferredMetricsTieBreakers>
 </document>

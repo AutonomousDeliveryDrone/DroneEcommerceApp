@@ -46,7 +46,12 @@ class CompanyHomeViewController: UIViewController, UISearchBarDelegate {
                         print("could not collect data")
                         return
                     }
+                self.productList[self.rowPressed].name = value["Product"] as! String
+                self.productList[self.rowPressed].price = value["Price"] as! Double
+                self.productList[self.rowPressed].desc = value["Description"] as! String
+                self.productList[self.rowPressed].link = value["Link"] as! String
                 self.productList[self.rowPressed].amount = value["Amount"] as! Int
+                
                 self.tableView.reloadData()
             })
         }
