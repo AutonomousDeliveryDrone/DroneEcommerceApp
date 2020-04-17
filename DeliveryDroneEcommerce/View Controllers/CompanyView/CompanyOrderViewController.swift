@@ -165,7 +165,7 @@ extension CompanyOrderViewController: UITableViewDelegate {
 //            self.present(alert, animated: true, completion: nil)
 //            print(indexPath.row)
 //        }
-        name = orders[indexPath.row].customerName
+        name = orders[indexPath.row].productName
         time = orders[indexPath.row].time
         dist = orders[indexPath.row].distIndex
         address = orders[indexPath.row].address

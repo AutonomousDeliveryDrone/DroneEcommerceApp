@@ -125,11 +125,6 @@ extension OrdersViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "CustomerOrderCell", for: indexPath) as! CustomerOrderCell
         cell.productName.text = orders[indexPath.row].name
-        print("---------------")
-        print(orders[indexPath.row].cost * Double(orders[indexPath.row].orderAmount))
-        print(orders[indexPath.row].cost)
-        print(orders[indexPath.row].orderAmount)
-        print("---------------")
         let roundedPrice = String(format: "%.2f", orders[indexPath.row].cost * Double(orders[indexPath.row].orderAmount))
         cell.cost.text = "$\(roundedPrice)"
         cell.company.text = orders[indexPath.row].company
