@@ -34,6 +34,7 @@ class CompanyProductViewController: UIViewController , UIImagePickerControllerDe
     @IBOutlet weak var productDesc: UITextView!
     @IBOutlet weak var productLink: UILabel!
     @IBOutlet weak var restockAmount: UITextField!
+    @IBOutlet weak var restockButton: UIButton!
     
     @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var priceTextField: UITextField!
@@ -44,21 +45,22 @@ class CompanyProductViewController: UIViewController , UIImagePickerControllerDe
     var ref: DatabaseReference!
     var storageRef: StorageReference!
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        print("-----------------")
-        print(name + ".png")
-        print("-----------------")
+        
         priceTextField.keyboardType = UIKeyboardType.numberPad
         restockAmount.keyboardType = UIKeyboardType.numberPad
     
         ref = Database.database().reference()
         
+        restockButton.layer.cornerRadius = 5
+        restockButton.layer.shadowColor = UIColor.white.cgColor
+        restockButton.layer.shadowRadius = 5
+        restockButton.layer.shadowOpacity = 0.7
         
         productName.text = name
-        productPrice.text = "\(price)"
+        productPrice.text = "$\(price)"
         productDesc.text = desc
         productLink.text = link
         
@@ -146,7 +148,7 @@ class CompanyProductViewController: UIViewController , UIImagePickerControllerDe
             //Price
             productPrice.isHidden = true
             priceTextField.isHidden = false
-            priceTextField.text = productPrice.text
+            priceTextField.text = String(price)
             
             //Description
             productDesc.isHidden = true
@@ -286,7 +288,8 @@ class CompanyProductViewController: UIViewController , UIImagePickerControllerDe
             
             //Price
             
-            productPrice.text = priceTextField.text!
+            productPrice.text = "$" + priceTextField.text!
+            price = Int(priceTextField.text!)!
             productPrice.isHidden = false
             priceTextField.isHidden = true
             

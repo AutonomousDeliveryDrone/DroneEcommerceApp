@@ -42,9 +42,9 @@ class AddProductViewController: UIViewController, UIImagePickerControllerDelegat
         ref = Database.database().reference()
         
         
-        addButton.layer.cornerRadius = 5
+        addButton.layer.cornerRadius = 15
         addButton.layer.shadowColor = UIColor.white.cgColor
-        addButton.layer.shadowRadius = 5
+        addButton.layer.shadowRadius = 15
         addButton.layer.shadowOpacity = 0.7
         
     
