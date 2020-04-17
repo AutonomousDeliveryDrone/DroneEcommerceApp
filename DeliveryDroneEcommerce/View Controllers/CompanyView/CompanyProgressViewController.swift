@@ -18,7 +18,7 @@ class CompanyProgressViewController: UIViewController {
     
     var name : String = ""
     var comp : String = ""
-    var price : Int = 0
+    var price : Double = 0
     var address : String = ""
     var time : String = ""
     var distIndex : Int = 0
@@ -81,7 +81,7 @@ class CompanyProgressViewController: UIViewController {
         
         
         
-        productName.text = name
+        productName.text = "Product: \(name)"
         
         timeOrdered.text = time
         

@@ -22,7 +22,7 @@ class ProgressScreenViewController: UIViewController {
     
     var productName : String = ""
     var company : String = ""
-    var price : Int = 0
+    var price : Double = 0
     var address : String = ""
     var timeOrdered : String = ""
     var distIndex : Int = 0
@@ -91,8 +91,8 @@ class ProgressScreenViewController: UIViewController {
         
         
         
-        name.text = productName
-        comp.text = company
+        name.text = "Product: \(productName)"
+        comp.text = "Company: \(company)"
         time.text = timeOrdered
         
         UIView.animate(withDuration: 1) {

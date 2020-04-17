@@ -16,7 +16,7 @@ class CompanyProductViewController: UIViewController , UIImagePickerControllerDe
     var company : String = ""
     var categoryType : String = ""
     var name : String = ""
-    var price : Int = 0
+    var price : Double = 0
     var desc : String = ""
     var link : String = ""
     var index : Int = 0
@@ -289,7 +289,7 @@ class CompanyProductViewController: UIViewController , UIImagePickerControllerDe
             //Price
             
             productPrice.text = "$" + priceTextField.text!
-            price = Int(priceTextField.text!)!
+            price = Double(priceTextField.text!)!
             productPrice.isHidden = false
             priceTextField.isHidden = true
             

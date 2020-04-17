@@ -9,6 +9,8 @@
 import UIKit
 import Firebase
 import FirebaseStorage
+import PMSuperButton
+import SVProgressHUD
 
 class CellClass: UITableViewCell {
     
@@ -36,6 +38,7 @@ class AddProductViewController: UIViewController, UIImagePickerControllerDelegat
     
     var dataSource = [String]()
     
+//    @IBOutlet weak var plusButton: PMSuperButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -43,7 +46,7 @@ class AddProductViewController: UIViewController, UIImagePickerControllerDelegat
         
         
         addButton.layer.cornerRadius = 15
-        addButton.layer.shadowColor = UIColor.white.cgColor
+        addButton.layer.shadowColor = UIColor.black.cgColor
         addButton.layer.shadowRadius = 15
         addButton.layer.shadowOpacity = 0.7
         
@@ -84,9 +87,10 @@ class AddProductViewController: UIViewController, UIImagePickerControllerDelegat
     
     @IBAction func Add(_ sender: Any) {
         
-        
+//        SVProgressHUD.show()
         let categoryText = categoryButton.titleLabel?.text as! String
         if (productTitle.text?.isEmpty ?? true || price.text?.isEmpty ?? true || amount.text?.isEmpty ?? true || desc.text?.isEmpty ?? true || productLink.text?.isEmpty ?? true || categoryText == "Category") {
+//            SVProgressHUD.dismiss()
             
             print("THERE IS AN ERROR")
             let alert = UIAlertController(title: "Error Detected", message: "Please make sure you have completed every field", preferredStyle: .alert)
@@ -100,7 +104,7 @@ class AddProductViewController: UIViewController, UIImagePickerControllerDelegat
         }
         else {
             //            ref.child("Storage").child(categoryText).setValue(["Index" : 1])
-            let priceInt: Int? = Int(price.text!)
+            let priceInt: Double? = Double(price.text!)
             let amountInt: Int? = Int(amount.text!)
             
             self.ref.child("UserInfo").child(Auth.auth().currentUser!.uid).child("Information").observeSingleEvent(of: .value, with: { (snapshot) in
@@ -165,7 +169,7 @@ class AddProductViewController: UIViewController, UIImagePickerControllerDelegat
         }
     }
     
-    func addProduct(_ url : String, _ priceInt : Int, _ amountInt : Int, _ name : String, _ categoryText : String, _ index : Int) {
+    func addProduct(_ url : String, _ priceInt : Double, _ amountInt : Int, _ name : String, _ categoryText : String, _ index : Int) {
         var productList = ["Product":self.productTitle.text, "Price": priceInt, "Amount":amountInt, "OrderedAmount" : 0, "Description" : self.desc.text, "Link" : self.productLink.text, "Company" : name, "Index":index, "Category": categoryText, "companyID" :Auth.auth().currentUser!.uid, "ProductImage": url] as [String : Any]
        self.ref.child("Storage").child(categoryText).child(Auth.auth().currentUser!.uid).child(String(index)).setValue(productList)
        
@@ -173,7 +177,7 @@ class AddProductViewController: UIViewController, UIImagePickerControllerDelegat
            
        
        self.ref.child("UserInfo").child(Auth.auth().currentUser!.uid).child("Products").child(String(index)).updateChildValues(productList)
-        
+//        SVProgressHUD.dismiss()
         self.performSegue(withIdentifier: "backToCompanyHome", sender: self)
        
     }

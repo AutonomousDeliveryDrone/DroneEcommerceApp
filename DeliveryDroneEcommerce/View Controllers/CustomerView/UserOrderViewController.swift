@@ -15,7 +15,7 @@ class UserOrderViewController: UIViewController, UITextFieldDelegate {
     var company : String = ""
     var categoryType : String = ""
     var name : String = ""
-    var price : Int = 0
+    var price : Double = 0
     var desc : String = ""
     var link : String = ""
     var index : Int = 0

@@ -139,10 +139,10 @@
 		47419CC12441810C00B68BF2 /* CustomerView */ = {
 			isa = PBXGroup;
 			children = (
+				890437D924415CDC0064A9E5 /* ProductViewController.swift */,
 				8954B387243EA7BC007039CB /* UserHomeViewController.swift */,
 				890437DD244266D10064A9E5 /* UserOrderViewController.swift */,
 				891C6B7E244061C200919896 /* DisplayedCompanyViewController.swift */,
-				890437D924415CDC0064A9E5 /* ProductViewController.swift */,
 				472A1D2E244418440044EAC5 /* OrdersViewController.swift */,
 				8946FE94244790E7000ED523 /* ProgressScreenViewController.swift */,
 			);

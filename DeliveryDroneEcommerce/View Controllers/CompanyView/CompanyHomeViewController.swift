@@ -17,11 +17,13 @@ class CompanyHomeViewController: UIViewController {
     
     
     var productList: [Product] = [Product]()
+    var searchedProduct = [Product]()
     
+    @IBOutlet weak var productSearch: UISearchBar!
     var company : String = ""
     var categoryType : String = ""
     var name1 : String = ""
-    var price1 : Int = 0
+    var price1 : Double = 0
     var desc1 : String = ""
     var link1 : String = ""
     var index1 : Int = 0
@@ -31,6 +33,8 @@ class CompanyHomeViewController: UIViewController {
     var orderAmount1 : Int = 0
     
     var rowPressed: Int = 0
+    var searching = false
+    
     
     override func viewDidAppear(_ animated: Bool) {
         print("VIEWDIDAPPEAR")
@@ -51,8 +55,11 @@ class CompanyHomeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         print("VIEWDIDLOAD")
+        
         tableView.dataSource = self
         tableView.delegate = self
+        productSearch.delegate = self
+        
         tableView.register(UINib(nibName: "ProductCellTableViewCell", bundle: nil), forCellReuseIdentifier: "ReusableCell2" )
         ref = Database.database().reference()
         retrieveData()
@@ -77,7 +84,7 @@ class CompanyHomeViewController: UIViewController {
                 let index = value["Index"] as! Int
                 let link = value["Link"] as! String
                 let name = value["Product"] as! String
-                let price = value["Price"] as! Int
+                let price = value["Price"] as! Double
                 let category = value["Category"] as! String
                 let compID = value["companyID"] as! String
                 let image = value["ProductImage"] as! String
@@ -143,17 +150,27 @@ class CompanyHomeViewController: UIViewController {
 
 extension CompanyHomeViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return productList.count
+        if searching {
+            print("hi!")
+               return searchedProduct.count
+           } else {
+               return productList.count
+           }
+        
         //might need to change later if we decide to add more categories
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "ReusableCell2", for: indexPath) as! ProductCellTableViewCell
         
-        let current : Product = productList[indexPath.row]
-        
+        var current : Product = productList[indexPath.row]
+        if searching {
+            current = searchedProduct[indexPath.row]
+        } else {
+            current = productList[indexPath.row]
+        }
         cell.title.text = current.name
-        cell.price.text = "$\(String(current.price)).00"
+        cell.price.text = "$\(String(current.price))"
         cell.category.text = current.category
         cell.amountLeft.text = "Left: \(String(current.amount))"
         cell.orderedAmt.text = "Ordered: \(String(current.orderedAmount))"
@@ -192,5 +209,21 @@ extension CompanyHomeViewController: UITableViewDelegate {
         performSegue(withIdentifier: "toProdView", sender: self)
         print(indexPath.row)
     }
+}
+
+extension CompanyHomeViewController: UISearchBarDelegate {
+    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: Product) {
+        searchedProduct = productList.filter({$0.name.lowercased().prefix(searchText.name.count) == searchText.name.lowercased()})
+        searching = true
+        tableView.reloadData()
+    }
+    
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        searching = false
+        searchBar.text = ""
+        tableView.reloadData()
+    }
+    
 }
 

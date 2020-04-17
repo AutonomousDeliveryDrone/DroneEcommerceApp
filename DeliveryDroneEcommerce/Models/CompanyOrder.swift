@@ -10,7 +10,7 @@ import Foundation
 
 struct CompanyOrder {
     var productName: String
-    var price: Int
+    var price: Double
 //    var description: String
     var customerName: String
     var address : String

@@ -35,7 +35,7 @@ class ProductViewController: UIViewController, UICollectionViewDelegate, UIColle
     var company : String = ""
     var categoryType : String = ""
     var name1 : String = ""
-    var price1 : Int = 0
+    var price1 : Double = 0
     var desc1 : String = ""
     var link1 : String = ""
     var index1 : Int = 0
@@ -82,7 +82,7 @@ class ProductViewController: UIViewController, UICollectionViewDelegate, UIColle
                 let index = value["Index"] as! Int
                 let link = value["Link"] as! String
                 let name = value["Product"] as! String
-                let price = value["Price"] as! Int
+                let price = value["Price"] as! Double
                 let category = value["Category"] as! String
                 let compID = value["companyID"] as! String
                 let image = value["ProductImage"] as! String
@@ -156,12 +156,14 @@ class ProductViewController: UIViewController, UICollectionViewDelegate, UIColle
         cell.contentView.layer.borderWidth = 2
         
         
+        cell.imageCell.layer.cornerRadius = 15
+        
         cell.contentView.layer.borderColor = UIColor.white.cgColor
         cell.contentView.layer.masksToBounds = true
         cell.contentView.backgroundColor = UIColor.white
-        cell.backgroundColor = UIColor.lightGray
+        cell.backgroundColor = UIColor.white
         
-        cell.layer.shadowColor = UIColor.gray.cgColor
+        cell.layer.shadowColor = UIColor.white.cgColor
         cell.layer.shadowOffset = CGSize(width: 0, height: 2.0)
         cell.layer.shadowRadius = 2.0
         cell.layer.shadowOpacity = 1.0

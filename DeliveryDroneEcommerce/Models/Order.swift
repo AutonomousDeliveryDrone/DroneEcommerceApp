@@ -11,7 +11,7 @@ import Foundation
 struct Order {
     var name: String
     var company: String
-    var cost : Int
+    var cost : Double
     var image : String
     var place : Int
     var status : String

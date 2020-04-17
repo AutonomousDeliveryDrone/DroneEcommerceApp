@@ -20,7 +20,7 @@ class OrdersViewController: UIViewController {
     var time : String = ""
     var name : String = ""
     var address : String = ""
-    var price : Int = 0
+    var price : Double = 0
     var dist : Int = 0
     
     var status : String = ""
@@ -78,7 +78,7 @@ class OrdersViewController: UIViewController {
                 print("----------------")
                 print(companyID)
                 print("----------------")
-                let price = value["Price"] as! Int
+                let price = value["Price"] as! Double
                 let product = value["Product"] as! String
                 let place = value["Place"] as! Int
                 let desc = value["Description"] as! String
