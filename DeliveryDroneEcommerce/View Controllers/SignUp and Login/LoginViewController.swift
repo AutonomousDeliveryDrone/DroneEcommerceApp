@@ -159,19 +159,23 @@ class LoginViewController: UIViewController {
                 self.loginButton.setTitle("Login", for: .normal)
             }
         self.signUpButton.touchUpInside {
-            self.signUpButton.showLoader(userInteraction: true)
-             self.signUpButton.titleLabel?.isHidden = true
+//            self.signUpButton.showLoader(userInteraction: true)
+//             self.signUpButton.titleLabel?.isHidden = true
+            
+            
             print("hi")
                 if (self.FirstName.text?.isEmpty ?? true || self.LastName.text?.isEmpty ?? true || self.emailAddress.text?.isEmpty ?? true || self.Regpass.text?.isEmpty ?? true) {
-                    print("THERE IS AN ERROR")
-                    let alert = UIAlertController(title: "Registration Error", message: "Please make sure you have completed filled out every textfield", preferredStyle: .alert)
-                    
-                    let OK = UIAlertAction(title: "OK", style: .default) { (alert) in
-                        return
-                    }
-                    
-                    alert.addAction(OK)
-                    self.present(alert, animated: true, completion: nil)
+                    print("jeff")
+                    self.switchButton(self.switchOutlet)
+//                    print("THERE IS AN ERROR")
+//                    let alert = UIAlertController(title: "Registration Error", message: "Please make sure you have completed filled out every textfield", preferredStyle: .alert)
+//                    
+//                    let OK = UIAlertAction(title: "OK", style: .default) { (alert) in
+//                        return
+//                    }
+//
+//                    alert.addAction(OK)
+//                    self.present(alert, animated: true, completion: nil)
                     
                 } else {
                     Auth.auth().createUser(withEmail: self.emailAddress.text!, password: self.Regpass.text!) { (user, error) in
@@ -198,6 +202,7 @@ class LoginViewController: UIViewController {
                             print("--------------------------------")
                         }
                     }
+                    
                 }
             }
             

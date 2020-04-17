@@ -38,6 +38,8 @@ class CompanyOrderViewController: UIViewController {
         ref = Database.database().reference()
         retrieveOrders()
         
+        tableView.reloadData()
+        
         tableView.register(UINib(nibName: "CompanyOrderCell", bundle: nil), forCellReuseIdentifier: "CompanyOrderCell")
         
         // Do any additional setup after loading the view.

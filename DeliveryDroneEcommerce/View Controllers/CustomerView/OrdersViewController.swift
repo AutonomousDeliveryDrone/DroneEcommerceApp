@@ -36,6 +36,7 @@ class OrdersViewController: UIViewController {
         ref = Database.database().reference()
         
         retrieveOrders()
+        tableView.reloadData()
         
         tableView.register(UINib(nibName: "CustomerOrderCell", bundle: nil), forCellReuseIdentifier: "CustomerOrderCell")
     }
