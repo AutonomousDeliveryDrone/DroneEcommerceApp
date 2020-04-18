@@ -89,7 +89,7 @@ class AddProductViewController: UIViewController, UIImagePickerControllerDelegat
     }
     
     @IBAction func Add(_ sender: Any) {
-        
+//        SVProgressHUD.show(withStatus: "Storing Product")
         let categoryText = categoryButton.titleLabel?.text as! String
         if (productTitle.text?.isEmpty ?? true || price.text?.isEmpty ?? true || amount.text?.isEmpty ?? true || desc.text?.isEmpty ?? true || productLink.text?.isEmpty ?? true || categoryText == "Category") {
             
@@ -168,6 +168,7 @@ class AddProductViewController: UIViewController, UIImagePickerControllerDelegat
             
             
         }
+//        SVProgressHUD.dismiss()
     }
     
     func addProduct(_ url : String, _ priceInt : Double, _ amountInt : Int, _ name : String, _ categoryText : String, _ index : Int) {

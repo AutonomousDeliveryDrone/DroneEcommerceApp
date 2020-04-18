@@ -24,6 +24,7 @@ class UserOrderViewController: UIViewController, UITextFieldDelegate {
     var compID : String = ""
     var previousOrderAmt: Int = 0 
     
+    @IBOutlet weak var orderButton: UIButton!
     
     @IBOutlet weak var productName: UILabel!
     @IBOutlet weak var productPrice: UILabel!
@@ -37,6 +38,12 @@ class UserOrderViewController: UIViewController, UITextFieldDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         orderAmount.keyboardType = UIKeyboardType.numberPad
+        
+        orderButton.layer.cornerRadius = 5
+        orderButton.layer.shadowColor = UIColor.systemBlue.cgColor
+        orderButton.layer.shadowRadius = 5
+        orderButton.layer.shadowOpacity = 0.7
+        
         print("------------------")
         print(previousOrderAmt)
         print("------------------")
