@@ -29,6 +29,21 @@ class OrdersViewController: UIViewController {
     var place : Int = 0
     var orderAmount: Int = 0
     
+    var rowPressed: Int = 0
+    
+    override func viewDidAppear(_ animated: Bool) {
+        if (rowPressed != -1) {
+            ref.child("Orders").child("Users").child(Auth.auth().currentUser?.uid as! String).child(String(place)).observeSingleEvent(of: .value, with: { (snapshot) in
+                    guard let value = snapshot.value as? NSDictionary else {
+                        print("could not collect data")
+                        return
+                    }
+                self.orders[self.rowPressed].status = value["Status"] as! String
+                
+                self.tableView.reloadData()
+            })
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -142,6 +157,7 @@ extension OrdersViewController: UITableViewDataSource {
 
 extension OrdersViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        rowPressed = indexPath.row
         company = orders[indexPath.row].company
         address = orders[indexPath.row].address
         price = orders[indexPath.row].cost
