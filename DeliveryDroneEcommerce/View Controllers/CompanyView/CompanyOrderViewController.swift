@@ -29,7 +29,24 @@ class CompanyOrderViewController: UIViewController {
     var place : Int = 0
     var orderAmount: Int = 0
     
+    var rowPressed : Int = -1
+    
     var ref: DatabaseReference!
+    
+    override func viewDidAppear(_ animated: Bool) {
+        print("VIEWDIDAPPEAR")
+        if (rowPressed != -1) {
+            ref.child("Orders").child("Companies").child(companyID).child(String(place)).observeSingleEvent(of: .value, with: { (snapshot) in
+                    guard let value = snapshot.value as? NSDictionary else {
+                        print("could not collect data")
+                        return
+                    }
+                self.orders[self.rowPressed].status = value["Status"] as! String
+                
+                self.tableView.reloadData()
+            })
+        }
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -146,6 +163,7 @@ extension CompanyOrderViewController: UITableViewDataSource {
 
 extension CompanyOrderViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        rowPressed = indexPath.row
 //        if orders[indexPath.row].status == "Processing" {
 //            let alert = UIAlertController(title: "Change Status", message: "Change Status of Order", preferredStyle: .alert)
 //
