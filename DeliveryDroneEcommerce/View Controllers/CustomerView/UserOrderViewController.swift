@@ -121,7 +121,7 @@ class UserOrderViewController: UIViewController, UITextFieldDelegate {
                         return
                     }
                     let place = value0["orderNum"] as! Int
-                    let productList = ["Product":productStorage.name, "Price": productStorage.price, "Amount":productStorage.amount,"OrderedAmount": self.previousOrderAmt, "Description" : productStorage.desc, "Link" : productStorage.link, "Company" : productStorage.company, "Index":productStorage.index, "Category": productStorage.category, "companyID" :productStorage.companyID, "ProductImage": productStorage.productImage,"CustomerName" : fullName, "Address" : address, "Place" : place, "Time" : time, "UserID" : Auth.auth().currentUser!.uid, "Status" : "Processing", "DistanceIndex" : 3 ] as [String : Any]
+                    let productList = ["Product":productStorage.name, "Price": productStorage.price, "Amount":productStorage.amount,"OrderedAmount": orderAmt, "Description" : productStorage.desc, "Link" : productStorage.link, "Company" : productStorage.company, "Index":productStorage.index, "Category": productStorage.category, "companyID" :productStorage.companyID, "ProductImage": productStorage.productImage,"CustomerName" : fullName, "Address" : address, "Place" : place, "Time" : time, "UserID" : Auth.auth().currentUser!.uid, "Status" : "Processing", "DistanceIndex" : 3 ] as [String : Any]
                     
                     
                     self.ref.child("Orders").child("Users").child(Auth.auth().currentUser!.uid).child(String(place)).updateChildValues(productList)
@@ -132,7 +132,7 @@ class UserOrderViewController: UIViewController, UITextFieldDelegate {
                     self.ref.child("UserInfo").child(self.compID).child("Products").child(String(self.index)).updateChildValues(["Amount" : self.amount - orderAmt, "OrderedAmount" : self.previousOrderAmt + orderAmt])
                     self.ref.child("Orders").updateChildValues(["orderNum" : place+1])
                     
-                    self.performSegue(withIdentifier: "toOrder", sender: self)
+                    self.performSegue(withIdentifier: "orderBack", sender: self)
                     
                 } else {
                     print("Number was not entered")

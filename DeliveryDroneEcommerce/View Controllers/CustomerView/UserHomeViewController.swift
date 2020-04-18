@@ -16,7 +16,7 @@ class UserHomeViewController: UIViewController {
         Category(categoryType: "Food"),
         Category(categoryType: "Supplies"),
         Category(categoryType: "Gadgets"),
-        Category(categoryType: "Clothings"),
+        Category(categoryType: "Clothing"),
         Category(categoryType: "Stationaries")
     ]
     
