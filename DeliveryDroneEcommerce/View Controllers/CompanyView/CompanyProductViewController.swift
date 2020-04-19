@@ -56,9 +56,9 @@ class CompanyProductViewController: UIViewController , UIImagePickerControllerDe
         ref = Database.database().reference()
         
         restockButton.layer.cornerRadius = 5
-        restockButton.layer.shadowColor = UIColor.systemBlue.cgColor
-        restockButton.layer.shadowRadius = 5
-        restockButton.layer.shadowOpacity = 0.7
+//        restockButton.layer.shadowColor = UIColor.systemBlue.cgColor
+//        restockButton.layer.shadowRadius = 5
+//        restockButton.layer.shadowOpacity = 0.7
         
         productName.text = name
         

@@ -202,7 +202,7 @@ extension ProductViewController : UICollectionViewDelegateFlowLayout {
         let widthVal = self.view.frame.width
         let cellsize = (heightVal < widthVal) ?  bounds.height/2 : bounds.width/2
         
-        return CGSize(width: cellsize-10 , height:  cellsize-10  )
+        return CGSize(width: cellsize-5 , height:  cellsize  )
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {

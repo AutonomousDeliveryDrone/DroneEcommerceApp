@@ -40,9 +40,9 @@ class UserOrderViewController: UIViewController, UITextFieldDelegate {
         orderAmount.keyboardType = UIKeyboardType.numberPad
         
         orderButton.layer.cornerRadius = 5
-        orderButton.layer.shadowColor = UIColor.systemBlue.cgColor
-        orderButton.layer.shadowRadius = 5
-        orderButton.layer.shadowOpacity = 0.7
+//        orderButton.layer.shadowColor = UIColor.systemBlue.cgColor
+//        orderButton.layer.shadowRadius = 5
+//        orderButton.layer.shadowOpacity = 0.7
         
         print("------------------")
         print(previousOrderAmt)

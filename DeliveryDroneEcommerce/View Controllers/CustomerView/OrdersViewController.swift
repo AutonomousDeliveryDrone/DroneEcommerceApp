@@ -29,6 +29,9 @@ class OrdersViewController: UIViewController {
     var place : Int = 0
     var orderAmount: Int = 0
     
+    var x : Double = 0
+    var y : Double = 0
+    
     var rowPressed: Int = 0
     
     override func viewDidAppear(_ animated: Bool) {
@@ -142,9 +145,9 @@ extension OrdersViewController: UITableViewDataSource {
         cell.productName.text = orders[indexPath.row].name
         let roundedPrice = String(format: "%.2f", orders[indexPath.row].cost * Double(orders[indexPath.row].orderAmount))
         cell.cost.text = "$\(roundedPrice)"
-        cell.company.text = orders[indexPath.row].company
+        cell.company.text = "Company: \(orders[indexPath.row].company)"
         cell.time.text = orders[indexPath.row].time
-        cell.address.text = orders[indexPath.row].address
+        cell.address.text = "Delivering To: \(orders[indexPath.row].address)"
         
         
         cell.status.text = "Status:\(orders[indexPath.row].status)"
