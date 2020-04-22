@@ -198,7 +198,7 @@ extension ProductViewController : UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let bounds = collectionView.bounds
-        let heightVal = self.view.frame.height
+        let heightVal = self.view.frame.height+10
         let widthVal = self.view.frame.width
         let cellsize = (heightVal < widthVal) ?  bounds.height/2 : bounds.width/2
         
