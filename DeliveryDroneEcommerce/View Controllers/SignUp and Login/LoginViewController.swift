@@ -105,7 +105,7 @@ class LoginViewController: UIViewController {
         
         loginButton.touchUpInside {
             self.loginButton.showLoader(userInteraction: false)
-//            var state: UIControl.State = UIControl.State()
+            //            var state: UIControl.State = UIControl.State()
             self.loginButton.setTitle("", for: .normal)
             print("hi")
             Auth.auth().signIn(withEmail: self.email.text!, password: self.password.text!) { (user, error) in
@@ -135,7 +135,7 @@ class LoginViewController: UIViewController {
                     //
                     
                 } else {
-            
+                    
                     
                     let alert = UIAlertController(title: "Login Error", message: "Incorrect username or password", preferredStyle: .alert)
                     let forgotPassword = UIAlertAction(title: "Forgot Password?", style: .default, handler: { (UIAlertAction) in
@@ -146,7 +146,7 @@ class LoginViewController: UIViewController {
                         //do nothing
                         self.loginButton.hideLoader()
                         //            var state: UIControl.State = UIControl.State()
-                                    self.loginButton.setTitle("Login", for: .normal)
+                        self.loginButton.setTitle("Login", for: .normal)
                     })
                     
                     alert.addAction(forgotPassword)
@@ -158,59 +158,60 @@ class LoginViewController: UIViewController {
                     self.loginButton.setTitle("Login", for: .normal)
                 }
                 self.loginButton.hideLoader()
-                            //            var state: UIControl.State = UIControl.State()
+                //            var state: UIControl.State = UIControl.State()
                 self.loginButton.setTitle("Login", for: .normal)
             }
-        self.signUpButton.touchUpInside {
+        }
+        signUpButton.touchUpInside {
             self.signUpButton.showLoader(userInteraction: true)
             self.signUpButton.setTitle("", for: .normal)
             
             
             print("hi")
-                if (self.FirstName.text?.isEmpty ?? true || self.LastName.text?.isEmpty ?? true || self.emailAddress.text?.isEmpty ?? true || self.Regpass.text?.isEmpty ?? true) {
-                    print("jeff")
-                    self.switchButton(self.switchOutlet)
-                    print("THERE IS AN ERROR")
-                    let alert = UIAlertController(title: "Registration Error", message: "Please make sure you have completed filled out every textfield", preferredStyle: .alert)
-                    
-                    let OK = UIAlertAction(title: "OK", style: .default) { (alert) in
-                        self.signUpButton.hideLoader()
-                        self.signUpButton.setTitle("Sign Up", for: .normal)
-                        return
-                    }
-
-                    alert.addAction(OK)
-                    self.present(alert, animated: true, completion: nil)
-                    
-                } else {
-                    Auth.auth().createUser(withEmail: self.emailAddress.text!, password: self.Regpass.text!) { (user, error) in
-                        if (error == nil) {
-                            self.ref.child("UserInfo").child(Auth.auth().currentUser!.uid).child("Information").setValue(["FirstName" : self.FirstName.text, "LastName" : self.LastName.text, "Address" : self.shippingAddress.text, "Email" : self.emailAddress.text])
-                            self.ref.child("UserInfo").child(Auth.auth().currentUser!.uid).child("Information").updateChildValues(["Status" : "User"])
-                            
-                            self.performSegue(withIdentifier: "toUserHome", sender: self)
-                            
-//                                                self.performSegue(withIdentifier: "UserToLogin", sender: self)
-                            //                    self.performSegue(withIdentifier: "goToMainMenu", sender: self)
-                        } else {
-                            //                    SVProgressHUD.dismiss()
-                            let alert = UIAlertController(title: "Registration Error", message: error?.localizedDescription as! String, preferredStyle: .alert)
-                            
-                            let OK = UIAlertAction(title: "OK", style: .default, handler: { (UIAlertAction) in
-                                self.password.text = ""
-                                self.signUpButton.hideLoader()
-                                self.signUpButton.setTitle("Sign Up", for: .normal)
-                            })
-                            
-                            alert.addAction(OK)
-                            self.present(alert, animated: true, completion: nil)
-                            print("--------------------------------")
-                            print("Error: \(error?.localizedDescription)")
-                            print("--------------------------------")
-                        }
-                    }
-                    
+            if (self.FirstName.text?.isEmpty ?? true || self.LastName.text?.isEmpty ?? true || self.emailAddress.text?.isEmpty ?? true || self.Regpass.text?.isEmpty ?? true) {
+                print("jeff")
+//                self.switchButton(self.switchOutlet)
+                print("THERE IS AN ERROR")
+                let alert = UIAlertController(title: "Registration Error", message: "Please make sure you have completed filled out every textfield", preferredStyle: .alert)
+                
+                let OK = UIAlertAction(title: "OK", style: .default) { (alert) in
+                    self.signUpButton.hideLoader()
+                    self.signUpButton.setTitle("Sign Up", for: .normal)
+                    return
                 }
+                
+                alert.addAction(OK)
+                self.present(alert, animated: true, completion: nil)
+                
+            } else {
+                Auth.auth().createUser(withEmail: self.emailAddress.text!, password: self.Regpass.text!) { (user, error) in
+                    if (error == nil) {
+                        self.ref.child("UserInfo").child(Auth.auth().currentUser!.uid).child("Information").setValue(["FirstName" : self.FirstName.text, "LastName" : self.LastName.text, "Address" : self.shippingAddress.text, "Email" : self.emailAddress.text])
+                        self.ref.child("UserInfo").child(Auth.auth().currentUser!.uid).child("Information").updateChildValues(["Status" : "User"])
+                        
+                        self.performSegue(withIdentifier: "toUserHome", sender: self)
+                        
+                        //                                                self.performSegue(withIdentifier: "UserToLogin", sender: self)
+                        //                    self.performSegue(withIdentifier: "goToMainMenu", sender: self)
+                    } else {
+                        //                    SVProgressHUD.dismiss()
+                        let alert = UIAlertController(title: "Registration Error", message: error?.localizedDescription as! String, preferredStyle: .alert)
+                        
+                        let OK = UIAlertAction(title: "OK", style: .default, handler: { (UIAlertAction) in
+                            self.password.text = ""
+                            self.signUpButton.hideLoader()
+                            self.signUpButton.setTitle("Sign Up", for: .normal)
+                        })
+                        
+                        alert.addAction(OK)
+                        self.present(alert, animated: true, completion: nil)
+                        print("--------------------------------")
+                        print("Error: \(error?.localizedDescription)")
+                        print("--------------------------------")
+                    }
+                }
+                
+                
             }
             
         }
@@ -218,7 +219,7 @@ class LoginViewController: UIViewController {
         
     }
     
-
+    
     
     @IBAction func switchButton(_ sender: Any) {
         if loginOn {

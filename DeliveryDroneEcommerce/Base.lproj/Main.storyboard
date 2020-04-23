@@ -701,7 +701,7 @@
             </objects>
             <point key="canvasLocation" x="6411.594202898551" y="610.71428571428567"/>
         </scene>
-        <!--Company Order View Controller-->
+        <!--Orders-->
         <scene sceneID="qBG-yV-lxv">
             <objects>
                 <viewController id="rq5-kx-rCQ" customClass="CompanyOrderViewController" customModule="DeliveryDroneEcommerce" customModuleProvider="target" sceneMemberID="viewController">
@@ -718,7 +718,7 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="Ib6-pk-0pn"/>
                     </view>
-                    <navigationItem key="navigationItem" id="Rnf-sD-kbU"/>
+                    <navigationItem key="navigationItem" title="Orders" id="Rnf-sD-kbU"/>
                     <connections>
                         <outlet property="tableView" destination="ZsR-3f-PCb" id="Rbj-7E-rwq"/>
                         <segue destination="3zc-5y-mEG" kind="show" identifier="toCompProgress" id="Z2r-iJ-QTT"/>
@@ -732,7 +732,7 @@
         <scene sceneID="Bqa-Yz-vOR">
             <objects>
                 <viewController modalPresentationStyle="fullScreen" id="gMv-rr-jZY" customClass="AddProductViewController" customModule="DeliveryDroneEcommerce" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="GYa-ed-DQi">
+                    <view key="view" contentMode="scaleToFill" ambiguous="YES" id="GYa-ed-DQi">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
@@ -872,7 +872,7 @@
             </objects>
             <point key="canvasLocation" x="4158" y="873"/>
         </scene>
-        <!--Product View Controller-->
+        <!--Products-->
         <scene sceneID="eSO-qv-4cf">
             <objects>
                 <viewController id="LCl-GE-TvH" customClass="ProductViewController" customModule="DeliveryDroneEcommerce" customModuleProvider="target" sceneMemberID="viewController">
@@ -953,7 +953,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="A7N-gu-j7s"/>
                     </view>
-                    <navigationItem key="navigationItem" id="vFh-rI-yPq"/>
+                    <navigationItem key="navigationItem" title="Products" id="vFh-rI-yPq"/>
                     <connections>
                         <outlet property="collectionView" destination="D9J-qc-tTE" id="AtS-nr-aeS"/>
                         <segue destination="rdM-cJ-ofn" kind="show" identifier="toUserOrder" id="dfj-jC-vj4"/>
@@ -1115,7 +1115,7 @@
             </objects>
             <point key="canvasLocation" x="6145" y="-891"/>
         </scene>
-        <!--Progress Screen View Controller-->
+        <!--Progress-->
         <scene sceneID="6ca-2Z-otc">
             <objects>
                 <viewController id="NFc-sr-mtZ" customClass="ProgressScreenViewController" customModule="DeliveryDroneEcommerce" customModuleProvider="target" sceneMemberID="viewController">
@@ -1226,7 +1226,7 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="z0A-qU-AOo"/>
                     </view>
-                    <navigationItem key="navigationItem" id="CGa-xk-voC"/>
+                    <navigationItem key="navigationItem" title="Progress" id="CGa-xk-voC"/>
                     <connections>
                         <outlet property="comp" destination="9ET-Rh-jfv" id="hXD-AB-fyT"/>
                         <outlet property="completeButton" destination="8wE-jE-swC" id="pv4-OS-tvw"/>
@@ -1243,7 +1243,7 @@
             </objects>
             <point key="canvasLocation" x="6997.1014492753629" y="-897.32142857142856"/>
         </scene>
-        <!--Company Progress View Controller-->
+        <!--Progress-->
         <scene sceneID="lOG-eo-52R">
             <objects>
                 <viewController id="3zc-5y-mEG" customClass="CompanyProgressViewController" customModule="DeliveryDroneEcommerce" customModuleProvider="target" sceneMemberID="viewController">
@@ -1347,7 +1347,7 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="mJt-H7-YzV"/>
                     </view>
-                    <navigationItem key="navigationItem" id="DY1-dv-5Sx"/>
+                    <navigationItem key="navigationItem" title="Progress" id="DY1-dv-5Sx"/>
                     <connections>
                         <outlet property="deleteButton" destination="LgD-HA-Upf" id="vFt-ib-1so"/>
                         <outlet property="droneMap" destination="Ish-Ly-8x2" id="bQl-Qi-LuW"/>
@@ -1378,8 +1378,8 @@
         <image name="upload" width="1106" height="1106"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Nsf-mg-lBY"/>
-        <segue reference="Pn5-A2-Hwd"/>
+        <segue reference="LSd-Y8-hnq"/>
+        <segue reference="gf8-wR-iDv"/>
         <segue reference="QFt-c9-YeP"/>
     </inferredMetricsTieBreakers>
 </document>
