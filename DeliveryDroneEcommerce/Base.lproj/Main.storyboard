@@ -794,11 +794,10 @@
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="V2Q-1H-ve5">
                                 <rect key="frame" x="124" y="158" width="166" height="43"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="24"/>
-                                <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <state key="normal" title="Add Product" image="plus.square" catalog="system">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="tintColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal" title="Add Product" image="plus" catalog="system">
+                                    <color key="titleColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="large"/>
                                 </state>
                                 <connections>
@@ -1373,12 +1372,11 @@
         <image name="done" width="646" height="1396"/>
         <image name="pencil" catalog="system" width="64" height="56"/>
         <image name="plus" catalog="system" width="64" height="56"/>
-        <image name="plus.square" catalog="system" width="64" height="56"/>
         <image name="trash" catalog="system" width="60" height="64"/>
         <image name="upload" width="1106" height="1106"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="LSd-Y8-hnq"/>
+        <segue reference="3WI-Oj-mKU"/>
         <segue reference="gf8-wR-iDv"/>
         <segue reference="QFt-c9-YeP"/>
     </inferredMetricsTieBreakers>
