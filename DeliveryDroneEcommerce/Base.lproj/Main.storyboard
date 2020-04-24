@@ -732,7 +732,7 @@
         <scene sceneID="Bqa-Yz-vOR">
             <objects>
                 <viewController modalPresentationStyle="fullScreen" id="gMv-rr-jZY" customClass="AddProductViewController" customModule="DeliveryDroneEcommerce" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="GYa-ed-DQi">
+                    <view key="view" contentMode="scaleToFill" ambiguous="YES" id="GYa-ed-DQi">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
@@ -769,7 +769,7 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iwE-n7-Frt">
-                                <rect key="frame" x="49" y="473" width="315" height="30"/>
+                                <rect key="frame" x="49" y="517" width="315" height="35"/>
                                 <color key="backgroundColor" red="0.96470588239999999" green="0.0" blue="0.20784313730000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="19"/>
                                 <state key="normal" title="Category">
@@ -1385,7 +1385,6 @@
         <image name="upload" width="1106" height="1106"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Awh-Nv-jXk"/>
         <segue reference="3WI-Oj-mKU"/>
         <segue reference="gf8-wR-iDv"/>
         <segue reference="QFt-c9-YeP"/>
