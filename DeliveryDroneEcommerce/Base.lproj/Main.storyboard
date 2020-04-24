@@ -732,7 +732,7 @@
         <scene sceneID="Bqa-Yz-vOR">
             <objects>
                 <viewController modalPresentationStyle="fullScreen" id="gMv-rr-jZY" customClass="AddProductViewController" customModule="DeliveryDroneEcommerce" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" ambiguous="YES" id="GYa-ed-DQi">
+                    <view key="view" contentMode="scaleToFill" id="GYa-ed-DQi">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
@@ -769,7 +769,7 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iwE-n7-Frt">
-                                <rect key="frame" x="49" y="517" width="315" height="35"/>
+                                <rect key="frame" x="49" y="473" width="315" height="30"/>
                                 <color key="backgroundColor" red="0.96470588239999999" green="0.0" blue="0.20784313730000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="19"/>
                                 <state key="normal" title="Category">
@@ -884,7 +884,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" alpha="0.84999999999999998" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="D9J-qc-tTE">
-                                <rect key="frame" x="0.0" y="88" width="414" height="808"/>
+                                <rect key="frame" x="0.0" y="144" width="414" height="752"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="WuD-D2-6gq">
                                     <size key="itemSize" width="220" height="218"/>
@@ -942,11 +942,19 @@
                                     <outlet property="delegate" destination="d4d-fz-Zjp" id="sTa-gl-b1E"/>
                                 </connections>
                             </collectionView>
+                            <searchBar contentMode="redraw" fixedFrame="YES" showsCancelButton="YES" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MuJ-D7-OIT">
+                                <rect key="frame" x="1" y="88" width="414" height="56"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="barTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </searchBar>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="D9J-qc-tTE" firstAttribute="leading" secondItem="A7N-gu-j7s" secondAttribute="leading" id="GZj-Kk-e6P"/>
-                            <constraint firstItem="D9J-qc-tTE" firstAttribute="top" secondItem="A7N-gu-j7s" secondAttribute="top" id="Kr0-c1-MBi"/>
+                            <constraint firstItem="D9J-qc-tTE" firstAttribute="top" secondItem="A7N-gu-j7s" secondAttribute="top" constant="56" id="Kr0-c1-MBi"/>
                             <constraint firstItem="A7N-gu-j7s" firstAttribute="bottom" secondItem="D9J-qc-tTE" secondAttribute="bottom" constant="-34" id="eqg-AJ-PQU"/>
                             <constraint firstItem="A7N-gu-j7s" firstAttribute="trailing" secondItem="D9J-qc-tTE" secondAttribute="trailing" id="gXK-PJ-gzc"/>
                         </constraints>
@@ -955,6 +963,7 @@
                     <navigationItem key="navigationItem" title="Products" id="vFh-rI-yPq"/>
                     <connections>
                         <outlet property="collectionView" destination="D9J-qc-tTE" id="AtS-nr-aeS"/>
+                        <outlet property="searchBar" destination="MuJ-D7-OIT" id="cyq-0S-AnI"/>
                         <segue destination="rdM-cJ-ofn" kind="show" identifier="toUserOrder" id="dfj-jC-vj4"/>
                     </connections>
                 </viewController>
@@ -1376,6 +1385,7 @@
         <image name="upload" width="1106" height="1106"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="Awh-Nv-jXk"/>
         <segue reference="3WI-Oj-mKU"/>
         <segue reference="gf8-wR-iDv"/>
         <segue reference="QFt-c9-YeP"/>

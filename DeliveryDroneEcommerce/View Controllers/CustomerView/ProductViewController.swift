@@ -9,8 +9,11 @@
 import UIKit
 import Firebase
 
-class ProductViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
+class ProductViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UISearchBarDelegate {
     
+    @IBOutlet weak var searchBar: UISearchBar!
+    
+    var searching : Bool = false
     
     @IBOutlet weak var collectionView : UICollectionView!
     var colectionArr : [String] = ["1","2","3","4"]
@@ -45,11 +48,13 @@ class ProductViewController: UIViewController, UICollectionViewDelegate, UIColle
     var orderAmount1 : Int = 0
     
     var productList: [Product] = []
+    var searchedProduct = [Product]()
     
     var ref: DatabaseReference!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        searchBar.delegate = self
         
         ref = Database.database().reference()
         retrieveData()
@@ -114,6 +119,8 @@ class ProductViewController: UIViewController, UICollectionViewDelegate, UIColle
             secondVC.compID = compID
             secondVC.previousOrderAmt = orderAmount1
         }
+        
+        
     }
     
     
@@ -123,26 +130,38 @@ class ProductViewController: UIViewController, UICollectionViewDelegate, UIColle
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return productList.count
+        if searching {
+         print("hi!")
+            return searchedProduct.count
+        } else {
+            return productList.count
+        }
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! CollectionViewCell
         
+        
         //let thisElement = colectionArr[indexPath.item]
         let cellIndex = indexPath.item
         let closeFrameSize = bestFrameSize()
         
+        var current : Product = productList[indexPath.row]
+        if searching {
+            current = searchedProduct[indexPath.item]
+        } else {
+            current = productList[indexPath.item]
+        }
 //        declare
 
-        cell.labelTitle.text = productList[cellIndex].name
+        cell.labelTitle.text = current.name
         cell.labelTitle.font = cell.labelTitle.font.withSize(closeFrameSize * relativeFontCellTitle)
-        let roundedPrice = String(format: "%.2f", productList[cellIndex].price)
+        let roundedPrice = String(format: "%.2f", current.price)
         cell.labelDetails.text =  "$" + roundedPrice
         cell.labelDetails.font = cell.labelDetails.font.withSize(closeFrameSize * relativeFontCellDescription)
         
-        let imageURL = productList[indexPath.row].productImage
+        let imageURL = current.productImage
         cell.imageCell?.sd_setImage(with: URL(string: imageURL), placeholderImage: UIImage(named: "Products"), options: .highPriority, progress: nil, completed: { (downloadImage, downloadException, cacheType, downloadURL) in
             
             if let downloadException = downloadException {
@@ -183,6 +202,21 @@ class ProductViewController: UIViewController, UICollectionViewDelegate, UIColle
         let bestFrameSize = (frameHeight > frameWidth ) ? frameHeight : frameWidth
         
         return bestFrameSize
+    }
+    
+    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        print("hi")
+        searchedProduct = productList.filter({$0.name.lowercased().prefix(searchText.count) == searchText.lowercased()})
+        searching = true
+        collectionView.reloadData()
+    }
+    
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        view.endEditing(true)
+        searching = false
+        searchBar.text = ""
+        collectionView.reloadData()
     }
     
 }
