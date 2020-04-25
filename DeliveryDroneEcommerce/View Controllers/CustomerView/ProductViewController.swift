@@ -247,6 +247,7 @@ extension ProductViewController : UICollectionViewDelegateFlowLayout {
         return 20
     }
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        if (!searching) {
         name1 = productList[indexPath.row].name
         price1 = productList[indexPath.row].price
         desc1 = productList[indexPath.row].desc
@@ -256,6 +257,18 @@ extension ProductViewController : UICollectionViewDelegateFlowLayout {
         amount1 = productList[indexPath.row].amount
         compID = productList[indexPath.row].companyID
         orderAmount1 = productList[indexPath.row].orderedAmount
+        }
+        else {
+            name1 = searchedProduct[indexPath.row].name
+            price1 = searchedProduct[indexPath.row].price
+            desc1 = searchedProduct[indexPath.row].desc
+            link1 = searchedProduct[indexPath.row].link
+            index1 = searchedProduct[indexPath.row].index
+            imageURL = searchedProduct[indexPath.row].productImage
+            amount1 = searchedProduct[indexPath.row].amount
+            compID = searchedProduct[indexPath.row].companyID
+            orderAmount1 = searchedProduct[indexPath.row].orderedAmount
+        }
         
         
         performSegue(withIdentifier: "toUserOrder", sender: self)

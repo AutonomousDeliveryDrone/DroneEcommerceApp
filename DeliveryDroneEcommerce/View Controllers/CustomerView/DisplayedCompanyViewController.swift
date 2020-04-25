@@ -11,7 +11,7 @@ import Firebase
 import SDWebImage
 
 class DisplayedCompanyViewController: UIViewController, UISearchBarDelegate {
-
+    
     @IBOutlet weak var tableView: UITableView!
     var companies: [Company] = []
     var searchedCompany = [Company]()
@@ -35,7 +35,7 @@ class DisplayedCompanyViewController: UIViewController, UISearchBarDelegate {
         
         tableView.register(UINib(nibName: "CompanyCell", bundle: nil), forCellReuseIdentifier: "CompanyCell")
         retrieveCompanies()
-
+        
         // Do any additional setup after loading the view.
     }
     
@@ -53,12 +53,12 @@ class DisplayedCompanyViewController: UIViewController, UISearchBarDelegate {
                     print("could not collect data")
                     return
                 }
-
+                
                 let companyID = value["companyID"] as! String
                 print("----------------")
                 print(companyID)
                 print("----------------")
-
+                
                 //making the company cells
                 self.ref.child("UserInfo").child(companyID).child("Information").observeSingleEvent(of: .value) { (snap) in
                     guard let val = snap.value as? NSDictionary else {
@@ -67,15 +67,15 @@ class DisplayedCompanyViewController: UIViewController, UISearchBarDelegate {
                     }
                     let Name = val["Company"] as! String
                     let Image = val["CompanyImage"] as! String
-
+                    
                     let company = Company(imageURL: Image, companyName: Name, companyID: companyID)
                     self.companies.append(company)
                     self.tableView.reloadData()
                 }
             }
         }
-
-
+        
+        
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -109,7 +109,7 @@ extension DisplayedCompanyViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if searching {
-         print("hi!")
+            print("hi!")
             return searchedCompany.count
         } else {
             return companies.count
@@ -147,7 +147,12 @@ extension DisplayedCompanyViewController: UITableViewDataSource {
 
 extension DisplayedCompanyViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        companySelected = companies[indexPath.row].companyID
+        if (searching) {
+            companySelected = searchedCompany[indexPath.row].companyID
+        }
+        else {
+            companySelected = companies[indexPath.row].companyID
+        }
         print(companySelected)
         performSegue(withIdentifier: "toProductList", sender: self)
     }

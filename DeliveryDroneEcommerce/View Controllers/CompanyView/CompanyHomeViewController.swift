@@ -223,19 +223,35 @@ extension CompanyHomeViewController: UITableViewDataSource {
 
 extension CompanyHomeViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
         rowPressed = indexPath.row
-        name1 = productList[indexPath.row].name
-        categoryType = productList[indexPath.row].category
-        price1 = productList[indexPath.row].price
-        desc1 = productList[indexPath.row].desc
-        link1 = productList[indexPath.row].link
-        index1 = productList[indexPath.row].index
-        imageURL = productList[indexPath.row].productImage
-        amount1 = productList[indexPath.row].amount
-        compID = productList[indexPath.row].companyID
-        orderAmount1 = productList[indexPath.row].orderedAmount
+        if (searching) {
+        name1 = searchedProduct[indexPath.row].name
+        categoryType = searchedProduct[indexPath.row].category
+        price1 = searchedProduct[indexPath.row].price
+        desc1 = searchedProduct[indexPath.row].desc
+        link1 = searchedProduct[indexPath.row].link
+        index1 = searchedProduct[indexPath.row].index
+        imageURL = searchedProduct[indexPath.row].productImage
+        amount1 = searchedProduct[indexPath.row].amount
+        compID = searchedProduct[indexPath.row].companyID
+        orderAmount1 = searchedProduct[indexPath.row].orderedAmount
         performSegue(withIdentifier: "toProdView", sender: self)
         print(indexPath.row)
+        }
+        else {
+            name1 = productList[indexPath.row].name
+            categoryType = productList[indexPath.row].category
+            price1 = productList[indexPath.row].price
+            desc1 = productList[indexPath.row].desc
+            link1 = productList[indexPath.row].link
+            index1 = productList[indexPath.row].index
+            imageURL = productList[indexPath.row].productImage
+            amount1 = productList[indexPath.row].amount
+            compID = productList[indexPath.row].companyID
+            orderAmount1 = productList[indexPath.row].orderedAmount
+            performSegue(withIdentifier: "toProdView", sender: self)
+        }
     }
 }
 
